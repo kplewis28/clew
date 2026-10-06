@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Paleta de marca clew */
+@theme inline {
+  --color-lime: #dfff6a;
+  --color-deep: #0f150f;
+  --color-slate: #2a342a;
+  --color-sand: #edede8;
+  --color-ink: #0a0a0a;
+  --color-paper: #f6f6f2;
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Aparición sutil al hacer scroll (ver components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cinta de palabras de marca bajo el hero */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+/* Acordeón de preguntas frecuentes */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
