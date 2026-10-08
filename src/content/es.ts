@@ -45,12 +45,12 @@ export const es = {
     titleStart: "Procesos más simples.",
     titleHighlight: "Negocios más fuertes.",
     subtitle:
-      "Construyo herramientas a la medida de tu empresa: lo que hoy tu equipo hace a mano en Excel, WhatsApp y papel pasa a hacerse solo.",
+      "Cada empresa trabaja a su manera. Por eso diseño soluciones para cada área que necesita simplificarse, en lugar de obligarte a encajar en un programa genérico.",
     note: "Son 30 minutos por WhatsApp y no tiene costo.",
     photoAlt: "Una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
       { title: "Diagnóstico gratis", text: "30 minutos por WhatsApp" },
-      { title: "Hecho a tu medida", text: "Sobre cómo ya trabajas" },
+      { title: "Pensado por área", text: "Ventas, bodega, cobros o lo que más pese" },
       { title: "Te acompaño", text: "Desde la idea hasta que tu equipo lo usa" },
     ],
   },
@@ -58,9 +58,9 @@ export const es = {
   marquee: ["Automatiza", "Optimiza", "Crece"],
 
   statement: {
-    title: "Tu negocio también merece",
-    highlight: "herramientas hechas a su medida.",
-    text: "Las empresas grandes tienen equipos enteros para ordenar sus procesos. Tú me tienes a mí: me siento con tu equipo, veo cómo trabajan y les construyo justo lo que necesitan.",
+    title: "Tus procesos son únicos.",
+    highlight: "Las soluciones también deberían serlo.",
+    text: "La forma en que tu empresa recibe pedidos, maneja la bodega o cobra a sus clientes no se parece a la de nadie más. Ningún programa genérico la va a entender. Por eso miro cada área por separado, entiendo cómo trabaja tu equipo ahí y diseño la solución que esa área necesita para funcionar mejor.",
     pillars: [
       {
         icon: icon("automate"),
@@ -139,11 +139,11 @@ export const es = {
   },
 
   builds: {
-    title: "Herramientas hechas",
-    highlight: "para tu forma de trabajar.",
+    title: "Una solución para cada área",
+    highlight: "que lo necesite.",
     // Única mención visible de "IA" en la página (máximo permitido: dos).
     subtitle:
-      "Herramientas internas con IA que se encargan del trabajo repetitivo. Empezamos por el proceso que más tiempo le quita a tu equipo.",
+      "Herramientas internas con IA, diseñadas área por área sobre cómo ya trabaja tu equipo. Empezamos por la que más tiempo les quita. Estos son algunos ejemplos:",
     items: [
       {
         icon: icon("orders"),

@@ -41,12 +41,12 @@ export const en: Content = {
     titleStart: "Simpler processes.",
     titleHighlight: "Stronger businesses.",
     subtitle:
-      "I build tools made for your business: the work your team does by hand in Excel, WhatsApp and on paper starts doing itself.",
+      "Every company works its own way. That's why I design solutions for each area that needs to be simpler, instead of forcing you into generic software.",
     note: "It takes 30 minutes on WhatsApp, and it's free.",
     photoAlt: "A consultant talks with a business owner at a work table",
     chips: [
       { title: "Free assessment", text: "30 minutes on WhatsApp" },
-      { title: "Made to fit you", text: "Built on how you already work" },
+      { title: "Designed by area", text: "Sales, warehouse, billing or whatever weighs most" },
       { title: "I'm with you", text: "From the idea until your team uses it" },
     ],
   },
@@ -54,9 +54,9 @@ export const en: Content = {
   marquee: ["Automate", "Optimize", "Grow"],
 
   statement: {
-    title: "Small businesses deserve",
-    highlight: "tools made just for them, too.",
-    text: "Big companies have whole teams to keep their processes in order. You have me: I sit down with your team, see how they work and build exactly what they need.",
+    title: "Your processes are unique.",
+    highlight: "Your solutions should be too.",
+    text: "The way your company takes orders, runs its warehouse or bills its clients is like no one else's. No generic software will understand it. So I look at each area on its own, learn how your team works there and design the solution that area needs to work better.",
     pillars: [
       {
         icon: "automate",
@@ -135,11 +135,11 @@ export const en: Content = {
   },
 
   builds: {
-    title: "Tools made",
-    highlight: "for the way you work.",
+    title: "A solution for every area",
+    highlight: "that needs one.",
     // The only visible mention of "AI" on the page (the brief allows two at most).
     subtitle:
-      "Internal tools with AI that take care of the repetitive work. We start with the process that eats up most of your team's time.",
+      "Internal tools with AI, designed area by area around how your team already works. We start with the one that eats up most of their time. Here are some examples:",
     items: [
       {
         icon: "orders",
