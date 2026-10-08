@@ -6,8 +6,8 @@ export const brand = {
   whatsappNumber: "573008438670",
 };
 
-// TODO: reemplazar por el dominio real al desplegar (o definir NEXT_PUBLIC_SITE_URL en Vercel).
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://clew.vercel.app";
+// Dominio público en Vercel (clew.vercel.app pertenece a otra persona). Cámbialo si compras un dominio propio.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://clew-lilac.vercel.app";
 
 export const whatsappUrl = (message: string) =>
   `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(message)}`;
