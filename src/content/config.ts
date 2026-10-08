@@ -2,8 +2,8 @@
 
 export const brand = {
   name: "clew",
-  // TODO: reemplazar por el número real, con indicativo de país y sin "+" ni espacios.
-  whatsappNumber: "573000000000",
+  // WhatsApp de Cindy: indicativo de Colombia (57) + 3008438670, sin "+" ni espacios.
+  whatsappNumber: "573008438670",
 };
 
 // TODO: reemplazar por el dominio real al desplegar (o definir NEXT_PUBLIC_SITE_URL en Vercel).
