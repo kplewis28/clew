@@ -133,7 +133,7 @@ export const es = {
       {
         title: "Tu equipo lo usa desde el día uno",
         meta: "Entrega",
-        text: "Le enseño a tu gente a usarla en su propio puesto de trabajo. Si saben usar WhatsApp, saben usar esto.",
+        text: "Te la entrego lista para usar y tan sencilla que no necesita capacitación: si tu equipo sabe usar WhatsApp, sabe usar esto.",
       },
     ],
   },
@@ -256,7 +256,7 @@ export const es = {
       {
         question: "¿Necesito saber de tecnología?",
         answer:
-          "No. Si sabes usar WhatsApp, sabes usar lo que te construyo. Te entrego la herramienta funcionando y le enseño a tu equipo a usarla.",
+          "No. Si sabes usar WhatsApp, sabes usar lo que te construyo. Te entrego la herramienta funcionando y cualquier duda la resolvemos por WhatsApp.",
       },
       {
         question: "¿Cuánto cuesta?",

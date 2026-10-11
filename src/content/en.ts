@@ -129,7 +129,7 @@ export const en: Content = {
       {
         title: "Your team uses it from day one",
         meta: "Handoff",
-        text: "I train your people right at their own workstations. If they can use WhatsApp, they can use this.",
+        text: "I hand it over ready to use and simple enough that it needs no training: if your team can use WhatsApp, they can use this.",
       },
     ],
   },
@@ -247,7 +247,7 @@ export const en: Content = {
       {
         question: "Do I need to know about technology?",
         answer:
-          "No. If you can use WhatsApp, you can use what I build for you. I hand over the tool up and running and train your team to use it.",
+          "No. If you can use WhatsApp, you can use what I build for you. I hand over the tool up and running, and we sort out any questions on WhatsApp.",
       },
       {
         question: "How much does it cost?",
