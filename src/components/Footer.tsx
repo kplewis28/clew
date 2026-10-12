@@ -51,6 +51,18 @@ export function Footer({ t }: { t: Content }) {
                 </a>
               </li>
               <li>
+                <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 ${linkClass}`}>
+                  Instagram · @clew.pymes
+                  <ArrowUpRight aria-hidden strokeWidth={1.75} className="size-4" />
+                </a>
+              </li>
+              <li>
+                <a href={brand.social.tiktok} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 ${linkClass}`}>
+                  TikTok · @clew.pymes
+                  <ArrowUpRight aria-hidden strokeWidth={1.75} className="size-4" />
+                </a>
+              </li>
+              <li>
                 <a
                   href={t.ui.switchHref}
                   hrefLang={t.ui.switchLabel.toLowerCase()}

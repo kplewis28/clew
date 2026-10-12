@@ -4,6 +4,10 @@ export const brand = {
   name: "clew",
   // WhatsApp de Cindy: indicativo de Colombia (57) + 3008438670, sin "+" ni espacios.
   whatsappNumber: "573008438670",
+  social: {
+    instagram: "https://www.instagram.com/clew.pymes/",
+    tiktok: "https://www.tiktok.com/@clew.pymes",
+  },
 };
 
 // Dominio público en Vercel (clew.vercel.app pertenece a otra persona). Cámbialo si compras un dominio propio.

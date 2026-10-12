@@ -13,15 +13,26 @@ import { Problem } from "@/components/Problem";
 import { Statement } from "@/components/Statement";
 import { Steps } from "@/components/Steps";
 import { dictionaries } from "@/content";
-import { isLocale } from "@/content/config";
+import { brand, isLocale, siteUrl } from "@/content/config";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const t = dictionaries[lang];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: brand.name,
+    url: siteUrl,
+    description: t.business.tagline,
+    areaServed: ["CO", "US", "EU"],
+    telephone: `+${brand.whatsappNumber}`,
+    sameAs: [brand.social.instagram, brand.social.tiktok],
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main>
         <Hero t={t} />
         <Marquee t={t} />
