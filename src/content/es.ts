@@ -9,6 +9,7 @@ export const es = {
     homeAria: "ir al inicio",
     askAria: "Preguntar por WhatsApp sobre",
     solutionAria: "Ver cómo lo resuelvo",
+    currentLabel: "ES",
     switchLabel: "EN",
     switchHref: "/en",
     switchAria: "Ver esta página en inglés",
@@ -18,13 +19,13 @@ export const es = {
     interestMessage: "Hola Cindy, me interesa saber más sobre: ",
     tagline: "Tecnología a la medida de tu negocio.",
     whatsappMessage:
-      "Hola Cindy, quiero agendar el diagnóstico gratis de 30 minutos para mi empresa.",
+      "Hola Cindy, quiero contarte lo que necesito en mi empresa.",
   },
 
   seo: {
     title: "Sistemas a medida, páginas web y automatización con IA | clew",
     description:
-      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, marketing automatizado y evaluación de agentes de IA. Diagnóstico gratis de 30 minutos.",
+      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, marketing automatizado y evaluación de agentes de IA. Cuéntame qué necesitas y lo conversamos.",
     keywords: [
       "automatización de procesos para pequeñas empresas",
       "software a la medida para empresas",
@@ -39,9 +40,9 @@ export const es = {
   },
 
   cta: {
-    primary: "Agenda tu diagnóstico gratis",
+    primary: "Cuéntame qué necesitas",
     short: "Hablemos",
-    floatingLabel: "Agenda tu diagnóstico gratis por WhatsApp",
+    floatingLabel: "Escríbeme por WhatsApp",
   },
 
   hero: {
@@ -49,10 +50,10 @@ export const es = {
     titleHighlight: "Negocios más fuertes.",
     subtitle:
       "Cada empresa trabaja a su manera. Por eso diseño y construyo con IA soluciones a la medida de tu negocio: sistemas para tus procesos, páginas web, marketing y evaluación de agentes de IA.",
-    note: "Son 30 minutos por WhatsApp y no tiene costo.",
+    note: "Me escribes por WhatsApp y lo conversamos con calma.",
     photoAlt: "Una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
-      { title: "Diagnóstico gratis", text: "30 minutos por WhatsApp" },
+      { title: "Escríbeme", text: "Lo que necesites, lo hablamos por WhatsApp" },
       { title: "Pensado por área", text: "Ventas, bodega, cobros o lo que más pese" },
       { title: "Te acompaño", text: "Desde la idea hasta que tu equipo lo usa" },
     ],
@@ -154,8 +155,8 @@ export const es = {
     highlight: "a tu equipo usándolo.",
     items: [
       {
-        title: "Diagnóstico",
-        meta: "30 min, gratis",
+        title: "Conversemos",
+        meta: "Por WhatsApp, sin costo",
         text: "Me cuentas cómo trabaja tu equipo hoy y qué les quita más tiempo. Sales con una propuesta clara: qué construir, cuánto cuesta y cuánto tiempo toma.",
       },
       {
@@ -273,7 +274,7 @@ export const es = {
     lines: [
       "Soy Cindy Lewis, diseñadora UX/UI y de producto. Construyo con IA herramientas, páginas web y automatizaciones hechas para cada negocio, sin plantillas genéricas.",
       "También tengo experiencia haciendo QA de agentes de IA de voz y de chat: los pruebo como lo haría un cliente real para encontrar dónde fallan antes de que lo noten tus clientes.",
-      "Primero entiendo cómo trabaja tu equipo y después construyo. Hablas conmigo desde el diagnóstico hasta la entrega, sin intermediarios.",
+      "Primero entiendo cómo trabaja tu equipo y después construyo. Hablas conmigo desde la primera conversación hasta la entrega, sin intermediarios.",
     ],
   },
 
@@ -294,7 +295,7 @@ export const es = {
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Depende del proceso que quieras resolver. El diagnóstico es gratis y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
+          "Depende del proceso que quieras resolver. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
       },
       {
         question: "¿Qué pasa si algo falla?",

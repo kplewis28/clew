@@ -6,6 +6,7 @@ export const en: Content = {
     homeAria: "back to top",
     askAria: "Ask on WhatsApp about",
     solutionAria: "See how I solve it",
+    currentLabel: "EN",
     switchLabel: "ES",
     switchHref: "/",
     switchAria: "Ver esta página en español",
@@ -14,13 +15,13 @@ export const en: Content = {
   business: {
     interestMessage: "Hi Cindy, I'd like to know more about: ",
     tagline: "Technology made to fit your business.",
-    whatsappMessage: "Hi Cindy, I'd like to book the free assessment for my business.",
+    whatsappMessage: "Hi Cindy, I'd like to tell you what my business needs.",
   },
 
   seo: {
     title: "Custom systems, websites and AI automation | clew",
     description:
-      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automated marketing and AI agent evaluation. The first 30-minute assessment is free.",
+      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automated marketing and AI agent evaluation. Tell me what you need and we'll talk it through.",
     keywords: [
       "process automation for small businesses",
       "custom software for businesses",
@@ -35,9 +36,9 @@ export const en: Content = {
   },
 
   cta: {
-    primary: "Book your free assessment",
+    primary: "Tell me what you need",
     short: "Let's talk",
-    floatingLabel: "Book your free assessment on WhatsApp",
+    floatingLabel: "Message me on WhatsApp",
   },
 
   hero: {
@@ -45,10 +46,10 @@ export const en: Content = {
     titleHighlight: "Stronger businesses.",
     subtitle:
       "Every company works its own way. That's why I design and build with AI solutions made for your business: systems for your processes, websites, marketing and AI agent evaluation.",
-    note: "It takes 30 minutes on WhatsApp, and it's free.",
+    note: "Message me on WhatsApp and we'll talk it through.",
     photoAlt: "A consultant talks with a business owner at a work table",
     chips: [
-      { title: "Free assessment", text: "30 minutes on WhatsApp" },
+      { title: "Write to me", text: "Whatever you need, we talk it over on WhatsApp" },
       { title: "Designed by area", text: "Sales, warehouse, billing or whatever weighs most" },
       { title: "I'm with you", text: "From the idea until your team uses it" },
     ],
@@ -150,8 +151,8 @@ export const en: Content = {
     highlight: "to your team using it.",
     items: [
       {
-        title: "Assessment",
-        meta: "30 min, free",
+        title: "Let's talk",
+        meta: "On WhatsApp, at no cost",
         text: "You tell me how your team works today and what eats up most of their time. You leave with a clear proposal: what to build, what it costs and how long it takes.",
       },
       {
@@ -265,7 +266,7 @@ export const en: Content = {
     lines: [
       "I'm Cindy Lewis, a UX/UI and product designer. I build with AI the tools, websites and automations each business needs, with no generic templates.",
       "I also have hands-on experience doing QA on AI voice and chat agents: I test them the way a real customer would, to find where they fail before your customers do.",
-      "First I learn how your team works, then I build. You talk to me from the assessment to the handoff, with no middlemen.",
+      "First I learn how your team works, then I build. You talk to me from our first conversation to the handoff, with no middlemen.",
     ],
   },
 
@@ -285,7 +286,7 @@ export const en: Content = {
       {
         question: "How much does it cost?",
         answer:
-          "It depends on the process you want to solve. The assessment is free, and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
+          "It depends on the process you want to solve. Our first conversation is free, and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
       },
       {
         question: "What if something breaks?",

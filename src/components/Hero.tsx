@@ -36,15 +36,27 @@ export function Hero({ t }: { t: Content }) {
           <Logo className="h-5 w-auto md:h-6" />
         </a>
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Cambio de idioma: recarga completa para que <html lang> cambie */}
-          <a
-            href={t.ui.switchHref}
-            hrefLang={t.ui.switchLabel.toLowerCase()}
-            aria-label={t.ui.switchAria}
-            className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/30 bg-white/10 px-3 text-sm font-medium text-white backdrop-blur-md transition-colors hover:border-lime hover:text-lime"
-          >
-            {t.ui.switchLabel}
-          </a>
+          {/* Cambio de idioma: las dos opciones a la vista, la actual marcada.
+              Recarga completa para que <html lang> cambie */}
+          <div className="flex min-h-11 items-center gap-0.5 rounded-full border border-white/30 bg-black/40 p-1 text-sm font-semibold backdrop-blur-md">
+            {["ES", "EN"].map((label) =>
+              label === t.ui.currentLabel ? (
+                <span key={label} aria-current="true" className="rounded-full bg-white px-3 py-1.5 text-deep">
+                  {label}
+                </span>
+              ) : (
+                <a
+                  key={label}
+                  href={t.ui.switchHref}
+                  hrefLang={label.toLowerCase()}
+                  aria-label={t.ui.switchAria}
+                  className="rounded-full px-3 py-1.5 text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+                >
+                  {label}
+                </a>
+              ),
+            )}
+          </div>
           <WhatsAppButton t={t} label={t.cta.short} size="md" />
         </div>
       </header>
@@ -58,7 +70,8 @@ export function Hero({ t }: { t: Content }) {
             <span className="block">{t.hero.titleStart}</span>{" "}
             <span className="block text-lime">{t.hero.titleHighlight}</span>
           </h1>
-          <p className="mt-7 max-w-md text-lg leading-relaxed text-white md:text-xl">
+          {/* Mismo ancho que el título para que el párrafo no quede en una columna angosta */}
+          <p className="mt-7 max-w-[36rem] text-lg leading-relaxed text-pretty text-white md:text-xl">
             {t.hero.subtitle}
           </p>
           <div className="mt-8">
