@@ -19,6 +19,13 @@ export function FinalCta({ t }: { t: Content }) {
         <div className="mt-9 flex flex-col items-start gap-4">
           <WhatsAppButton t={t} className="w-full sm:w-auto" />
           <p className="text-sm text-white/65">{t.hero.note}</p>
+          <p className="max-w-xl text-sm text-white/65">
+            {t.consent.before}
+            <a href={t.ui.privacyHref} className="underline underline-offset-2 hover:text-lime">
+              {t.consent.link}
+            </a>
+            {t.consent.after}
+          </p>
         </div>
       </Reveal>
     </section>

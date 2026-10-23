@@ -51,6 +51,10 @@ body {
   animation: marquee 28s linear infinite;
 }
 
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* Acordeón de preguntas frecuentes */
 details summary::-webkit-details-marker {
   display: none;

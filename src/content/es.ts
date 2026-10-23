@@ -14,6 +14,7 @@ export const es = {
     switchHref: "/en",
     switchAria: "Ver esta página en inglés",
     languageAria: "Idioma",
+    privacyHref: "/privacidad",
   },
 
   business: {
@@ -52,7 +53,7 @@ export const es = {
     subtitle:
       "Cada empresa trabaja a su manera. Por eso diseño y construyo con IA soluciones a la medida de tu negocio: sistemas para tus procesos, páginas web, marketing y evaluación de agentes de IA.",
     note: "Me escribes por WhatsApp y lo conversamos con calma.",
-    photoAlt: "Una consultora conversa con el dueño de un negocio en una mesa de trabajo",
+    photoAlt: "Imagen ilustrativa creada con IA: una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
       { title: "Escríbeme", text: "Lo que necesites, lo hablamos por WhatsApp" },
       { title: "Pensado por área", text: "Ventas, bodega, cobros o lo que más pese" },
@@ -321,6 +322,12 @@ export const es = {
     ],
   },
 
+  consent: {
+    before: "Al escribirme aceptas el tratamiento de tus datos según el ",
+    link: "aviso de privacidad",
+    after: ".",
+  },
+
   finalCta: {
     title: "Cuéntame qué se repite",
     highlight: "todos los días en tu empresa.",
@@ -340,6 +347,8 @@ export const es = {
     contactTitle: "Contacto",
     contactCta: "Escríbeme por WhatsApp",
     languageTitle: "Idioma",
+    privacy: "Aviso de privacidad",
+    aiNote: "La foto principal es una imagen ilustrativa creada con IA.",
   },
 };
 

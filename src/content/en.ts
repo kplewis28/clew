@@ -11,6 +11,7 @@ export const en: Content = {
     switchHref: "/",
     switchAria: "Ver esta página en español",
     languageAria: "Language",
+    privacyHref: "/en/privacidad",
   },
 
   business: {
@@ -48,7 +49,7 @@ export const en: Content = {
     subtitle:
       "Every company works its own way. That's why I design and build with AI solutions made for your business: systems for your processes, websites, marketing and AI agent evaluation.",
     note: "Message me on WhatsApp and we'll talk it through.",
-    photoAlt: "A consultant talks with a business owner at a work table",
+    photoAlt: "Illustrative AI-generated image: a consultant talks with a business owner at a work table",
     chips: [
       { title: "Write to me", text: "Whatever you need, we talk it over on WhatsApp" },
       { title: "Designed by area", text: "Sales, warehouse, billing or whatever weighs most" },
@@ -312,6 +313,12 @@ export const en: Content = {
     ],
   },
 
+  consent: {
+    before: "By messaging me you agree to the use of your data as described in the ",
+    link: "privacy notice",
+    after: ".",
+  },
+
   finalCta: {
     title: "Tell me what gets repeated",
     highlight: "every day at your business.",
@@ -331,5 +338,7 @@ export const en: Content = {
     contactTitle: "Contact",
     contactCta: "Message me on WhatsApp",
     languageTitle: "Language",
+    privacy: "Privacy notice",
+    aiNote: "The main photo is an illustrative image created with AI.",
   },
 };

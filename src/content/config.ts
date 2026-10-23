@@ -26,3 +26,6 @@ export const ogLocale: Record<Locale, string> = { es: "es_CO", en: "en_US" };
 
 export const isLocale = (value: string): value is Locale =>
   (locales as readonly string[]).includes(value);
+
+// Aviso de privacidad: "/privacidad" en español y "/en/privacidad" en inglés.
+export const privacyPath: Record<Locale, string> = { es: "/privacidad", en: "/en/privacidad" };

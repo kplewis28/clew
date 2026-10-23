@@ -8,7 +8,8 @@ function ColumnTitle({ children }: { children: ReactNode }) {
   return <h2 className="text-sm font-medium text-white">{children}</h2>;
 }
 
-const linkClass = "text-white/70 transition-colors hover:text-lime";
+// min-h-6: área táctil mínima de 24px (WCAG 2.2, criterio 2.5.8)
+const linkClass = "inline-flex min-h-6 items-center text-white/70 transition-colors hover:text-lime";
 
 export function Footer({ t }: { t: Content }) {
   return (
@@ -76,9 +77,15 @@ export function Footer({ t }: { t: Content }) {
           </div>
         </div>
 
-        <p className="mt-14 border-t border-white/10 pt-6 text-sm text-white/60 md:mt-20">
-          © {new Date().getFullYear()} {brand.name}. {t.footer.rights}
-        </p>
+        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/60 md:mt-20 md:flex-row md:items-center md:justify-between">
+          <p>
+            © {new Date().getFullYear()} {brand.name}. {t.footer.rights}
+          </p>
+          <p>{t.footer.aiNote}</p>
+          <a href={t.ui.privacyHref} className={linkClass}>
+            {t.footer.privacy}
+          </a>
+        </div>
       </div>
     </footer>
   );

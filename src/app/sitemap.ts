@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { localePath, siteUrl } from "@/content/config";
+import { localePath, privacyPath, siteUrl } from "@/content/config";
 
 const url = (path: string) => new URL(path, siteUrl).toString();
 
@@ -14,5 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       alternates: { languages },
     },
+    ...(["es", "en"] as const).map((lang) => ({
+      url: url(privacyPath[lang]),
+      changeFrequency: "yearly" as const,
+      priority: 0.2,
+      alternates: { languages: { "es-CO": url(privacyPath.es), en: url(privacyPath.en) } },
+    })),
   ];
 }
