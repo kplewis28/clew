@@ -22,15 +22,18 @@ export const es = {
   },
 
   seo: {
-    title: "Automatización de procesos para pequeñas empresas | clew",
+    title: "Sistemas a medida, páginas web y automatización con IA | clew",
     description:
-      "Herramientas a la medida para pequeñas y medianas empresas: lo que tu equipo hoy hace a mano en Excel, WhatsApp y papel pasa a hacerse solo. Diagnóstico gratis de 30 minutos.",
+      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, marketing automatizado y evaluación de agentes de IA. Diagnóstico gratis de 30 minutos.",
     keywords: [
       "automatización de procesos para pequeñas empresas",
-      "automatización de pedidos para distribuidoras",
-      "herramientas internas para pymes",
       "software a la medida para empresas",
-      "automatizar tareas repetitivas empresa",
+      "herramientas internas para pymes",
+      "páginas web a medida",
+      "automatización con IA",
+      "marketing con IA para empresas",
+      "evaluación de agentes de IA",
+      "pruebas de chatbots y agentes de voz",
     ],
     ogAlt: "clew: procesos más simples, negocios más fuertes.",
   },
@@ -45,7 +48,7 @@ export const es = {
     titleStart: "Procesos más simples.",
     titleHighlight: "Negocios más fuertes.",
     subtitle:
-      "Cada empresa trabaja a su manera. Por eso diseño soluciones para cada área que necesita simplificarse, en lugar de obligarte a encajar en un programa genérico.",
+      "Cada empresa trabaja a su manera. Por eso diseño y construyo con IA soluciones a la medida de tu negocio: sistemas para tus procesos, páginas web, marketing y evaluación de agentes de IA.",
     note: "Son 30 minutos por WhatsApp y no tiene costo.",
     photoAlt: "Una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
@@ -76,6 +79,36 @@ export const es = {
         icon: icon("grow"),
         title: "Crece",
         text: "Atiendes más clientes sin contratar solo para digitar.",
+      },
+    ],
+  },
+
+  services: {
+    title: "Lo que puedo hacer",
+    highlight: "por tu negocio.",
+    subtitle:
+      "Cuatro servicios, todos diseñados a partir de cómo trabaja tu empresa hoy. Empezamos por el que más te urge.",
+    cta: "Preguntar por WhatsApp",
+    items: [
+      {
+        icon: icon("systems"),
+        title: "Sistemas a medida",
+        text: "Pedidos, inventario, cotizaciones, recordatorios y reportes, construidos sobre el flujo de trabajo de tu empresa y no al revés.",
+      },
+      {
+        icon: icon("web"),
+        title: "Páginas web a medida",
+        text: "Con tus colores, tu logo y tu tono, en tu propio dominio y sin mensualidades tipo Wix. Incluye manual de uso y soporte para cambios.",
+      },
+      {
+        icon: icon("marketing"),
+        title: "Marketing con IA",
+        text: "Piezas para tus redes y publicaciones que salen solas, hechas con las herramientas de IA que tu empresa ya tiene.",
+      },
+      {
+        icon: icon("agents"),
+        title: "Evaluación de agentes de IA",
+        text: "Pruebo tu chatbot o agente de voz con clientes simulados y te entrego un informe con hallazgos y recomendaciones para mejorarlo.",
       },
     ],
   },
@@ -141,9 +174,8 @@ export const es = {
   builds: {
     title: "Una solución para cada área",
     highlight: "que lo necesite.",
-    // Única mención visible de "IA" en la página (máximo permitido: dos).
     subtitle:
-      "Herramientas internas con IA, diseñadas área por área sobre cómo ya trabaja tu equipo. Empezamos por la que más tiempo les quita. Estos son algunos ejemplos:",
+      "Estos son ejemplos de sistemas a medida: herramientas internas diseñadas área por área sobre cómo ya trabaja tu equipo. Empezamos por la que más tiempo les quita.",
     items: [
       {
         icon: icon("orders"),
@@ -239,7 +271,8 @@ export const es = {
     photoAlt: "Cindy Lewis, con sus gafas verdes, asomándose detrás de su portátil",
     photoPlaceholder: "Foto [PLACEHOLDER]",
     lines: [
-      "Soy Cindy Lewis, diseñadora de producto. Construyo herramientas a la medida de cada negocio, sin plantillas genéricas.",
+      "Soy Cindy Lewis, diseñadora UX/UI y de producto. Construyo con IA herramientas, páginas web y automatizaciones hechas para cada negocio, sin plantillas genéricas.",
+      "También tengo experiencia haciendo QA de agentes de IA de voz y de chat: los pruebo como lo haría un cliente real para encontrar dónde fallan antes de que lo noten tus clientes.",
       "Primero entiendo cómo trabaja tu equipo y después construyo. Hablas conmigo desde el diagnóstico hasta la entrega, sin intermediarios.",
     ],
   },
@@ -273,6 +306,16 @@ export const es = {
         answer:
           "Sí. Parto de lo que ya tienes: tu WhatsApp, tu Excel, tu sistema de facturación. Tu equipo no tiene que aprender a trabajar de otra forma.",
       },
+      {
+        question: "¿También hacen páginas web?",
+        answer:
+          "Sí. La diseño con los colores, el logo y el tono de tu marca, la conecto a tu propio dominio y no pagas mensualidades tipo Wix. Te entrego un manual de uso y los cambios los vemos por WhatsApp.",
+      },
+      {
+        question: "Ya tenemos un agente de IA, ¿cómo lo evalúan?",
+        answer:
+          "Lo pongo a conversar con clientes simulados, con preguntas normales, difíciles y fuera de tema. Te entrego un informe con lo que encontré y recomendaciones concretas para mejorarlo. Sirve para chatbots y agentes de voz.",
+      },
     ],
   },
 
@@ -286,6 +329,7 @@ export const es = {
     rights: "Todos los derechos reservados.",
     navTitle: "Explora",
     nav: [
+      { label: "Servicios", href: "#servicios" },
       { label: "Cómo funciona", href: "#como-funciona" },
       { label: "Qué construyo", href: "#que-construyo" },
       { label: "Caso real", href: "#caso-real" },

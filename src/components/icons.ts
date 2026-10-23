@@ -3,14 +3,18 @@ import {
   Boxes,
   Calculator,
   ChartColumn,
+  Bot,
   ClipboardList,
+  Globe,
   LayoutDashboard,
+  Megaphone,
   Repeat,
   Shuffle,
   Sparkle,
   SquareStack,
   TrendingUp,
   TriangleAlert,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
@@ -28,6 +32,10 @@ export const icons = {
   automate: Sparkle,
   optimize: SquareStack,
   grow: TrendingUp,
+  systems: Workflow,
+  web: Globe,
+  marketing: Megaphone,
+  agents: Bot,
 } satisfies Record<string, LucideIcon>;
 
 export type IconKey = keyof typeof icons;

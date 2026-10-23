@@ -18,15 +18,18 @@ export const en: Content = {
   },
 
   seo: {
-    title: "Process automation for small businesses | clew",
+    title: "Custom systems, websites and AI automation | clew",
     description:
-      "Custom tools for small and midsize businesses: the work your team does by hand in Excel, WhatsApp and on paper starts doing itself. The first assessment is free.",
+      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automated marketing and AI agent evaluation. The first 30-minute assessment is free.",
     keywords: [
       "process automation for small businesses",
-      "order automation for distributors",
-      "internal tools for small businesses",
       "custom software for businesses",
-      "automate repetitive tasks",
+      "internal tools for small businesses",
+      "custom websites",
+      "AI automation",
+      "AI marketing for businesses",
+      "AI agent evaluation",
+      "chatbot and voice agent testing",
     ],
     ogAlt: "clew: simpler processes, stronger businesses.",
   },
@@ -41,7 +44,7 @@ export const en: Content = {
     titleStart: "Simpler processes.",
     titleHighlight: "Stronger businesses.",
     subtitle:
-      "Every company works its own way. That's why I design solutions for each area that needs to be simpler, instead of forcing you into generic software.",
+      "Every company works its own way. That's why I design and build with AI solutions made for your business: systems for your processes, websites, marketing and AI agent evaluation.",
     note: "It takes 30 minutes on WhatsApp, and it's free.",
     photoAlt: "A consultant talks with a business owner at a work table",
     chips: [
@@ -72,6 +75,36 @@ export const en: Content = {
         icon: "grow",
         title: "Grow",
         text: "Serve more clients without hiring just for data entry.",
+      },
+    ],
+  },
+
+  services: {
+    title: "What I can do",
+    highlight: "for your business.",
+    subtitle:
+      "Four services, all designed around how your company works today. We start with the one you need most.",
+    cta: "Ask on WhatsApp",
+    items: [
+      {
+        icon: "systems",
+        title: "Custom systems",
+        text: "Orders, inventory, quotes, reminders and reports, built around your company's workflow instead of the other way around.",
+      },
+      {
+        icon: "web",
+        title: "Custom websites",
+        text: "Your colors, your logo and your tone, on your own domain with no Wix-style monthly fees. Includes a user guide and support for changes.",
+      },
+      {
+        icon: "marketing",
+        title: "AI marketing",
+        text: "Content for your social channels and posts that go out on their own, made with the AI tools your company already has.",
+      },
+      {
+        icon: "agents",
+        title: "AI agent evaluation",
+        text: "I test your chatbot or voice agent with simulated customers and hand you a report with findings and recommendations to improve it.",
       },
     ],
   },
@@ -137,9 +170,8 @@ export const en: Content = {
   builds: {
     title: "A solution for every area",
     highlight: "that needs one.",
-    // The only visible mention of "AI" on the page (the brief allows two at most).
     subtitle:
-      "Internal tools with AI, designed area by area around how your team already works. We start with the one that eats up most of their time. Here are some examples:",
+      "These are examples of custom systems: internal tools designed area by area around how your team already works. We start with the one that eats up most of their time.",
     items: [
       {
         icon: "orders",
@@ -231,7 +263,8 @@ export const en: Content = {
     photoAlt: "Cindy Lewis, wearing her green glasses, peeking over her laptop",
     photoPlaceholder: "Photo [PLACEHOLDER]",
     lines: [
-      "I'm Cindy Lewis, a product designer. I build tools made for each business, with no generic templates.",
+      "I'm Cindy Lewis, a UX/UI and product designer. I build with AI the tools, websites and automations each business needs, with no generic templates.",
+      "I also have hands-on experience doing QA on AI voice and chat agents: I test them the way a real customer would, to find where they fail before your customers do.",
       "First I learn how your team works, then I build. You talk to me from the assessment to the handoff, with no middlemen.",
     ],
   },
@@ -264,6 +297,16 @@ export const en: Content = {
         answer:
           "Yes. I start from what you already have: your WhatsApp, your Excel, your invoicing system. Your team doesn't have to learn a new way of working.",
       },
+      {
+        question: "Do you also build websites?",
+        answer:
+          "Yes. I design it with your brand's colors, logo and tone, connect it to your own domain, and you don't pay Wix-style monthly fees. You get a user guide, and we handle changes over WhatsApp.",
+      },
+      {
+        question: "We already have an AI agent. How do you evaluate it?",
+        answer:
+          "I have it talk to simulated customers, with normal, tricky and off-topic questions. You get a report with what I found and concrete recommendations to improve it. It works for chatbots and voice agents.",
+      },
     ],
   },
 
@@ -277,6 +320,7 @@ export const en: Content = {
     rights: "All rights reserved.",
     navTitle: "Explore",
     nav: [
+      { label: "Services", href: "#servicios" },
       { label: "How it works", href: "#como-funciona" },
       { label: "What I build", href: "#que-construyo" },
       { label: "Real case", href: "#caso-real" },
