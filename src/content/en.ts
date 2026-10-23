@@ -10,18 +10,19 @@ export const en: Content = {
     switchLabel: "ES",
     switchHref: "/",
     switchAria: "Ver esta página en español",
+    languageAria: "Language",
   },
 
   business: {
     interestMessage: "Hi Cindy, I'd like to know more about: ",
     tagline: "Technology made to fit your business.",
-    whatsappMessage: "Hi Cindy, I'd like to tell you what my business needs.",
+    whatsappMessage: "Hi Cindy, I'd like your help with something in my business.",
   },
 
   seo: {
     title: "Custom systems, websites and AI automation | clew",
     description:
-      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automated marketing and AI agent evaluation. Tell me what you need and we'll talk it through.",
+      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automated marketing and AI agent evaluation. Tell me how I can help and we'll talk it through.",
     keywords: [
       "process automation for small businesses",
       "custom software for businesses",
@@ -36,7 +37,7 @@ export const en: Content = {
   },
 
   cta: {
-    primary: "Tell me what you need",
+    primary: "Tell me how I can help",
     short: "Let's talk",
     floatingLabel: "Message me on WhatsApp",
   },

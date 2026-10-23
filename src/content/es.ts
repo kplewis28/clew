@@ -13,19 +13,20 @@ export const es = {
     switchLabel: "EN",
     switchHref: "/en",
     switchAria: "Ver esta página en inglés",
+    languageAria: "Idioma",
   },
 
   business: {
     interestMessage: "Hola Cindy, me interesa saber más sobre: ",
     tagline: "Tecnología a la medida de tu negocio.",
     whatsappMessage:
-      "Hola Cindy, quiero contarte lo que necesito en mi empresa.",
+      "Hola Cindy, me gustaría que me ayudaras con algo en mi empresa.",
   },
 
   seo: {
     title: "Sistemas a medida, páginas web y automatización con IA | clew",
     description:
-      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, marketing automatizado y evaluación de agentes de IA. Cuéntame qué necesitas y lo conversamos.",
+      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, marketing automatizado y evaluación de agentes de IA. Dime cómo te puedo ayudar y lo conversamos.",
     keywords: [
       "automatización de procesos para pequeñas empresas",
       "software a la medida para empresas",
@@ -40,7 +41,7 @@ export const es = {
   },
 
   cta: {
-    primary: "Cuéntame qué necesitas",
+    primary: "Dime cómo te puedo ayudar",
     short: "Hablemos",
     floatingLabel: "Escríbeme por WhatsApp",
   },

@@ -38,25 +38,42 @@ export function Hero({ t }: { t: Content }) {
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Cambio de idioma: las dos opciones a la vista, la actual marcada.
               Recarga completa para que <html lang> cambie */}
-          <div className="flex min-h-11 items-center gap-0.5 rounded-full border border-white/30 bg-black/40 p-1 text-sm font-semibold backdrop-blur-md">
-            {["ES", "EN"].map((label) =>
-              label === t.ui.currentLabel ? (
-                <span key={label} aria-current="true" className="rounded-full bg-white px-3 py-1.5 text-deep">
+          <nav
+            aria-label={t.ui.languageAria}
+            className="flex min-h-11 items-center gap-0.5 rounded-full border border-white/30 bg-black/40 p-1 pl-2.5 text-sm font-semibold backdrop-blur-md"
+          >
+            {/* Ícono de idioma (globo) en vez de banderas: el español no es de un solo país */}
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="mr-1 size-[18px] shrink-0 text-lime">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" />
+            </svg>
+            {[
+              { code: "ES", name: "Español" },
+              { code: "EN", name: "English" },
+            ].map(({ code, name }) => {
+              const label = (
+                <>
+                  <span className="sm:hidden">{code}</span>
+                  <span className="hidden sm:inline">{name}</span>
+                </>
+              );
+              return code === t.ui.currentLabel ? (
+                <span key={code} aria-current="true" className="rounded-full bg-white px-2.5 py-1.5 text-deep sm:px-3">
                   {label}
                 </span>
               ) : (
                 <a
-                  key={label}
+                  key={code}
                   href={t.ui.switchHref}
-                  hrefLang={label.toLowerCase()}
+                  hrefLang={code.toLowerCase()}
                   aria-label={t.ui.switchAria}
-                  className="rounded-full px-3 py-1.5 text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+                  className="rounded-full px-2.5 py-1.5 text-white/80 transition-colors hover:bg-white/15 hover:text-white sm:px-3"
                 >
                   {label}
                 </a>
-              ),
-            )}
-          </div>
+              );
+            })}
+          </nav>
           <WhatsAppButton t={t} label={t.cta.short} size="md" />
         </div>
       </header>
