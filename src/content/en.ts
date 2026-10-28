@@ -260,6 +260,37 @@ export const en: Content = {
     ],
   },
 
+  products: {
+    title: "Things I've built",
+    highlight: "that you can use today.",
+    subtitle:
+      "Besides client projects, I build my own tools. They're the best proof of how I work.",
+    items: [
+      {
+        tag: "App",
+        title: "ProfitPeek",
+        text: "For anyone running several businesses at once: see what comes in, what goes out and what each one actually makes, all in one place. Has a free plan.",
+        cta: "Try ProfitPeek",
+        href: "https://profitpeek.site",
+        image: "/herramientas/profitpeek.webp",
+        imageAlt: "ProfitPeek screen with sample data: money in, money out and what each business makes",
+        address: "profitpeek.site",
+        external: true,
+      },
+      {
+        tag: "Free tool",
+        title: "How much does your website cost you a year?",
+        text: "Pick your platform and plan, and see what you've paid for your site so far and how much you'd save with one you own.",
+        cta: "Calculate now",
+        href: "/en/calculadora",
+        image: "/herramientas/calculadora.webp",
+        imageAlt: "Calculator result: what a website costs a year and how much you save with your own",
+        address: "clew / calculator",
+        external: false,
+      },
+    ],
+  },
+
   about: {
     name: "Cindy Lewis",
     photo: "/cindy-lewis.jpg",
@@ -334,6 +365,7 @@ export const en: Content = {
       { label: "What I build", href: "#que-construyo" },
       { label: "Real case", href: "#caso-real" },
       { label: "FAQ", href: "#preguntas" },
+      { label: "Cost calculator", href: "/en/calculadora" },
     ],
     contactTitle: "Contact",
     contactCta: "Message me on WhatsApp",

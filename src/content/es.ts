@@ -268,6 +268,37 @@ export const es = {
     ],
   },
 
+  products: {
+    title: "Lo que ya construí",
+    highlight: "y puedes usar hoy.",
+    subtitle:
+      "Además de los proyectos para clientes, hago herramientas propias. Son la mejor prueba de cómo trabajo.",
+    items: [
+      {
+        tag: "App",
+        title: "ProfitPeek",
+        text: "Para quien tiene varios negocios a la vez: ves cuánto entra, cuánto sale y cuánto te deja cada uno, en un solo lugar. Tiene plan gratis.",
+        cta: "Probar ProfitPeek",
+        href: "https://profitpeek.site",
+        image: "/herramientas/profitpeek.webp",
+        imageAlt: "Pantalla de ProfitPeek con datos de ejemplo: lo que entró, lo que salió y cuánto deja cada negocio",
+        address: "profitpeek.site",
+        external: true,
+      },
+      {
+        tag: "Herramienta gratis",
+        title: "¿Cuánto te cuesta tu página al año?",
+        text: "Elige tu plataforma y tu plan, y mira cuánto llevas pagado por tu página y cuánto ahorrarías con una propia.",
+        cta: "Calcular ahora",
+        href: "/calculadora",
+        image: "/herramientas/calculadora.webp",
+        imageAlt: "Resultado de la calculadora: cuánto cuesta una página al año y cuánto se ahorra con una propia",
+        address: "clew / calculadora",
+        external: false,
+      },
+    ],
+  },
+
   about: {
     name: "Cindy Lewis",
     photo: "/cindy-lewis.jpg" as string | null,
@@ -343,6 +374,7 @@ export const es = {
       { label: "Qué construyo", href: "#que-construyo" },
       { label: "Caso real", href: "#caso-real" },
       { label: "Preguntas frecuentes", href: "#preguntas" },
+      { label: "Calculadora", href: "/calculadora" },
     ],
     contactTitle: "Contacto",
     contactCta: "Escríbeme por WhatsApp",

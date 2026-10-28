@@ -42,12 +42,14 @@ const nextConfig: NextConfig = {
     return [
       { source: "/es", destination: "/", permanent: true },
       { source: "/es/privacidad", destination: "/privacidad", permanent: true },
+      { source: "/es/calculadora", destination: "/calculadora", permanent: true },
     ];
   },
   async rewrites() {
     return [
       { source: "/", destination: "/es" },
       { source: "/privacidad", destination: "/es/privacidad" },
+      { source: "/calculadora", destination: "/es/calculadora" },
     ];
   },
 };

@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { Problem } from "@/components/Problem";
+import { Products } from "@/components/Products";
 import { Services } from "@/components/Services";
 import { Statement } from "@/components/Statement";
 import { Steps } from "@/components/Steps";
@@ -44,6 +45,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Builds t={t} />
         <Benefits t={t} />
         <CaseStudy t={t} />
+        <Products t={t} />
         <About t={t} />
         <Faq t={t} />
         <FinalCta t={t} />

@@ -29,3 +29,6 @@ export const isLocale = (value: string): value is Locale =>
 
 // Aviso de privacidad: "/privacidad" en español y "/en/privacidad" en inglés.
 export const privacyPath: Record<Locale, string> = { es: "/privacidad", en: "/en/privacidad" };
+
+// Calculadora de costo anual: "/calculadora" en español y "/en/calculadora" en inglés.
+export const calculatorPath: Record<Locale, string> = { es: "/calculadora", en: "/en/calculadora" };
