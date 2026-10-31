@@ -5,7 +5,7 @@ import { Builds } from "@/components/Builds";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { ContactBar } from "@/components/ContactBar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
@@ -51,7 +51,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <FinalCta t={t} />
       </main>
       <Footer t={t} />
-      <FloatingWhatsApp t={t} />
+      <ContactBar t={t} lang={lang} />
     </>
   );
 }
