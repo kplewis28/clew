@@ -47,8 +47,9 @@ export const en: Content = {
     titleStart: "Simpler processes.",
     titleHighlight: "Stronger businesses.",
     subtitle:
-      "Every company works its own way. That's why I design and build with AI solutions made for your business: systems for your processes, websites, marketing and AI agent evaluation.",
+      "I design and build websites, systems and automations with AI, made for your business.",
     note: "Message me on WhatsApp and we'll talk it through.",
+    casesLink: "See real cases",
     photoAlt: "Illustrative AI-generated image: a consultant talks with a business owner at a work table",
     chips: [
       { title: "Write to me", text: "Whatever you need, we talk it over on WhatsApp" },
@@ -86,28 +87,28 @@ export const en: Content = {
     title: "What I can do",
     highlight: "for your business.",
     subtitle:
-      "Four services, all designed around how your company works today. We start with the one you need most.",
+      "We start with the one you need most.",
     cta: "Ask on WhatsApp",
     items: [
       {
         icon: "systems",
         title: "Custom systems",
-        text: "Orders, inventory, quotes, reminders and reports, built around your company's workflow instead of the other way around.",
+        text: "Orders, inventory, quotes and reports, built around how you already work.",
       },
       {
         icon: "web",
         title: "Custom websites",
-        text: "Your colors, your logo and your tone, on your own domain with no Wix-style monthly fees. Includes a user guide and support for changes.",
+        text: "Your brand, on your own domain, with no monthly fee.",
       },
       {
         icon: "marketing",
         title: "AI marketing",
-        text: "Content for your social channels and posts that go out on their own, made with the AI tools your company already has.",
+        text: "Social content that publishes itself.",
       },
       {
         icon: "agents",
         title: "AI agent evaluation",
-        text: "I test your chatbot or voice agent with simulated customers and hand you a report with findings and recommendations to improve it.",
+        text: "I test your chatbot or voice agent and show you where it fails.",
       },
     ],
   },
@@ -155,17 +156,17 @@ export const en: Content = {
       {
         title: "Let's talk",
         meta: "On WhatsApp, at no cost",
-        text: "You tell me how your team works today and what eats up most of their time. You leave with a clear proposal: what to build, what it costs and how long it takes.",
+        text: "You tell me what you need and I show you a sketch with the proposal.",
       },
       {
         title: "Build",
         meta: "Agreed timeline",
-        text: "The timeline depends on what we build, and we agree on it in the proposal. While I build the tool, I show you progress every week so we can adjust it together.",
+        text: "I show you progress every week and we adjust it together.",
       },
       {
         title: "Your team uses it from day one",
         meta: "Handoff",
-        text: "I hand it over ready to use and simple enough that it needs no training: if your team can use WhatsApp, they can use this.",
+        text: "I hand it over ready and easy to use, no training needed.",
       },
     ],
   },
@@ -228,6 +229,138 @@ export const en: Content = {
     ],
   },
 
+  // Real cases shown with each client's permission (same as es.ts).
+  cases: {
+    kicker: "Real cases",
+    title: "What we built",
+    highlight: "and what changed.",
+    subtitle: "Swipe to see each case.",
+    labels: {
+      before: "Before",
+      after: "Now",
+      watch: "Watch video",
+      prev: "Previous case",
+      next: "Next case",
+      permission: "Real clients, shown with their permission. Walkthroughs use sample data.",
+      visit: "Visit",
+      close: "Close the video",
+      sliderAria: "Slide to compare the old page with the new one",
+      compare: "See what changed",
+      sliderHint: "Slide to compare the old page with the new one.",
+    },
+    items: [
+      {
+        id: "fraudj",
+        live: true,
+        status: "Live",
+        tags: ["Website", "Bookings", "Switzerland"],
+        title: "A DJ in Switzerland who",
+        highlight: "no longer answers bookings by hand.",
+        text: "A new website with step-by-step booking and a dashboard to accept or decline.",
+        compare: null,
+        video: {
+          src: "/casos/fraudj/experiencia.mp4",
+          poster: "/casos/fraudj/experiencia.jpg",
+          alt: "Walkthrough of the Frau DJ website on desktop and mobile: the 5-step booking and the dashboard where she accepts the request",
+          caption: "How clients book and how she replies, on desktop and mobile.",
+        },
+        before: [
+          "Clients filled out a simple form.",
+          "Every request reached her as an email.",
+          "She had to write or call each client to say yes or no.",
+        ],
+        after: [
+          "Clients book in 5 steps, on their phone or computer.",
+          "Every request lands neatly in her private dashboard.",
+          "She accepts or declines with one tap, with the reply already written.",
+        ],
+        results: [
+          { value: "5 steps", label: "to book" },
+          { value: "1 tap", label: "to reply" },
+          { value: "No calls", label: "to say yes or no" },
+        ],
+        reel: { src: "/casos/fraudj/reel.mp4", poster: "/casos/fraudj/reel.jpg", meta: "30 s · Spanish" },
+        link: { href: "https://fraudj.ch", label: "fraudj.ch" },
+        note: "Shown with Frau DJ's permission. The walkthrough uses sample data.",
+      },
+      {
+        id: "stone-art",
+        live: false,
+        status: "Redesign ready",
+        tags: ["Website", "Stone setting", "Switzerland"],
+        title: "A stone setter in Switzerland",
+        highlight: "Google couldn't find.",
+        text: "A redesign with his own video and copy, ready for buyers to request quotes.",
+        compare: {
+          before: "/casos/stone-art/antes.jpg",
+          after: "/casos/stone-art/despues.jpg",
+          beforeAlt: "Old Stone Art Precision page: grey video with YouTube buttons on top",
+          afterAlt: "New Stone Art Precision page: clear headline, his workshop video and a quote button",
+        },
+        video: {
+          src: "/casos/stone-art/experiencia.mp4",
+          poster: "/casos/stone-art/experiencia.jpg",
+          alt: "Walkthrough of the new Stone Art Precision website on desktop",
+          caption: "A walk through the new page.",
+        },
+        before: [
+          "A hidden tag told Google not to show the page.",
+          "The main video was grey, with YouTube buttons on top.",
+          "An empty box where a video used to be.",
+          "A generic form, with no way to send photos or files.",
+        ],
+        after: [
+          "Ready to show up on Google, with a sitemap.",
+          "His own video and copy, presented like a luxury brand.",
+          "Each setting style drawn as a technical drawing.",
+          "On mobile, a call button and a quote form that takes photos or CAD files.",
+        ],
+        results: [
+          { value: "2 languages", label: "German and English" },
+          { value: "6 settings", label: "as technical drawings" },
+          { value: "Quotes", label: "with photos or CAD" },
+        ],
+        reel: { src: "/casos/stone-art/reel.mp4", poster: "/casos/stone-art/reel.jpg", meta: "25 s · Spanish" },
+        link: null,
+        note: "Shown with the client's permission. The redesign is ready and not published yet.",
+      },
+      {
+        id: "ordenes",
+        live: true,
+        status: "In use",
+        tags: ["Custom system", "Switzerland"],
+        title: "A jewelry workshop that",
+        highlight: "stopped chasing its orders.",
+        text: "One app for every order, from intake to delivery.",
+        compare: null,
+        video: null,
+        before: [],
+        after: [],
+        results: [
+          { value: "1 app", label: "for orders, tracking and invoices" },
+          { value: "Automatic VAT", label: "Swiss tax and rounding, done for you" },
+          { value: "From a phone", label: "each order is updated at the bench" },
+        ],
+        reel: null,
+        link: null,
+        note: "",
+      },
+    ],
+  },
+
+  trust: {
+    title: "Before you pay,",
+    highlight: "you already know what you'll get.",
+    items: [
+      { icon: "sketch", title: "You see a sketch first", text: "Free, with no commitment." },
+      { icon: "price", title: "One payment, no monthly fee", text: "From USD 500, based on what you need." },
+      { icon: "domain", title: "On your own domain", text: "Under your business name." },
+      { icon: "direct", title: "You talk to me directly", text: "No middlemen." },
+      { icon: "languages", title: "In English and Spanish", text: "For all your customers." },
+      { icon: "real", title: "Real work", text: "Real clients, with their permission." },
+    ],
+  },
+
   // Results based on what the real system does (same as es.ts).
   caseStudy: {
     title: "A jewelry workshop in Switzerland that",
@@ -264,7 +397,7 @@ export const en: Content = {
     title: "Things I've built",
     highlight: "that you can use today.",
     subtitle:
-      "Besides client projects, I build my own tools. They're the best proof of how I work.",
+      "My own tools, ready to try.",
     items: [
       {
         tag: "App",
@@ -297,7 +430,8 @@ export const en: Content = {
     photoAlt: "Cindy Lewis, wearing her green glasses, peeking over her laptop",
     photoPlaceholder: "Photo [PLACEHOLDER]",
     lines: [
-      "I'm Cindy Lewis, a UX/UI and product designer. I build with AI the tools, websites and automations each business needs, with no generic templates.",
+      "I'm Cindy Lewis, a UX/UI and product designer.",
+      "I build with AI the tools, websites and automations each business needs, with no generic templates.",
       "I also have hands-on experience doing QA on AI voice and chat agents: I test them the way a real customer would, to find where they fail before your customers do.",
       "First I learn how your team works, then I build. You talk to me from our first conversation to the handoff, with no middlemen.",
     ],
@@ -362,8 +496,7 @@ export const en: Content = {
     nav: [
       { label: "Services", href: "#servicios" },
       { label: "How it works", href: "#como-funciona" },
-      { label: "What I build", href: "#que-construyo" },
-      { label: "Real case", href: "#caso-real" },
+      { label: "Real cases", href: "#casos" },
       { label: "FAQ", href: "#preguntas" },
       { label: "Cost calculator", href: "/en/calculadora" },
     ],

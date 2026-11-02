@@ -51,8 +51,9 @@ export const es = {
     titleStart: "Procesos más simples.",
     titleHighlight: "Negocios más fuertes.",
     subtitle:
-      "Cada empresa trabaja a su manera. Por eso diseño y construyo con IA soluciones a la medida de tu negocio: sistemas para tus procesos, páginas web, marketing y evaluación de agentes de IA.",
+      "Diseño y construyo con IA páginas web, sistemas y automatizaciones hechas a la medida de tu negocio.",
     note: "Me escribes por WhatsApp y lo conversamos con calma.",
+    casesLink: "Ver casos reales",
     photoAlt: "Imagen ilustrativa creada con IA: una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
       { title: "Escríbeme", text: "Lo que necesites, lo hablamos por WhatsApp" },
@@ -90,28 +91,28 @@ export const es = {
     title: "Lo que puedo hacer",
     highlight: "por tu negocio.",
     subtitle:
-      "Cuatro servicios, todos diseñados a partir de cómo trabaja tu empresa hoy. Empezamos por el que más te urge.",
+      "Empezamos por el que más te urge.",
     cta: "Preguntar por WhatsApp",
     items: [
       {
         icon: icon("systems"),
         title: "Sistemas a medida",
-        text: "Pedidos, inventario, cotizaciones, recordatorios y reportes, construidos sobre el flujo de trabajo de tu empresa y no al revés.",
+        text: "Pedidos, inventario, cotizaciones y reportes, hechos a cómo ya trabajas.",
       },
       {
         icon: icon("web"),
         title: "Páginas web a medida",
-        text: "Con tus colores, tu logo y tu tono, en tu propio dominio y sin mensualidades tipo Wix. Incluye manual de uso y soporte para cambios.",
+        text: "Con tu marca, en tu propio dominio y sin mensualidad.",
       },
       {
         icon: icon("marketing"),
         title: "Marketing con IA",
-        text: "Piezas para tus redes y publicaciones que salen solas, hechas con las herramientas de IA que tu empresa ya tiene.",
+        text: "Piezas para tus redes que se publican solas.",
       },
       {
         icon: icon("agents"),
         title: "Evaluación de agentes de IA",
-        text: "Pruebo tu chatbot o agente de voz con clientes simulados y te entrego un informe con hallazgos y recomendaciones para mejorarlo.",
+        text: "Pruebo tu chatbot o agente de voz y te digo dónde falla.",
       },
     ],
   },
@@ -159,17 +160,17 @@ export const es = {
       {
         title: "Conversemos",
         meta: "Por WhatsApp, sin costo",
-        text: "Me cuentas cómo trabaja tu equipo hoy y qué les quita más tiempo. Sales con una propuesta clara: qué construir, cuánto cuesta y cuánto tiempo toma.",
+        text: "Me cuentas qué necesitas y te muestro un bosquejo con la propuesta.",
       },
       {
         title: "Construcción",
         meta: "Plazo acordado",
-        text: "El tiempo depende de lo que vamos a construir y lo dejamos claro desde la propuesta. Mientras armo la herramienta, te muestro avances cada semana para ajustarla contigo.",
+        text: "Te muestro avances cada semana y lo ajustamos juntos.",
       },
       {
         title: "Tu equipo lo usa desde el día uno",
         meta: "Entrega",
-        text: "Te la entrego lista para usar y tan sencilla que no necesita capacitación: si tu equipo sabe usar WhatsApp, sabe usar esto.",
+        text: "Te lo entrego listo y fácil de usar, sin capacitaciones.",
       },
     ],
   },
@@ -232,6 +233,139 @@ export const es = {
     ],
   },
 
+  // Casos reales con permiso de cada cliente. Stone Art: el rediseño aún no
+  // está publicado, por eso no dice "en vivo".
+  cases: {
+    kicker: "Casos reales",
+    title: "Lo que construimos",
+    highlight: "y lo que cambió.",
+    subtitle: "Desliza para ver cada caso.",
+    labels: {
+      before: "Antes",
+      after: "Ahora",
+      watch: "Ver video",
+      prev: "Caso anterior",
+      next: "Caso siguiente",
+      permission: "Clientes reales, mostrados con su permiso. Las tomas usan datos de ejemplo.",
+      visit: "Visitar",
+      close: "Cerrar el video",
+      sliderAria: "Desliza para comparar la página de antes con la nueva",
+      compare: "Ver qué cambió",
+      sliderHint: "Desliza para comparar la página de antes con la nueva.",
+    },
+    items: [
+      {
+        id: "fraudj",
+        live: true,
+        status: "En vivo",
+        tags: ["Página web", "Reservas", "Suiza"],
+        title: "Una DJ en Suiza que",
+        highlight: "ya no contesta reservas a mano.",
+        text: "Nueva página con reservas paso a paso y un panel para aceptar o rechazar.",
+        compare: null,
+        video: {
+          src: "/casos/fraudj/experiencia.mp4",
+          poster: "/casos/fraudj/experiencia.jpg",
+          alt: "Recorrido por la página de Frau DJ en computador y celular: la reserva en 5 pasos y el panel donde ella acepta la solicitud",
+          caption: "Así reserva el cliente y así responde ella, en computador y celular.",
+        },
+        before: [
+          "Los clientes llenaban un formulario simple.",
+          "Cada solicitud le llegaba como un correo.",
+          "Tenía que escribir o llamar a cada cliente para decirle sí o no.",
+        ],
+        after: [
+          "El cliente reserva en 5 pasos, desde el celular o el computador.",
+          "Cada solicitud llega ordenada a su panel privado.",
+          "Acepta o rechaza con un toque, con la respuesta ya escrita.",
+        ],
+        results: [
+          { value: "5 pasos", label: "para reservar" },
+          { value: "1 toque", label: "para responder" },
+          { value: "Sin llamadas", label: "para decir sí o no" },
+        ],
+        reel: { src: "/casos/fraudj/reel.mp4", poster: "/casos/fraudj/reel.jpg", meta: "30 s" },
+        link: { href: "https://fraudj.ch", label: "fraudj.ch" },
+        note: "Mostrado con permiso de Frau DJ. Las tomas usan datos de ejemplo.",
+      },
+      {
+        id: "stone-art",
+        live: false,
+        status: "Rediseño listo",
+        tags: ["Página web", "Taller de engaste", "Suiza"],
+        title: "Un engastador en Suiza que",
+        highlight: "Google no podía encontrar.",
+        text: "Rediseño con su mismo video y sus textos, listo para que los compradores pidan cotización.",
+        compare: {
+          before: "/casos/stone-art/antes.jpg",
+          after: "/casos/stone-art/despues.jpg",
+          beforeAlt: "Página anterior de Stone Art Precision: video en gris con los botones de YouTube encima",
+          afterAlt: "Página nueva de Stone Art Precision: titular claro, su video del taller y botón para pedir cotización",
+        },
+        video: {
+          src: "/casos/stone-art/experiencia.mp4",
+          poster: "/casos/stone-art/experiencia.jpg",
+          alt: "Recorrido por la página nueva de Stone Art Precision en computador",
+          caption: "Recorrido por la página nueva.",
+        },
+        before: [
+          "Una etiqueta oculta le pedía a Google no mostrar la página.",
+          "El video principal salía gris, con los botones de YouTube encima.",
+          "Un recuadro vacío donde antes había un video.",
+          "Un formulario genérico, sin forma de enviar fotos ni archivos.",
+        ],
+        after: [
+          "Lista para aparecer en Google, con mapa del sitio.",
+          "Su propio video y sus textos, presentados como una marca de lujo.",
+          "Cada tipo de engaste dibujado como un plano técnico.",
+          "En el celular, botón para llamar y formulario para cotizar con fotos o archivos CAD.",
+        ],
+        results: [
+          { value: "2 idiomas", label: "alemán e inglés" },
+          { value: "6 engastes", label: "en dibujos técnicos" },
+          { value: "Cotiza", label: "con fotos o CAD" },
+        ],
+        reel: { src: "/casos/stone-art/reel.mp4", poster: "/casos/stone-art/reel.jpg", meta: "25 s" },
+        link: null,
+        note: "Mostrado con permiso del cliente. El rediseño está listo y aún no se ha publicado.",
+      },
+      {
+        id: "ordenes",
+        live: true,
+        status: "En uso",
+        tags: ["Sistema a medida", "Suiza"],
+        title: "Un taller de joyería que",
+        highlight: "dejó de perseguir sus órdenes.",
+        text: "Una app para todos sus pedidos, desde que entran hasta que se entregan.",
+        compare: null,
+        video: null,
+        before: [],
+        after: [],
+        results: [
+          { value: "1 sola app", label: "para órdenes, seguimiento y facturas" },
+          { value: "IVA automático", label: "impuesto suizo y redondeo, solos" },
+          { value: "Desde el celular", label: "cada orden se actualiza en el puesto" },
+        ],
+        reel: null,
+        link: null,
+        note: "",
+      },
+    ],
+  },
+
+  trust: {
+    title: "Antes de pagar,",
+    highlight: "ya sabes qué vas a recibir.",
+    items: [
+      { icon: "sketch", title: "Ves un bosquejo primero", text: "Sin costo y sin compromiso." },
+      { icon: "price", title: "Pago único, sin mensualidad", text: "Desde USD 500, según lo que necesites." },
+      { icon: "domain", title: "En tu propio dominio", text: "Con el nombre de tu negocio." },
+      { icon: "direct", title: "Hablas directo conmigo", text: "Sin intermediarios." },
+      { icon: "languages", title: "En español e inglés", text: "Para todos tus clientes." },
+      { icon: "real", title: "Trabajo real", text: "Clientes reales, con su permiso." },
+    ],
+  },
+
   // Resultados basados en lo que hace el sistema real (Stone Setting Pro). Si
   // hay cifras medidas (horas, errores, órdenes al mes), cámbialas aquí.
   caseStudy: {
@@ -272,7 +406,7 @@ export const es = {
     title: "Lo que ya construí",
     highlight: "y puedes usar hoy.",
     subtitle:
-      "Además de los proyectos para clientes, hago herramientas propias. Son la mejor prueba de cómo trabajo.",
+      "Herramientas propias que puedes probar ya.",
     items: [
       {
         tag: "App",
@@ -305,7 +439,8 @@ export const es = {
     photoAlt: "Cindy Lewis, con sus gafas verdes, asomándose detrás de su portátil",
     photoPlaceholder: "Foto [PLACEHOLDER]",
     lines: [
-      "Soy Cindy Lewis, diseñadora UX/UI y de producto. Construyo con IA herramientas, páginas web y automatizaciones hechas para cada negocio, sin plantillas genéricas.",
+      "Soy Cindy Lewis, diseñadora UX/UI y de producto.",
+      "Construyo con IA herramientas, páginas web y automatizaciones hechas para cada negocio, sin plantillas genéricas.",
       "También tengo experiencia haciendo QA de agentes de IA de voz y de chat: los pruebo como lo haría un cliente real para encontrar dónde fallan antes de que lo noten tus clientes.",
       "Primero entiendo cómo trabaja tu equipo y después construyo. Hablas conmigo desde la primera conversación hasta la entrega, sin intermediarios.",
     ],
@@ -371,8 +506,7 @@ export const es = {
     nav: [
       { label: "Servicios", href: "#servicios" },
       { label: "Cómo funciona", href: "#como-funciona" },
-      { label: "Qué construyo", href: "#que-construyo" },
-      { label: "Caso real", href: "#caso-real" },
+      { label: "Casos reales", href: "#casos" },
       { label: "Preguntas frecuentes", href: "#preguntas" },
       { label: "Calculadora", href: "/calculadora" },
     ],

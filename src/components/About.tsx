@@ -25,12 +25,12 @@ export function About({ t }: { t: Content }) {
           )}
         </div>
 
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <h2 className="text-2xl leading-snug font-medium tracking-tight text-balance md:text-4xl md:leading-[1.15]">
             {lead}
           </h2>
           {rest.map((line) => (
-            <p key={line} className="mt-5 text-lg leading-relaxed text-slate">
+            <p key={line} className="mt-4 text-lg leading-relaxed text-slate">
               {line}
             </p>
           ))}

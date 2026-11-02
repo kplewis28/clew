@@ -7,6 +7,7 @@ export const brand = {
   social: {
     instagram: "https://www.instagram.com/clew.pymes/",
     tiktok: "https://www.tiktok.com/@clew.pymes",
+    threads: "https://www.threads.com/@clew.pymes",
   },
 };
 

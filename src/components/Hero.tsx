@@ -91,8 +91,15 @@ export function Hero({ t }: { t: Content }) {
           <p className="mt-7 max-w-[36rem] text-lg leading-relaxed text-pretty text-white md:text-xl">
             {t.hero.subtitle}
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <WhatsAppButton t={t} className="w-full sm:w-auto" />
+            <a
+              href="#casos"
+              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/40 bg-black/30 px-7 md:text-lg font-medium text-white backdrop-blur-md transition-colors hover:border-lime hover:text-lime"
+            >
+              {t.hero.casesLink}
+              <span aria-hidden>↓</span>
+            </a>
           </div>
         </div>
 
