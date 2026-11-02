@@ -32,9 +32,12 @@ function smooth(pts: P[], steps = 10): P[] {
 
 // El enredo (el caos de la intro) y un hilo lima que lo atraviesa y sale hasta
 // el botón. Al pasar el cursor o el dedo, los hilos se apartan: se "desenreda".
-export function HeroThread({ hint }: { hint: string }) {
+type Def = { word: string; phon: string; text: string };
+
+export function HeroThread({ hint, words, def }: { hint: string; words: string[]; def: Def }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [touched, setTouched] = useState(false);
+  const [drawn, setDrawn] = useState(false);
 
   useEffect(() => {
     const cv = canvas.current;
@@ -46,6 +49,8 @@ export function HeroThread({ hint }: { hint: string }) {
     let W = 0, H = 0, dpr = 1, raf = 0;
     let tangle: { base: P[]; phase: number; amp: number; alpha: number }[] = [];
     let thread: P[] = [];
+    let labels: { p: P; w: string; phase: number }[] = [];
+    let doneOnce = false;
     let lens: number[] = [];
     const ptr = { x: -9999, y: -9999, active: false };
     let started = -1;
@@ -68,6 +73,21 @@ export function HeroThread({ hint }: { hint: string }) {
         const k = 6 + Math.floor(rand() * 5);
         const pts = Array.from({ length: k }, () => ({ x: x0 + rand() * (x1 - x0), y: y0 + rand() * (y1 - y0) }));
         return { base: smooth(pts, 8), phase: rand() * 6.28, amp: 3 + rand() * 6, alpha: 0.06 + rand() * 0.1 };
+      });
+      // Las tareas sueltas dentro del enredo, para que se lea como "tu caos"
+      const r3 = rng(3);
+      // En una rejilla con algo de azar, para que no se monten unas sobre otras
+      const cols = mobile ? 3 : 4, rows = Math.ceil(words.length / cols);
+      const gx0 = mobile ? W * 0.12 : W * 0.5, gx1 = mobile ? W * 0.88 : W * 0.95;
+      const gy0 = mobile ? H * 0.12 : H * 0.16, gy1 = mobile ? H * 0.36 : H * 0.88;
+      labels = words.map((w, i) => {
+        const c = i % cols, rr = Math.floor(i / cols);
+        const cw = (gx1 - gx0) / cols, ch = (gy1 - gy0) / rows;
+        return {
+          w,
+          phase: r3() * 6.28,
+          p: { x: gx0 + cw * (c + 0.5) + (r3() - 0.5) * cw * 0.5, y: gy0 + ch * (rr + 0.5) + (r3() - 0.5) * ch * 0.5 },
+        };
       });
       // El hilo: entra arriba a la derecha, se anuda tres veces y sale hasta el botón
       const btn = hero.querySelector<HTMLElement>("[data-thread-target]");
@@ -143,7 +163,20 @@ export function HeroThread({ hint }: { hint: string }) {
         ctx.stroke();
       }
 
+      // Tareas sueltas
+      ctx.font = `500 ${W < 768 ? 12 : 14}px Inter, "Helvetica Neue", Arial, sans-serif`;
+      ctx.textAlign = "center";
+      for (const lb of labels) {
+        const q = push(lb.p, t, 6, lb.phase, 80);
+        ctx.fillStyle = "rgba(246,246,242,0.34)";
+        ctx.fillText(lb.w, q.x, q.y);
+      }
+
       // Hilo lima
+      if (ease >= 1 && !doneOnce) {
+        doneOnce = true;
+        setDrawn(true);
+      }
       if (ease > 0) {
         const L = lens[lens.length - 1] * ease;
         ctx.beginPath();
@@ -201,11 +234,20 @@ export function HeroThread({ hint }: { hint: string }) {
       hero.removeEventListener("pointerdown", move);
       hero.removeEventListener("pointerleave", leave);
     };
-  }, []);
+  }, [words]);
 
   return (
     <>
       <canvas ref={canvas} aria-hidden className="hero-wall pointer-events-none absolute inset-0 -z-10" />
+      {/* Qué significa el hilo: la definición de la palabra clew */}
+      <p
+        className={`pointer-events-none absolute right-[5%] bottom-[12%] hidden max-w-[17rem] border-l-2 border-lime pl-4 transition-all duration-700 lg:block ${drawn ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}
+      >
+        <span className="block text-sm text-white">
+          <span className="font-medium text-lime">{def.word}</span> <span className="text-white/50">{def.phon}</span>
+        </span>
+        <span className="mt-1 block text-sm leading-snug text-white/75">{def.text}</span>
+      </p>
       <p
         aria-hidden
         className={`thread-hint pointer-events-none absolute right-5 bottom-6 hidden items-center gap-2 text-xs tracking-[0.14em] text-white/45 uppercase transition-opacity duration-700 md:right-8 md:bottom-8 md:flex ${touched ? "opacity-0" : "opacity-100"}`}

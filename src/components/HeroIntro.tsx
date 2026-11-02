@@ -1,206 +1,164 @@
 "use client";
 
-import { ArrowRight, Volume2, X } from "lucide-react";
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { Content } from "@/content";
-import { whatsappUrl } from "@/content/config";
 import { Logo } from "./Logo";
 
-type Intro = NonNullable<Content["intro"]>;
-type Scene = { id: string; kind: "line" | "word" | "brand" | "cap" | "ask"; i: number; t: number; d: number };
+type Intro = Content["intro"];
 
-// Arma la línea de tiempo a partir de los tiempos de la voz.
-function buildScenes(intro: Intro): Scene[] {
-  const c = intro.cues;
-  const s: Scene[] = [{ id: "s1", kind: "line", i: 0, t: 0, d: c.s1d }];
-  c.words.forEach((t, i) => s.push({ id: `w${i}`, kind: "word", i, t: t - 0.12, d: 0 }));
-  s.push({ id: "s3", kind: "brand", i: 0, t: c.s3 - 0.25, d: c.s3d });
-  c.caps.forEach((t, i) => s.push({ id: `c${i}`, kind: "cap", i, t: t - 0.15, d: 0 }));
-  s.push({ id: "s5", kind: "ask", i: 0, t: c.s5 - 0.15, d: c.s5d });
-  return s;
-}
+// Posición, tamaño y giro de cada palabra en el caos (escena 2).
+const CHAOS: { x: number; y: number; s: number; r: number; tone: "w" | "l" | "o" }[] = [
+  { x: 18, y: 18, s: 6, r: -6, tone: "w" },
+  { x: 72, y: 13, s: 5, r: 5, tone: "o" },
+  { x: 40, y: 32, s: 8, r: -3, tone: "l" },
+  { x: 82, y: 40, s: 5.5, r: 8, tone: "w" },
+  { x: 15, y: 50, s: 6, r: -4, tone: "o" },
+  { x: 62, y: 60, s: 7, r: 4, tone: "w" },
+  { x: 28, y: 76, s: 5.5, r: -7, tone: "w" },
+  { x: 78, y: 82, s: 6.5, r: 5, tone: "o" },
+  { x: 50, y: 20, s: 5, r: 2, tone: "w" },
+  { x: 50, y: 50, s: 12, r: -3, tone: "l" },
+];
 
-function Words({ text, dur }: { text: string; dur: number }) {
-  const words = text.split(" ");
-  return (
-    <>
-      {words.map((w, i) => (
-        <span key={i} className="intro-word inline-block" style={{ "--d": `${(i * dur * 1000) / words.length}ms` } as CSSProperties}>
-          {w}&nbsp;
-        </span>
-      ))}
-    </>
-  );
-}
-
-// Experiencia de entrada con voz, música y animación. Solo arranca cuando la
-// persona toca (los navegadores no dejan sonar una página sola).
+// Intro sin voz: tipografía en movimiento, fondos y golpes de sonido.
+// Arranca sola al cargar (la decide un script en <head>, ver layout.tsx);
+// el sonido se activa con el botón o con el primer toque, desde el segundo en que va.
 export function HeroIntro({ intro }: { intro: Intro }) {
-  const [phase, setPhase] = useState<"gate" | "play" | "out" | "done">("done");
-  const [scene, setScene] = useState(0);
+  const root = useRef<HTMLDivElement>(null);
   const audio = useRef<HTMLAudioElement>(null);
-  const raf = useRef(0);
-  const started = useRef(0);
-  const scenes = useRef(buildScenes(intro)).current;
+  const [sound, setSound] = useState(false);
 
   useEffect(() => {
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem("clew-intro") === "1";
-    } catch {}
-    if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setPhase("gate");
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.style.overflow = phase === "gate" || phase === "play" ? "hidden" : "";
-  }, [phase]);
-
-  const close = useCallback(() => {
-    cancelAnimationFrame(raf.current);
-    audio.current?.pause();
-    try {
-      sessionStorage.setItem("clew-intro", "1");
-    } catch {}
-    setPhase("out");
-    window.setTimeout(() => setPhase("done"), 700);
-  }, []);
-
-  const tick = useCallback(() => {
-    const t = (performance.now() - started.current) / 1000;
-    let idx = 0;
-    for (let i = 0; i < scenes.length; i++) if (t >= scenes[i].t) idx = i;
-    setScene((prev) => (prev === idx ? prev : idx));
-    if (t < intro.cues.end) raf.current = requestAnimationFrame(tick);
-  }, [scenes, intro.cues.end]);
-
-  const start = () => {
-    setPhase("play");
-    setScene(0);
-    // El reloj arranca cuando el audio empieza a sonar (o enseguida si no puede sonar).
-    const go = () => {
-      started.current = performance.now();
-      raf.current = requestAnimationFrame(tick);
+    const html = document.documentElement;
+    if (!html.classList.contains("intro-on")) return;
+    html.style.overflow = "hidden";
+    const end = () => {
+      html.classList.remove("intro-on");
+      html.style.overflow = "";
+      audio.current?.pause();
     };
-    const a = audio.current;
-    if (!a) return go();
-    a.currentTime = 0;
-    a.play().then(go, go);
+    const el = root.current;
+    const onStart = (e: AnimationEvent) => {
+      if (e.animationName === "intro-reveal") {
+        html.classList.add("intro-hero");
+        html.style.overflow = "";
+      }
+    };
+    const onEnd = (e: AnimationEvent) => {
+      if (e.animationName === "intro-reveal") end();
+    };
+    el?.addEventListener("animationstart", onStart);
+    el?.addEventListener("animationend", onEnd);
+    // Primer toque o tecla: activa el sonido
+    const first = () => enable();
+    window.addEventListener("pointerdown", first, { once: true });
+    window.addEventListener("keydown", first, { once: true });
+    return () => {
+      el?.removeEventListener("animationstart", onStart);
+      el?.removeEventListener("animationend", onEnd);
+      window.removeEventListener("pointerdown", first);
+      window.removeEventListener("keydown", first);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Segundo de la intro en que vamos, leído de la animación CSS que marca el tiempo
+  const elapsed = () => {
+    const clock = root.current?.getAnimations().find((a) => (a as CSSAnimation).animationName === "intro-clock");
+    return clock && typeof clock.currentTime === "number" ? clock.currentTime / 1000 : 0;
   };
 
-  useEffect(() => () => cancelAnimationFrame(raf.current), []);
+  function enable() {
+    const a = audio.current;
+    if (!a || !document.documentElement.classList.contains("intro-on")) return;
+    a.currentTime = elapsed();
+    a.play().then(() => setSound(true)).catch(() => {});
+  }
 
-  if (phase === "done") return null;
-  const sc = scenes[scene];
+  const toggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const a = audio.current;
+    if (!a) return;
+    if (sound) {
+      a.pause();
+      setSound(false);
+    } else enable();
+  };
+
+  const skip = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    audio.current?.pause();
+    const html = document.documentElement;
+    html.classList.add("intro-skip", "intro-hero");
+    html.style.overflow = "";
+    window.setTimeout(() => html.classList.remove("intro-on", "intro-skip"), 400);
+  };
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={intro.label}
-      className={`fixed inset-0 z-[100] flex flex-col bg-deep text-white transition-opacity duration-700 ${phase === "out" ? "pointer-events-none opacity-0" : "opacity-100"}`}
-    >
+    <div ref={root} className="intro fixed inset-0 z-[100] overflow-hidden bg-[#050805] text-white">
       <audio ref={audio} src={intro.audio} preload="auto" />
+      <span className="intro-clock absolute size-px opacity-0" />
 
-      {phase === "gate" ? (
-        <div className="flex flex-1 flex-col items-center justify-center gap-10 px-6 text-center">
-          <Logo className="intro-logo h-10 w-auto text-lime md:h-14" />
-          <button
-            type="button"
-            onClick={start}
-            className="intro-gate group relative flex size-44 flex-col items-center justify-center gap-2 rounded-full bg-lime text-ink md:size-52"
-          >
-            <Volume2 aria-hidden strokeWidth={1.75} className="size-8" />
-            <span className="text-lg font-medium md:text-xl">{intro.enter}</span>
-            <span className="intro-ring absolute inset-0 rounded-full border-2 border-lime" />
-          </button>
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-sm text-white/60">{intro.enterNote}</p>
-            <button type="button" onClick={close} className="min-h-11 px-4 text-sm text-white/70 underline underline-offset-4 hover:text-lime">
-              {intro.silent}
-            </button>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="flex items-center justify-between px-5 py-5 md:px-8">
-            <Logo className="h-5 w-auto text-lime md:h-6" />
-            <button type="button" onClick={close} className="flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-4 text-sm hover:border-lime hover:text-lime">
-              {intro.skip}
-              <X aria-hidden strokeWidth={1.75} className="size-4" />
-            </button>
-          </div>
+      {/* 1 · La hora */}
+      <div aria-hidden className="intro-s1 absolute inset-0 flex flex-col items-center justify-center">
+        <p className="intro-time text-[clamp(4.5rem,19vw,16rem)] leading-none font-medium tracking-[-0.06em] text-lime tabular-nums">
+          {intro.time}
+        </p>
+        <p className="intro-timesub mt-4 text-[clamp(1.4rem,3.6vw,2.8rem)] font-medium tracking-[-0.03em] text-white/80">{intro.timeSub}</p>
+      </div>
 
-          {/* Progreso */}
-          <div aria-hidden className="mx-5 h-1 overflow-hidden rounded-full bg-white/10 md:mx-8">
-            <div className="intro-progress h-full bg-lime" style={{ "--dur": `${intro.cues.end}s` } as CSSProperties} />
-          </div>
+      {/* 2 · El caos */}
+      <div aria-hidden className="intro-s2 absolute inset-0">
+        {intro.chaos.map((w, i) => {
+          const c = CHAOS[i % CHAOS.length];
+          return (
+            <span
+              key={w}
+              className={`intro-chaos absolute left-[calc(22%+var(--x)*0.56%)] leading-none md:left-[calc(var(--x)*1%)] font-medium tracking-[-0.05em] whitespace-nowrap ${c.tone === "l" ? "rounded-[0.12em] bg-lime px-[0.12em] text-deep" : c.tone === "o" ? "text-transparent [-webkit-text-stroke:2px_rgba(255,255,255,0.85)]" : "text-white"}`}
+              style={
+                {
+                  top: `${c.y}%`,
+                  fontSize: `clamp(2rem, ${c.s}vw, ${c.s * 1.2}rem)`,
+                  "--r": `${c.r}deg`,
+                  "--d": `${1.95 + i * 0.17}s`,
+                  "--x": c.x,
+                } as CSSProperties
+              }
+            >
+              {w}
+            </span>
+          );
+        })}
+      </div>
 
-          <div key={sc.id} className={`relative flex flex-1 items-center justify-center overflow-hidden px-6 ${sc.kind === "word" ? "intro-shake" : ""}`}>
-            {sc.kind === "line" ? (
-              <p className="max-w-5xl text-center text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.02] font-medium tracking-[-0.045em]">
-                <Words text={intro.lines.s1} dur={sc.d} />
-              </p>
-            ) : null}
+      {/* 3 · La pregunta */}
+      <div aria-hidden className="intro-s3 absolute inset-0 flex items-center justify-center px-6 text-center">
+        <p className="text-[clamp(2.6rem,8vw,7.5rem)] leading-[0.98] font-medium tracking-[-0.05em]">
+          <span className="intro-q1 block">{intro.q1}</span>
+          <span className="intro-q2 block text-lime">{intro.q2}</span>
+        </p>
+      </div>
 
-            {sc.kind === "word" ? (
-              <div className="text-center">
-                <p className="intro-impact text-[clamp(3rem,10vw,9rem)] leading-none font-medium tracking-[-0.05em]">{intro.words[sc.i]}</p>
-                <div className="mt-10 flex justify-center gap-2">
-                  {intro.words.map((_, i) => (
-                    <span key={i} className={`h-1.5 w-10 rounded-full ${i <= sc.i ? "bg-lime" : "bg-white/15"}`} />
-                  ))}
-                </div>
-              </div>
-            ) : null}
+      {/* 4 · Explosión lima y marca */}
+      <div aria-hidden className="intro-s4 absolute inset-0 flex items-center justify-center">
+        <span className="intro-blast absolute size-[30vmax] rounded-full bg-lime" />
+        <Logo className="intro-mark relative h-[clamp(3.5rem,12vw,9rem)] w-auto text-deep" />
+      </div>
 
-            {sc.kind === "brand" ? (
-              <div className="text-center">
-                <span aria-hidden className="intro-flash pointer-events-none fixed inset-0 bg-lime" />
-                <Logo className="intro-logo mx-auto h-14 w-auto text-lime md:h-20" />
-                <p className="mx-auto mt-10 max-w-4xl text-[clamp(2.1rem,5.4vw,4.6rem)] leading-[1.04] font-medium tracking-[-0.045em]">
-                  <Words text={intro.lines.s3} dur={sc.d} />
-                </p>
-              </div>
-            ) : null}
-
-            {sc.kind === "cap" ? (
-              <div className="grid w-full max-w-6xl items-center gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-12">
-                <div className="intro-cap-text">
-                  <p className="text-sm font-medium tracking-[0.2em] text-lime">0{sc.i + 1} / 0{intro.caps.length}</p>
-                  <p className="mt-4 text-[clamp(2.4rem,5.8vw,5rem)] leading-[1] font-medium tracking-[-0.045em]">{intro.caps[sc.i].label}</p>
-                </div>
-                <div className="intro-cap-img overflow-hidden rounded-3xl border border-white/10 shadow-[0_40px_120px_-30px_rgba(223,255,106,0.35)]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={intro.caps[sc.i].img} alt="" className="aspect-[16/10] w-full object-cover object-top" />
-                </div>
-              </div>
-            ) : null}
-
-            {sc.kind === "ask" ? (
-              <div className="text-center">
-                <p className="mx-auto max-w-4xl text-[clamp(2.4rem,6.2vw,5.4rem)] leading-[1.02] font-medium tracking-[-0.045em]">
-                  <Words text={intro.lines.s5} dur={1.6} />
-                </p>
-                <div className="intro-cta mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                  <a
-                    href={whatsappUrl(intro.ctaMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={close}
-                    className="hero-cta inline-flex min-h-16 items-center gap-3 rounded-full bg-lime px-9 text-lg font-medium text-ink md:text-xl"
-                  >
-                    {intro.cta}
-                    <ArrowRight aria-hidden strokeWidth={1.75} className="size-5" />
-                  </a>
-                  <button type="button" onClick={close} className="inline-flex min-h-16 items-center rounded-full border border-white/30 px-8 text-lg hover:border-lime hover:text-lime">
-                    {intro.see}
-                  </button>
-                </div>
-              </div>
-            ) : null}
-          </div>
-        </>
-      )}
+      <div className="intro-ui absolute inset-x-0 bottom-0 flex items-center justify-between p-5 md:p-8">
+        <button
+          type="button"
+          onClick={toggle}
+          className="flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-black/40 px-4 text-sm text-white/85 backdrop-blur hover:border-lime hover:text-lime"
+        >
+          {sound ? <Volume2 aria-hidden className="size-4" /> : <VolumeX aria-hidden className="size-4" />}
+          {sound ? intro.soundOff : intro.soundOn}
+        </button>
+        <button type="button" onClick={skip} className="min-h-11 rounded-full px-4 text-sm text-white/70 underline-offset-4 hover:text-lime hover:underline">
+          {intro.skip}
+        </button>
+      </div>
     </div>
   );
 }

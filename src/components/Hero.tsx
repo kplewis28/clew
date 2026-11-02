@@ -57,7 +57,7 @@ export function Hero({ t }: { t: Content }) {
         </div>
       </header>
 
-      <HeroThread hint={t.hero.threadHint} />
+      <HeroThread hint={t.hero.threadHint} words={t.hero.tangleWords} def={t.hero.clewDef} />
 
       <section
         id="inicio"
@@ -86,6 +86,9 @@ export function Hero({ t }: { t: Content }) {
               <WhatsAppButton t={t} label={t.hero.cta} message={t.hero.ctaMessage} className="w-full sm:w-auto" />
             </span>
           </div>
+          <p className="hero-in mt-6 border-l-2 border-lime pl-3 text-sm leading-snug text-white/70 lg:hidden" style={{ "--d": "1300ms" } as CSSProperties}>
+            <span className="font-medium text-lime">{t.hero.clewDef.word}</span> <span className="text-white/45">{t.hero.clewDef.phon}</span> · {t.hero.clewDef.text}
+          </p>
         </div>
 
       </section>

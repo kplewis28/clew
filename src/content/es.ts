@@ -60,6 +60,8 @@ export const es = {
   },
 
   hero: {
+    tangleWords: ["pedidos", "WhatsApp", "facturas", "Excel", "cotizaciones", "inventario", "citas", "cobros", "correos", "pendientes"],
+    clewDef: { word: "clew", phon: "/klu/", text: "El hilo que te guía para salir de un laberinto." },
     threadHint: "Pasa el cursor por el enredo",
     live: {
       time: "11:47 p. m.",
