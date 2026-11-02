@@ -27,14 +27,13 @@ export const es = {
   seo: {
     title: "Sistemas a medida, páginas web y automatización con IA | clew",
     description:
-      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, marketing automatizado y evaluación de agentes de IA. Dime cómo te puedo ayudar y lo conversamos.",
+      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, automatizaciones y evaluación de agentes de IA. Dime cómo te puedo ayudar y lo conversamos.",
     keywords: [
       "automatización de procesos para pequeñas empresas",
       "software a la medida para empresas",
       "herramientas internas para pymes",
       "páginas web a medida",
       "automatización con IA",
-      "marketing con IA para empresas",
       "evaluación de agentes de IA",
       "pruebas de chatbots y agentes de voz",
     ],
@@ -47,13 +46,54 @@ export const es = {
     floatingLabel: "Escríbeme por WhatsApp",
   },
 
+  // Intro sin voz: tipografía, fondos y golpes de sonido (components/HeroIntro.tsx).
+  intro: {
+    time: "11:47 p. m.",
+    timeSub: "y sigues trabajando.",
+    chaos: ["Pedidos.", "Mensajes.", "Cotizaciones.", "Cobros.", "Inventario.", "Facturas.", "Redes.", "Clientes.", "Citas.", "Todo a mano."],
+    q1: "¿Y si tu negocio",
+    q2: "funcionara sin ti?",
+    soundOn: "Activar sonido",
+    soundOff: "Silenciar",
+    skip: "Saltar intro",
+    audio: "/intro/clew-intro.mp3",
+  },
+
   hero: {
-    titleStart: "Procesos más simples.",
-    titleHighlight: "Negocios más fuertes.",
+    threadHint: "Pasa el cursor por el enredo",
+    live: {
+      time: "11:47 p. m.",
+      badge: "Mientras descansas",
+      title: "Funcionando",
+      note: "Ejemplo ilustrativo de un negocio con clew.",
+      auto: "Automático",
+      kpis: [
+        { label: "Pedidos hoy", start: 14 },
+        { label: "Mensajes respondidos", start: 37 },
+        { label: "Pagos recibidos", start: 9 },
+      ],
+      events: [
+        { icon: "order", title: "Nuevo pedido registrado", detail: "2 cajas · entrega el jueves", kpi: 0 },
+        { icon: "chat", title: "WhatsApp respondido", detail: "“¿Tienen domicilio?” · en 3 segundos", kpi: 1 },
+        { icon: "quote", title: "Cotización enviada", detail: "Remodelación de cocina · PDF listo", kpi: -1 },
+        { icon: "paid", title: "Pago recibido", detail: "Factura 0142 · conciliada", kpi: 2 },
+        { icon: "date", title: "Cita agendada", detail: "Mañana a las 10:00 · recordatorio programado", kpi: -1 },
+        { icon: "stock", title: "Inventario bajo", detail: "Quedan 4 · pedido al proveedor listo", kpi: -1 },
+        { icon: "chat", title: "WhatsApp respondido", detail: "“¿Cuánto cuesta el envío?”", kpi: 1 },
+        { icon: "review", title: "Reseña solicitada", detail: "Mensaje enviado al cliente", kpi: -1 },
+      ],
+    },
+    eyebrow: "Tecnología para negocios pequeños",
+    titleStart: "Deja de hacerlo",
+    titleMid: "todo",
+    titleHighlight: "a mano.",
     subtitle:
-      "Diseño y construyo con IA páginas web, sistemas y automatizaciones hechas a la medida de tu negocio.",
+      "Páginas web, sistemas y automatizaciones hechos a la medida de tu negocio.",
     note: "Me escribes por WhatsApp y lo conversamos con calma.",
     casesLink: "Ver casos reales",
+    cta: "Cuéntanos qué te quita tiempo",
+    ctaMessage: "Hola, vi la página de clew. Lo que más tiempo me quita en mi negocio es: ",
+    trustLine: "La primera conversación no tiene costo · Casos reales en Suiza",
     photoAlt: "Imagen ilustrativa creada con IA: una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
       { title: "Escríbeme", text: "Lo que necesites, lo hablamos por WhatsApp" },
@@ -62,7 +102,7 @@ export const es = {
     ],
   },
 
-  marquee: ["Automatiza", "Optimiza", "Crece"],
+  marquee: ["Páginas web", "Sistemas a medida", "Automatizaciones", "Agentes de IA"],
 
   statement: {
     title: "Tus procesos son únicos.",
@@ -103,11 +143,6 @@ export const es = {
         icon: icon("web"),
         title: "Páginas web a medida",
         text: "Con tu marca, en tu propio dominio y sin mensualidad.",
-      },
-      {
-        icon: icon("marketing"),
-        title: "Marketing con IA",
-        text: "Piezas para tus redes que se publican solas.",
       },
       {
         icon: icon("agents"),

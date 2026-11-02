@@ -40,16 +40,11 @@ export default async function Image({ params }: { params: Promise<{ lang: string
         <div style={{ display: "flex", fontSize: 72, letterSpacing: -3, lineHeight: 1.05 }}>
           {hero.titleStart}
         </div>
-        <div
-          style={{
-            display: "flex",
-            fontSize: 72,
-            letterSpacing: -3,
-            lineHeight: 1.05,
-            color: "#dfff6a",
-          }}
-        >
-          {hero.titleHighlight}
+        <div style={{ display: "flex", fontSize: 72, letterSpacing: -3, lineHeight: 1.05 }}>
+          <span>{hero.titleMid}&nbsp;</span>
+          <span style={{ color: "rgba(255,255,255,0.45)", textDecoration: "line-through", textDecorationColor: "#dfff6a" }}>
+            {hero.titleHighlight}
+          </span>
         </div>
       </div>
     </div>,

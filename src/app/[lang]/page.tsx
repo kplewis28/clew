@@ -6,6 +6,7 @@ import { FinalCta } from "@/components/FinalCta";
 import { ContactBar } from "@/components/ContactBar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { HeroIntro } from "@/components/HeroIntro";
 import { Marquee } from "@/components/Marquee";
 import { Products } from "@/components/Products";
 import { Services } from "@/components/Services";
@@ -32,6 +33,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <HeroIntro intro={t.intro} />
       <main>
         <Hero t={t} />
         <Marquee t={t} />

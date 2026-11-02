@@ -55,6 +55,465 @@ body {
   animation-play-state: paused;
 }
 
+/* Entrada del hero: palabras que suben y marcador lima que se dibuja */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes hero-mark {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+.hero-in {
+  animation: hero-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.hero-mark {
+  background-image: linear-gradient(var(--color-lime), var(--color-lime));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: hero-mark 0.6s cubic-bezier(0.6, 0, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Entrada explosiva del hero */
+@keyframes slam {
+  0% {
+    opacity: 0;
+    transform: scale(2.6);
+    filter: blur(10px);
+  }
+  28% {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+  }
+  72% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(8px);
+  }
+}
+
+.slam-word {
+  opacity: 0;
+  animation: slam 0.3s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes burst {
+  0% {
+    opacity: 1;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(9);
+  }
+}
+
+.hero-burst {
+  opacity: 0;
+  animation: burst 0.8s cubic-bezier(0.1, 0.7, 0.3, 1) 1.12s both;
+}
+
+@keyframes hero-pop {
+  0% {
+    opacity: 0;
+    transform: scale(1.35);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.98);
+    filter: none;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-pop {
+  animation: hero-pop 0.55s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes wall-in {
+  from {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-wall {
+  animation: wall-in 1.2s ease-out both;
+}
+
+@keyframes wall-move {
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.wall-row {
+  animation: wall-move 70s linear infinite;
+}
+
+.wall-row-rev {
+  animation-direction: reverse;
+  animation-duration: 90s;
+}
+
+@keyframes cta-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(223, 255, 106, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(223, 255, 106, 0);
+  }
+}
+
+.hero-cta {
+  animation: cta-pulse 2.4s ease-out 1.8s infinite;
+}
+
+/* Intro sin voz (components/HeroIntro.tsx). Todo corre desde que se pinta la
+   página; el script de <head> pone .intro-on solo la primera vez por visita. */
+.intro {
+  display: none;
+}
+
+.intro-on .intro {
+  display: block;
+  animation: intro-reveal 0.6s cubic-bezier(0.7, 0, 0.2, 1) 7.6s both;
+}
+
+.intro-skip .intro {
+  animation: intro-fade 0.35s ease-out both;
+}
+
+/* Mientras corre la intro, el hero espera */
+.intro-on:not(.intro-hero) :is(.hero-in, .hero-pop, .hero-mark, .hero-wall, .hero-cta, .hero-strike),
+.intro-on:not(.intro-hero) .hero-strike::after {
+  animation-play-state: paused;
+}
+
+@keyframes intro-clock {
+  to {
+    opacity: 0;
+  }
+}
+
+.intro-clock {
+  animation: intro-clock 9s linear both;
+}
+
+@keyframes intro-reveal {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes intro-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Escenas: visibles solo en su tramo */
+@keyframes intro-s1 {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  1%,
+  99% {
+    opacity: 1;
+  }
+}
+
+.intro-s1 {
+  opacity: 0;
+  animation: intro-s1 1.7s linear 0.2s both;
+}
+
+.intro-s2 {
+  opacity: 0;
+  animation:
+    intro-s1 2.15s linear 1.9s both,
+    intro-shake 2.15s linear 1.9s both;
+}
+
+.intro-s3 {
+  opacity: 0;
+  animation: intro-s1 2.25s linear 4.35s both;
+}
+
+.intro-s4 {
+  opacity: 0;
+  animation: intro-s1 1.6s linear 6.6s both;
+}
+
+.intro-ui {
+  animation: intro-fade 0.3s ease-out 6.4s both;
+}
+
+@keyframes intro-slam {
+  0% {
+    opacity: 0;
+    transform: scale(2.6);
+    filter: blur(14px);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(0.95);
+    filter: none;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.intro-time {
+  animation: intro-slam 0.4s cubic-bezier(0.2, 0.9, 0.2, 1) 0.25s both;
+}
+
+.intro-timesub {
+  animation: intro-rise 0.45s cubic-bezier(0.2, 0.9, 0.2, 1) 0.85s both;
+}
+
+@keyframes intro-chaos {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--r)) scale(2.4);
+    filter: blur(10px);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--r)) scale(0.94);
+    filter: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(var(--r)) scale(1);
+  }
+}
+
+.intro-chaos {
+  opacity: 0;
+  animation: intro-chaos 0.24s cubic-bezier(0.2, 0.9, 0.2, 1) var(--d) both;
+}
+
+@keyframes intro-shake {
+  0%,
+  100% {
+    transform: none;
+  }
+  10% {
+    transform: translate(-4px, 2px);
+  }
+  20% {
+    transform: translate(5px, -3px);
+  }
+  30% {
+    transform: translate(-6px, 4px);
+  }
+  40% {
+    transform: translate(7px, -2px);
+  }
+  50% {
+    transform: translate(-8px, 5px);
+  }
+  60% {
+    transform: translate(9px, -6px);
+  }
+  70% {
+    transform: translate(-11px, 6px);
+  }
+  80% {
+    transform: translate(12px, -7px);
+  }
+  90% {
+    transform: translate(-14px, 8px) scale(1.02);
+  }
+  99% {
+    transform: translate(14px, -8px) scale(1.04);
+  }
+}
+
+.intro-q1 {
+  animation: intro-rise 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) 4.4s both;
+}
+
+.intro-q2 {
+  animation: intro-slam 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) 5s both;
+}
+
+@keyframes intro-blast {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(6);
+  }
+}
+
+.intro-blast {
+  animation: intro-blast 0.5s cubic-bezier(0.5, 0, 0.2, 1) 6.6s both;
+}
+
+.intro-mark {
+  animation: intro-slam 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) 6.85s both;
+}
+
+/* Panel en vivo del hero (components/HeroLive.tsx) */
+@keyframes live-new {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(2px) scale(1.01);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+.live-new {
+  animation: live-new 0.55s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+@keyframes live-num {
+  0% {
+    color: var(--color-lime);
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+.live-num {
+  animation: live-num 0.6s ease-out both;
+}
+
+@keyframes live-dot {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.live-dot {
+  animation: live-dot 1.4s ease-in-out infinite;
+}
+
+.live-tilt {
+  transform: perspective(1600px) rotateY(-7deg) rotateX(3deg);
+}
+
+@media (max-width: 1023px) {
+  .live-tilt {
+    transform: none;
+  }
+}
+
+/* Pie de la vitrina del hero (ya no se usa) */
+.showcase-cap {
+  animation: intro-rise 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+/* Lupa del muro del hero (components/HeroWall.tsx, ya no se usa) */
+.wall-parallax {
+  transform: translate(var(--px, 0), var(--py, 0));
+}
+
+.wall-lens {
+  clip-path: circle(var(--lr) at var(--lx, 70%) var(--ly, 50%));
+}
+
+.lens-ring {
+  width: calc(var(--lr) * 2);
+  height: calc(var(--lr) * 2);
+  left: calc(var(--lx, 70%) - var(--lr));
+  top: calc(var(--ly, 50%) - var(--lr));
+  box-shadow: 0 0 0 9999px rgba(15, 21, 15, 0.35);
+}
+
+/* Tachón lima sobre "a mano" */
+.hero-strike {
+  position: relative;
+  white-space: nowrap;
+  animation: strike-dim 0.4s ease-out both;
+  animation-delay: calc(var(--d, 0ms) + 250ms);
+}
+
+.hero-strike::after {
+  content: "";
+  position: absolute;
+  left: -0.06em;
+  right: -0.06em;
+  top: 54%;
+  height: 0.13em;
+  border-radius: 0.1em;
+  background: var(--color-lime);
+  transform-origin: left center;
+  transform: scaleX(0) rotate(-3deg);
+  animation: strike 0.45s cubic-bezier(0.7, 0, 0.2, 1) var(--d, 0ms) both;
+}
+
+@keyframes strike {
+  to {
+    transform: scaleX(1) rotate(-3deg);
+  }
+}
+
+@keyframes strike-dim {
+  to {
+    color: rgba(246, 246, 242, 0.42);
+  }
+}
+
 /* Acordeón de preguntas frecuentes */
 details summary::-webkit-details-marker {
   display: none;
@@ -76,7 +535,27 @@ details[open] .faq-icon {
     animation: none;
   }
 
-  .marquee-track {
+  .marquee-track,
+  .hero-in,
+  .hero-mark,
+  .hero-pop,
+  .hero-wall,
+  .wall-row,
+  .hero-strike,
+  .hero-strike::after,
+  .hero-cta {
     animation: none;
+  }
+
+  .intro {
+    display: none !important;
+  }
+
+  .hero-strike {
+    color: rgba(246, 246, 242, 0.42);
+  }
+
+  .hero-strike::after {
+    transform: scaleX(1) rotate(-3deg);
   }
 }

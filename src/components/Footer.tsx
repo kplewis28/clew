@@ -85,7 +85,6 @@ export function Footer({ t }: { t: Content }) {
           <a href={t.ui.privacyHref} className="inline-flex min-h-6 items-center hover:text-lime">
             {t.footer.privacy}
           </a>
-          <p>{t.footer.aiNote}</p>
         </div>
       </div>
     </footer>

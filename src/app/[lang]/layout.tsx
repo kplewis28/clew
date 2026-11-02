@@ -71,7 +71,15 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   if (!isLocale(lang)) notFound();
 
   return (
-    <html lang={htmlLang[lang]} className={`${inter.variable} antialiased`}>
+    <html lang={htmlLang[lang]} className={`${inter.variable} antialiased`} suppressHydrationWarning>
+      <head>
+        <script
+          // Decide antes de pintar si se muestra la intro (solo la primera vez por visita, solo en el inicio)
+          dangerouslySetInnerHTML={{
+            __html: `try{var p=location.pathname;if(/^\\/(es|en)?\\/?$/.test(p)&&!sessionStorage.getItem("clew-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro-on");sessionStorage.setItem("clew-intro","1")}}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="font-sans">
         <noscript>
           <style>{`.reveal{opacity:1;transform:none}`}</style>

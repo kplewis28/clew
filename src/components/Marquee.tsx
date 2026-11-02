@@ -1,10 +1,10 @@
 import { Sparkle } from "lucide-react";
 import type { Content } from "@/content";
 
-// Cinta lima con las tres palabras de marca. Es decorativa: las mismas
-// palabras aparecen como texto real en la sección siguiente.
+// Cinta lima con lo que hace clew. Es decorativa: los mismos servicios
+// aparecen como texto real más abajo, en "Lo que puedo hacer".
 export function Marquee({ t }: { t: Content }) {
-  const words = Array.from({ length: 4 }, () => t.marquee).flat();
+  const words = Array.from({ length: 2 }, () => t.marquee).flat();
 
   return (
     <div aria-hidden className="overflow-hidden bg-lime py-4 text-ink md:py-5">

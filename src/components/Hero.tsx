@@ -1,36 +1,16 @@
-import Image from "next/image";
+import type { CSSProperties } from "react";
 import type { Content } from "@/content";
 import { brand } from "@/content/config";
 import { Logo } from "./Logo";
+import { HeroThread } from "./HeroThread";
 import { WhatsAppButton } from "./WhatsAppButton";
 
-// Hero a sangre: foto de una consulta real (consultora y dueña de negocio) de
-// fondo, texto encima a la izquierda y tres tarjetas translúcidas abajo.
-// Foto elegida por Cindy (public/hero-reunion.jpg), al estilo de su referencia.
+// Hero: la promesa en grande con un solo botón. Detrás, el enredo de la intro
+// y un hilo lima (clew = el hilo que saca del laberinto) que termina en el botón.
+// La intro (HeroIntro) desemboca aquí.
 export function Hero({ t }: { t: Content }) {
   return (
     <div className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-deep text-white">
-      {/* En móvil la foto ocupa la parte alta y el texto queda debajo; en escritorio, todo el fondo */}
-      <div className="absolute inset-x-0 top-0 -z-20 h-[52%] md:inset-0 md:h-auto">
-        <Image
-          src="/hero-reunion.jpg"
-          alt={t.hero.photoAlt}
-          fill
-          priority
-          quality={65}
-          sizes="100vw"
-          className="object-cover object-[76%_30%] md:object-[75%_30%] lg:origin-[70%_30%] lg:scale-[1.05] lg:object-[68%_30%]"
-        />
-        {/* Funde el borde inferior de la foto con el fondo (solo móvil) */}
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-deep to-transparent md:hidden" />
-      </div>
-      {/* Móvil: las personas arriba y el texto abajo, sobre un degradado desde el pie.
-          Escritorio: degradado desde la izquierda, donde va el texto. */}
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-[60%] bg-gradient-to-t from-deep via-deep to-transparent md:hidden" />
-      <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/90 via-black/70 via-45% to-black/10 md:block" />
-      <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-black/50 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t from-black/60 to-transparent" />
-
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 md:px-8 md:py-7">
         <a href="#inicio" aria-label={`${brand.name}, ${t.ui.homeAria}`} className="text-lime">
           <Logo className="h-5 w-auto md:h-6" />
@@ -74,46 +54,40 @@ export function Hero({ t }: { t: Content }) {
               );
             })}
           </nav>
-          <WhatsAppButton t={t} label={t.cta.short} size="md" />
         </div>
       </header>
 
+      <HeroThread hint={t.hero.threadHint} />
+
       <section
         id="inicio"
-        className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-end px-5 pt-16 pb-10 md:justify-center md:px-8 md:pt-10 md:pb-8"
+        className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-end px-5 pt-8 pb-16 md:justify-center md:px-8 lg:pb-20"
       >
-        <div className="max-w-2xl [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]">
-          <h1 className="text-[clamp(2.6rem,4.4vw,4rem)] leading-[1.02] font-medium tracking-[-0.035em]">
-            <span className="block">{t.hero.titleStart}</span>{" "}
-            <span className="block text-lime">{t.hero.titleHighlight}</span>
+        <div className="max-w-[46rem]">
+          <h1 className="text-[clamp(3rem,7vw,6.6rem)] leading-[0.93] font-medium tracking-[-0.055em]">
+            <span className="hero-pop block" style={{ "--d": "80ms" } as CSSProperties}>
+              {t.hero.titleStart}
+            </span>
+            <span className="hero-pop block" style={{ "--d": "220ms" } as CSSProperties}>
+              {t.hero.titleMid}{" "}
+              <span className="hero-strike" style={{ "--d": "700ms" } as CSSProperties}>
+                {t.hero.titleHighlight}
+              </span>
+            </span>
           </h1>
-          {/* Mismo ancho que el título para que el párrafo no quede en una columna angosta */}
-          <p className="mt-7 max-w-[36rem] text-lg leading-relaxed text-pretty text-white md:text-xl">
+          <p
+            className="hero-in mt-7 max-w-[30rem] text-lg leading-relaxed text-pretty text-white/75 md:text-xl"
+            style={{ "--d": "900ms" } as CSSProperties}
+          >
             {t.hero.subtitle}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <WhatsAppButton t={t} className="w-full sm:w-auto" />
-            <a
-              href="#casos"
-              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/40 bg-black/30 px-7 md:text-lg font-medium text-white backdrop-blur-md transition-colors hover:border-lime hover:text-lime"
-            >
-              {t.hero.casesLink}
-              <span aria-hidden>↓</span>
-            </a>
+          <div className="hero-in mt-9" style={{ "--d": "1050ms" } as CSSProperties}>
+            <span data-thread-target className="inline-flex w-full sm:w-auto">
+              <WhatsAppButton t={t} label={t.hero.cta} message={t.hero.ctaMessage} className="w-full sm:w-auto" />
+            </span>
           </div>
         </div>
 
-        <ul className="mt-14 hidden gap-3 sm:grid sm:grid-cols-3 lg:mt-24">
-          {t.hero.chips.map((chip) => (
-            <li
-              key={chip.title}
-              className="rounded-2xl border border-white/20 bg-black/45 px-5 py-4 backdrop-blur-md"
-            >
-              <p className="font-medium text-white">{chip.title}</p>
-              <p className="mt-0.5 text-sm text-white/85">{chip.text}</p>
-            </li>
-          ))}
-        </ul>
       </section>
     </div>
   );

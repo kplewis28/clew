@@ -17,7 +17,7 @@ export function Services({ t }: { t: Content }) {
         tone="deep"
       />
 
-      <ul className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2 md:gap-5">
+      <ul className="mt-12 grid gap-4 md:mt-16 md:grid-cols-3 md:gap-5">
         {t.services.items.map((item, index) => {
           const Icon = icons[item.icon];
           const featured = index === 0;

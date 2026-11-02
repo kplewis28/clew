@@ -24,7 +24,7 @@ export function ContactBar({ t, lang }: { t: Content; lang: Locale }) {
 
       <aside aria-label={l.region}>
         {/* Celular */}
-        <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2.5 border-t border-white/10 bg-deep px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] md:hidden">
+        <ShowAfterScroll offset={480} className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2.5 border-t border-white/10 bg-deep px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))] md:hidden">
           <a
             href={tel}
             className="flex min-h-12 items-center justify-center gap-2 rounded-full border border-lime/60 text-[15px] font-medium text-lime"
@@ -42,7 +42,7 @@ export function ContactBar({ t, lang }: { t: Content; lang: Locale }) {
             <MessageCircle aria-hidden strokeWidth={1.75} className="size-[18px]" />
             {l.message}
           </a>
-        </div>
+        </ShowAfterScroll>
 
         {/* Computador */}
         <ShowAfterScroll className="fixed right-6 bottom-6 z-50 hidden flex-col items-end gap-2.5 md:flex">

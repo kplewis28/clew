@@ -23,14 +23,13 @@ export const en: Content = {
   seo: {
     title: "Custom systems, websites and AI automation | clew",
     description:
-      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automated marketing and AI agent evaluation. Tell me how I can help and we'll talk it through.",
+      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automations and AI agent evaluation. Tell me how I can help and we'll talk it through.",
     keywords: [
       "process automation for small businesses",
       "custom software for businesses",
       "internal tools for small businesses",
       "custom websites",
       "AI automation",
-      "AI marketing for businesses",
       "AI agent evaluation",
       "chatbot and voice agent testing",
     ],
@@ -43,13 +42,54 @@ export const en: Content = {
     floatingLabel: "Message me on WhatsApp",
   },
 
+  // Intro with no voice: type, backgrounds and sound hits (same as es.ts).
+  intro: {
+    time: "11:47 p.m.",
+    timeSub: "and you're still working.",
+    chaos: ["Orders.", "Messages.", "Quotes.", "Payments.", "Inventory.", "Invoices.", "Social.", "Clients.", "Bookings.", "All by hand."],
+    q1: "What if your business",
+    q2: "ran without you?",
+    soundOn: "Turn sound on",
+    soundOff: "Mute",
+    skip: "Skip intro",
+    audio: "/intro/clew-intro.mp3",
+  },
+
   hero: {
-    titleStart: "Simpler processes.",
-    titleHighlight: "Stronger businesses.",
+    threadHint: "Run your cursor through the tangle",
+    live: {
+      time: "11:47 p.m.",
+      badge: "While you rest",
+      title: "Running",
+      note: "Illustrative example of a business running with clew.",
+      auto: "Automatic",
+      kpis: [
+        { label: "Orders today", start: 14 },
+        { label: "Messages answered", start: 37 },
+        { label: "Payments received", start: 9 },
+      ],
+      events: [
+        { icon: "order", title: "New order logged", detail: "2 boxes · delivery Thursday", kpi: 0 },
+        { icon: "chat", title: "WhatsApp answered", detail: "“Do you deliver?” · in 3 seconds", kpi: 1 },
+        { icon: "quote", title: "Quote sent", detail: "Kitchen remodel · PDF ready", kpi: -1 },
+        { icon: "paid", title: "Payment received", detail: "Invoice 0142 · reconciled", kpi: 2 },
+        { icon: "date", title: "Appointment booked", detail: "Tomorrow at 10:00 · reminder scheduled", kpi: -1 },
+        { icon: "stock", title: "Low stock", detail: "4 left · supplier order ready", kpi: -1 },
+        { icon: "chat", title: "WhatsApp answered", detail: "“How much is shipping?”", kpi: 1 },
+        { icon: "review", title: "Review requested", detail: "Message sent to the customer", kpi: -1 },
+      ],
+    },
+    eyebrow: "Technology for small businesses",
+    titleStart: "Stop doing",
+    titleMid: "everything",
+    titleHighlight: "by hand.",
     subtitle:
-      "I design and build websites, systems and automations with AI, made for your business.",
+      "Websites, systems and automations built for your business.",
     note: "Message me on WhatsApp and we'll talk it through.",
     casesLink: "See real cases",
+    cta: "Tell us what slows you down",
+    ctaMessage: "Hi, I saw the clew website. What takes up most of my time in my business is: ",
+    trustLine: "The first conversation is free · Real cases in Switzerland",
     photoAlt: "Illustrative AI-generated image: a consultant talks with a business owner at a work table",
     chips: [
       { title: "Write to me", text: "Whatever you need, we talk it over on WhatsApp" },
@@ -58,7 +98,7 @@ export const en: Content = {
     ],
   },
 
-  marquee: ["Automate", "Optimize", "Grow"],
+  marquee: ["Websites", "Custom systems", "Automations", "AI agents"],
 
   statement: {
     title: "Your processes are unique.",
@@ -99,11 +139,6 @@ export const en: Content = {
         icon: "web",
         title: "Custom websites",
         text: "Your brand, on your own domain, with no monthly fee.",
-      },
-      {
-        icon: "marketing",
-        title: "AI marketing",
-        text: "Social content that publishes itself.",
       },
       {
         icon: "agents",
