@@ -34,7 +34,7 @@ function smooth(pts: P[], steps = 10): P[] {
 // el botón. Al pasar el cursor o el dedo, los hilos se apartan: se "desenreda".
 type Def = { word: string; phon: string; text: string };
 
-export function HeroThread({ hint, words, def }: { hint: string; words: string[]; def: Def }) {
+export function HeroThread({ hint, hintTouch, words, def }: { hint: string; hintTouch: string; words: string[]; def: Def }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [touched, setTouched] = useState(false);
   const [drawn, setDrawn] = useState(false);
@@ -65,21 +65,27 @@ export function HeroThread({ hint, words, def }: { hint: string; words: string[]
       cv.style.width = `${W}px`;
       cv.style.height = `${H}px`;
       const mobile = W < 768;
+      // Celular: el "escenario" del enredo va de debajo del menú hasta un poco antes del titular
+      const h1 = hero.querySelector("h1")?.getBoundingClientRect();
+      const S0 = H * 0.07;
+      const S1 = mobile && h1 ? Math.min(H * 0.49, h1.top - r.top - 90) : H * 0.49;
+      const sy = (f: number) => S0 + f * (S1 - S0);
+      hero.style.setProperty("--stage-b", `${S1}px`);
       const rand = rng(7);
       // Zona del enredo: a la derecha en computador, toda la portada en celular
-      const x0 = mobile ? -40 : W * 0.42, x1 = W + 40, y0 = -40, y1 = H + 40;
-      const n = mobile ? 34 : 64;
+      const x0 = mobile ? -30 : W * 0.42, x1 = W + 40, y0 = mobile ? S0 : -40, y1 = mobile ? S1 : H + 40;
+      const n = mobile ? 42 : 64;
       tangle = Array.from({ length: n }, () => {
         const k = 6 + Math.floor(rand() * 5);
         const pts = Array.from({ length: k }, () => ({ x: x0 + rand() * (x1 - x0), y: y0 + rand() * (y1 - y0) }));
-        return { base: smooth(pts, 8), phase: rand() * 6.28, amp: 3 + rand() * 6, alpha: 0.06 + rand() * 0.1 };
+        return { base: smooth(pts, 8), phase: rand() * 6.28, amp: 3 + rand() * 6, alpha: (mobile ? 0.09 : 0.06) + rand() * (mobile ? 0.13 : 0.1) };
       });
       // Las tareas sueltas dentro del enredo, para que se lea como "tu caos"
       const r3 = rng(3);
       // En una rejilla con algo de azar, para que no se monten unas sobre otras
       const cols = mobile ? 3 : 4, rows = Math.ceil(words.length / cols);
       const gx0 = mobile ? W * 0.12 : W * 0.5, gx1 = mobile ? W * 0.88 : W * 0.95;
-      const gy0 = mobile ? H * 0.12 : H * 0.16, gy1 = mobile ? H * 0.36 : H * 0.88;
+      const gy0 = mobile ? sy(0.18) : H * 0.16, gy1 = mobile ? sy(0.72) : H * 0.88;
       labels = words.map((w, i) => {
         const c = i % cols, rr = Math.floor(i / cols);
         const cw = (gx1 - gx0) / cols, ch = (gy1 - gy0) / rows;
@@ -95,13 +101,13 @@ export function HeroThread({ hint, words, def }: { hint: string; words: string[]
       const end = b ? { x: b.right - r.left + 6, y: b.top - r.top + b.height / 2 } : { x: W * 0.4, y: H * 0.7 };
       const r2 = rng(11);
       const knots = mobile
-        ? [{ x: W * 0.7, y: H * 0.17 }, { x: W * 0.36, y: H * 0.24 }, { x: W * 0.74, y: H * 0.31 }]
+        ? [{ x: W * 0.74, y: sy(0.26) }, { x: W * 0.32, y: sy(0.5) }, { x: W * 0.7, y: sy(0.74) }]
         : [{ x: W * 0.8, y: H * 0.27 }, { x: W * 0.62, y: H * 0.52 }, { x: W * 0.84, y: H * 0.72 }];
-      const way: P[] = [{ x: W + 60, y: mobile ? H * 0.11 : H * 0.1 }];
+      const way: P[] = [{ x: W + 60, y: mobile ? sy(0.06) : H * 0.1 }];
       knots.forEach((c, i) => {
         // tramo que deambula antes de cada nudo
-        way.push({ x: c.x + (r2() - 0.5) * (mobile ? 90 : 220), y: c.y - (mobile ? 40 : 90) + (r2() - 0.5) * 40 });
-        const rx = (mobile ? 24 : 42) + r2() * (mobile ? 14 : 30);
+        way.push({ x: c.x + (r2() - 0.5) * (mobile ? 90 : 220), y: c.y - (mobile ? 50 : 90) + (r2() - 0.5) * 40 });
+        const rx = (mobile ? Math.min(30, (S1 - S0) * 0.09) : 42) + r2() * (mobile ? Math.min(16, (S1 - S0) * 0.05) : 30);
         const ry = rx * (0.65 + r2() * 0.5);
         const rot = r2() * Math.PI;
         const dir = i % 2 ? -1 : 1;
@@ -114,7 +120,7 @@ export function HeroThread({ hint, words, def }: { hint: string; words: string[]
           way.push({ x: c.x + (ex * Math.cos(rot) - ey * Math.sin(rot)) * k, y: c.y + (ex * Math.sin(rot) + ey * Math.cos(rot)) * k });
         }
       });
-      if (mobile) way.push({ x: W - 8, y: H * 0.36 }, { x: W - 8, y: end.y - 40 }, { x: end.x + 4, y: end.y - 8 }, end);
+      if (mobile) way.push({ x: W - 10, y: S1 - 10 }, { x: W - 10, y: end.y - 46 }, { x: end.x + 4, y: end.y - 10 }, end);
       else way.push({ x: end.x + 260, y: end.y + 40 }, { x: end.x + 120, y: end.y - 10 }, { x: end.x + 40, y: end.y + 4 }, end);
       thread = smooth(way, 12);
       lens = [0];
@@ -164,7 +170,7 @@ export function HeroThread({ hint, words, def }: { hint: string; words: string[]
       }
 
       // Tareas sueltas
-      ctx.font = `500 ${W < 768 ? 12 : 14}px Inter, "Helvetica Neue", Arial, sans-serif`;
+      ctx.font = `500 ${W < 768 ? 13 : 14}px Inter, "Helvetica Neue", Arial, sans-serif`;
       ctx.textAlign = "center";
       for (const lb of labels) {
         const q = push(lb.p, t, 6, lb.phase, 80);
@@ -247,6 +253,22 @@ export function HeroThread({ hint, words, def }: { hint: string; words: string[]
           <span className="font-medium text-lime">{def.word}</span> <span className="text-white/50">{def.phon}</span>
         </span>
         <span className="mt-1 block text-sm leading-snug text-white/75">{def.text}</span>
+      </p>
+      {/* Celular: definición y pista dentro del "escenario" de arriba */}
+      <p
+        className={`pointer-events-none absolute top-[calc(var(--stage-b,42%)-3.2rem)] left-5 max-w-[60%] border-l-2 border-lime pl-3 transition-all duration-700 lg:hidden ${drawn ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}
+      >
+        <span className="block text-[0.8rem] text-white">
+          <span className="font-medium text-lime">{def.word}</span> <span className="text-white/50">{def.phon}</span>
+        </span>
+        <span className="mt-0.5 block text-[0.8rem] leading-snug text-white/75">{def.text}</span>
+      </p>
+      <p
+        aria-hidden
+        className={`pointer-events-none absolute top-[10.5%] left-5 flex items-center gap-2 text-[0.65rem] tracking-[0.14em] text-white/45 uppercase transition-opacity duration-700 md:hidden ${touched ? "opacity-0" : "opacity-100"}`}
+      >
+        <span className="size-1.5 rounded-full bg-lime" />
+        {hintTouch}
       </p>
       <p
         aria-hidden

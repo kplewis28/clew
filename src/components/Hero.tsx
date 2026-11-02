@@ -59,14 +59,14 @@ export function Hero({ t }: { t: Content }) {
       </header>
 
       <ReplayIntro label={t.hero.replay} />
-      <HeroThread hint={t.hero.threadHint} words={t.hero.tangleWords} def={t.hero.clewDef} />
+      <HeroThread hint={t.hero.threadHint} hintTouch={t.hero.threadHintTouch} words={t.hero.tangleWords} def={t.hero.clewDef} />
 
       <section
         id="inicio"
-        className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-end px-5 pt-8 pb-16 md:justify-center md:px-8 lg:pb-20"
+        className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-end px-5 pt-8 pb-20 md:justify-center md:px-8 lg:pb-20"
       >
         <div className="max-w-[46rem]">
-          <h1 className="text-[clamp(3rem,7vw,6.6rem)] leading-[0.93] font-medium tracking-[-0.055em]">
+          <h1 className="text-[clamp(2.6rem,7vw,6.6rem)] leading-[0.93] font-medium tracking-[-0.055em]">
             <span className="hero-pop block" style={{ "--d": "80ms" } as CSSProperties}>
               {t.hero.titleStart}
             </span>
@@ -78,19 +78,16 @@ export function Hero({ t }: { t: Content }) {
             </span>
           </h1>
           <p
-            className="hero-in mt-7 max-w-[30rem] text-lg leading-relaxed text-pretty text-white/75 md:text-xl"
+            className="hero-in mt-5 max-w-[30rem] text-base leading-relaxed text-pretty text-white/75 md:mt-7 md:text-xl"
             style={{ "--d": "900ms" } as CSSProperties}
           >
             {t.hero.subtitle}
           </p>
-          <div className="hero-in mt-9" style={{ "--d": "1050ms" } as CSSProperties}>
+          <div className="hero-in mt-7 md:mt-9" style={{ "--d": "1050ms" } as CSSProperties}>
             <span data-thread-target className="inline-flex w-full sm:w-auto">
               <WhatsAppButton t={t} label={t.hero.cta} message={t.hero.ctaMessage} className="w-full sm:w-auto" />
             </span>
           </div>
-          <p className="hero-in mt-6 border-l-2 border-lime pl-3 text-sm leading-snug text-white/70 lg:hidden" style={{ "--d": "1300ms" } as CSSProperties}>
-            <span className="font-medium text-lime">{t.hero.clewDef.word}</span> <span className="text-white/45">{t.hero.clewDef.phon}</span> · {t.hero.clewDef.text}
-          </p>
         </div>
 
       </section>
