@@ -3,6 +3,7 @@ import type { Content } from "@/content";
 import { brand } from "@/content/config";
 import { Logo } from "./Logo";
 import { HeroThread } from "./HeroThread";
+import { ReplayIntro } from "./ReplayIntro";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 // Hero: la promesa en grande con un solo botón. Detrás, el enredo de la intro
@@ -57,6 +58,7 @@ export function Hero({ t }: { t: Content }) {
         </div>
       </header>
 
+      <ReplayIntro label={t.hero.replay} />
       <HeroThread hint={t.hero.threadHint} words={t.hero.tangleWords} def={t.hero.clewDef} />
 
       <section

@@ -60,6 +60,7 @@ export const es = {
   },
 
   hero: {
+    replay: "Ver intro",
     tangleWords: ["pedidos", "WhatsApp", "facturas", "Excel", "cotizaciones", "inventario", "citas", "cobros", "correos", "pendientes"],
     clewDef: { word: "clew", phon: "/klu/", text: "El hilo que te guía para salir de un laberinto." },
     threadHint: "Pasa el cursor por el enredo",

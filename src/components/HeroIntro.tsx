@@ -25,6 +25,23 @@ const CHAOS: { x: number; y: number; s: number; r: number; tone: "w" | "l" | "o"
 // Arranca sola al cargar (la decide un script en <head>, ver layout.tsx);
 // el sonido se activa con el botón o con el primer toque, desde el segundo en que va.
 export function HeroIntro({ intro }: { intro: Intro }) {
+  // Cada "↺ Ver intro" vuelve a montar la intro para que las animaciones arranquen de cero
+  const [run, setRun] = useState(0);
+  useEffect(() => {
+    const replay = () => {
+      const html = document.documentElement;
+      html.classList.remove("intro-hero", "intro-skip");
+      html.classList.add("intro-on");
+      window.scrollTo(0, 0);
+      setRun((r) => r + 1);
+    };
+    window.addEventListener("clew:replay-intro", replay);
+    return () => window.removeEventListener("clew:replay-intro", replay);
+  }, []);
+  return <IntroRun key={run} intro={intro} replay={run > 0} />;
+}
+
+function IntroRun({ intro, replay }: { intro: Intro; replay: boolean }) {
   const root = useRef<HTMLDivElement>(null);
   const audio = useRef<HTMLAudioElement>(null);
   const [sound, setSound] = useState(false);
@@ -52,6 +69,7 @@ export function HeroIntro({ intro }: { intro: Intro }) {
     el?.addEventListener("animationend", onEnd);
     // Primer toque o tecla: activa el sonido
     const first = () => enable();
+    if (replay) enable();
     window.addEventListener("pointerdown", first, { once: true });
     window.addEventListener("keydown", first, { once: true });
     return () => {

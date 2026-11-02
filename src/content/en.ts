@@ -56,6 +56,7 @@ export const en: Content = {
   },
 
   hero: {
+    replay: "Watch intro",
     tangleWords: ["orders", "WhatsApp", "invoices", "Excel", "quotes", "inventory", "bookings", "payments", "emails", "to-dos"],
     clewDef: { word: "clew", phon: "/kloo/", text: "The thread that guides you out of a maze." },
     threadHint: "Run your cursor through the tangle",
