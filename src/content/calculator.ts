@@ -101,9 +101,9 @@ export const calculator: Record<Locale, CalculatorText> = {
     savings: (a) => `En 3 años te ahorras cerca de ${a}.`,
     lowPlan:
       "Con un plan tan económico el ahorro tarda más en llegar. Lo que ganas es una página hecha a tu medida y que es tuya.",
-    cta: "Escríbeme PÁGINA",
+    cta: "Hablemos de tu página",
     ctaMessage: (p, y) =>
-      `PÁGINA. Hola Cindy, usé la calculadora: hoy pago cerca de ${y} al año en ${p}. Quiero saber cómo sería mi página propia.`,
+      `Hola, usé la calculadora de clew: hoy pago cerca de ${y} al año en ${p}. Quiero saber cómo sería mi página propia.`,
     note:
       "Precios de referencia de los planes anuales en EE. UU. (octubre de 2026). Tu factura puede variar por impuestos, renovaciones y extras. El dominio se paga aparte en los dos casos. El precio de clew depende de lo que necesite tu página.",
   },
@@ -135,9 +135,9 @@ export const calculator: Record<Locale, CalculatorText> = {
     savings: (a) => `Over 3 years you save around ${a}.`,
     lowPlan:
       "With such a low-cost plan the savings take longer. What you gain is a site built for your business that you own.",
-    cta: "Message me PAGE",
+    cta: "Let's talk about your site",
     ctaMessage: (p, y) =>
-      `PAGE. Hi Cindy, I used the calculator: I pay about ${y} a year on ${p}. I'd like to know what my own site would look like.`,
+      `Hi, I used the clew calculator: I pay about ${y} a year on ${p}. I'd like to know what my own site would look like.`,
     note:
       "Reference prices for US annual plans (October 2026). Your bill may vary with taxes, renewals and add-ons. The domain is paid separately in both cases. clew's price depends on what your site needs.",
   },

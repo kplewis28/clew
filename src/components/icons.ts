@@ -7,6 +7,7 @@ import {
   ClipboardList,
   Globe,
   LayoutDashboard,
+  MapPin,
   Megaphone,
   Repeat,
   Shuffle,
@@ -36,6 +37,7 @@ export const icons = {
   web: Globe,
   marketing: Megaphone,
   agents: Bot,
+  maps: MapPin,
 } satisfies Record<string, LucideIcon>;
 
 export type IconKey = keyof typeof icons;

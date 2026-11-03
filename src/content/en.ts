@@ -5,7 +5,7 @@ export const en: Content = {
   ui: {
     homeAria: "back to top",
     askAria: "Ask on WhatsApp about",
-    solutionAria: "See how I solve it",
+    solutionAria: "See how we solve it",
     currentLabel: "EN",
     switchLabel: "ES",
     switchHref: "/",
@@ -15,32 +15,32 @@ export const en: Content = {
   },
 
   business: {
-    interestMessage: "Hi Cindy, I'd like to know more about: ",
+    interestMessage: "Hi, I'd like to know more about: ",
     tagline: "Technology made to fit your business.",
-    whatsappMessage: "Hi Cindy, I'd like your help with something in my business.",
+    whatsappMessage: "Hi, I saw the clew website and I'd like your help with something in my business.",
   },
 
   seo: {
-    title: "Custom systems, websites and AI automation | clew",
+    title: "Custom systems and websites for small businesses | clew",
     description:
-      "I design and build with AI solutions made for your business: systems for your processes, custom websites, automations and AI agent evaluation. Tell me how I can help and we'll talk it through.",
+      "We design and build, with AI, tools made for your business: systems for your processes, websites you own and your Google profile. Tell us what takes up your time and we'll talk it through.",
     keywords: [
-      "process automation for small businesses",
-      "custom software for businesses",
+      "custom software for small businesses",
       "internal tools for small businesses",
-      "custom websites",
-      "AI automation",
-      "AI agent evaluation",
-      "chatbot and voice agent testing",
+      "custom order and inventory systems",
+      "custom websites with no monthly fee",
+      "Google Business Profile setup",
+      "design and technology for small businesses",
     ],
     ogAlt: "clew: simpler processes, stronger businesses.",
   },
 
   cta: {
-    primary: "Tell me how I can help",
+    primary: "Tell us what you need",
     short: "Let's talk",
-    floatingLabel: "Message me on WhatsApp",
+    floatingLabel: "Message us on WhatsApp",
   },
+
 
   // Intro with no voice: type, backgrounds and sound hits (same as es.ts).
   intro: {
@@ -88,21 +88,21 @@ export const en: Content = {
     titleMid: "everything",
     titleHighlight: "by hand.",
     subtitle:
-      "Websites, systems and automations built for your business.",
-    note: "Message me on WhatsApp and we'll talk it through.",
+      "We design websites and systems made for your business, so you get your time back.",
+    note: "Message us on WhatsApp and we'll talk it through.",
     casesLink: "See real cases",
     cta: "Tell us what slows you down",
     ctaMessage: "Hi, I saw the clew website. What takes up most of my time in my business is: ",
     trustLine: "The first conversation is free · Real cases in Switzerland",
     photoAlt: "Illustrative AI-generated image: a consultant talks with a business owner at a work table",
     chips: [
-      { title: "Write to me", text: "Whatever you need, we talk it over on WhatsApp" },
+      { title: "Write to us", text: "Whatever you need, we talk it over on WhatsApp" },
       { title: "Designed by area", text: "Sales, warehouse, billing or whatever weighs most" },
-      { title: "I'm with you", text: "From the idea until your team uses it" },
+      { title: "We're with you", text: "From the idea until your team uses it" },
     ],
   },
 
-  marquee: ["Websites", "Custom systems", "Automations", "AI agents"],
+  marquee: ["Websites", "Custom systems", "Google profile", "Our own tools"],
 
   statement: {
     title: "Your processes are unique.",
@@ -128,10 +128,9 @@ export const en: Content = {
   },
 
   services: {
-    title: "What I can do",
+    title: "What we do",
     highlight: "for your business.",
-    subtitle:
-      "We start with the one you need most.",
+    subtitle: "We start with what you need most.",
     cta: "Ask on WhatsApp",
     items: [
       {
@@ -142,15 +141,16 @@ export const en: Content = {
       {
         icon: "web",
         title: "Custom websites",
-        text: "Your brand, on your own domain, with no monthly fee.",
+        text: "With your brand, on your own domain and with no monthly fee.",
       },
       {
-        icon: "agents",
-        title: "AI agent evaluation",
-        text: "I test your chatbot or voice agent and show you where it fails.",
+        icon: "maps",
+        title: "Your business on Google",
+        text: "Your profile ready so people find you on Google Maps, with photos, hours and reviews.",
       },
     ],
   },
+
 
   audience: {
     label: "Made for businesses like",
@@ -189,26 +189,27 @@ export const en: Content = {
   },
 
   steps: {
-    title: "From our first call",
+    title: "From our first conversation",
     highlight: "to your team using it.",
     items: [
       {
-        title: "Let's talk",
+        title: "We listen",
         meta: "On WhatsApp, at no cost",
-        text: "You tell me what you need and I show you a sketch with the proposal.",
+        text: "You tell us how you work today and what takes up your time. We show you a sketch with the proposal.",
       },
       {
-        title: "Build",
+        title: "We build it with you",
         meta: "Agreed timeline",
-        text: "I show you progress every week and we adjust it together.",
+        text: "We show you progress every week and adjust it together.",
       },
       {
         title: "Your team uses it from day one",
         meta: "Handoff",
-        text: "I hand it over ready and easy to use, no training needed.",
+        text: "We hand it over ready and easy to use, and we stay available for whatever you need.",
       },
     ],
   },
+
 
   builds: {
     title: "A solution for every area",
@@ -399,7 +400,7 @@ export const en: Content = {
       { icon: "sketch", title: "You see a sketch first", text: "Free, with no commitment." },
       { icon: "price", title: "One payment, no monthly fee", text: "From USD 500, based on what you need." },
       { icon: "domain", title: "On your own domain", text: "Under your business name." },
-      { icon: "direct", title: "You talk to me directly", text: "No middlemen." },
+      { icon: "direct", title: "Direct contact", text: "You talk to the people designing your project." },
       { icon: "languages", title: "In English and Spanish", text: "For all your customers." },
       { icon: "real", title: "Real work", text: "Real clients, with their permission." },
     ],
@@ -438,7 +439,7 @@ export const en: Content = {
   },
 
   products: {
-    title: "Things I've built",
+    title: "Things we've built",
     highlight: "that you can use today.",
     subtitle:
       "My own tools, ready to try.",
@@ -469,17 +470,19 @@ export const en: Content = {
   },
 
   about: {
-    name: "Cindy Lewis",
-    photo: "/cindy-lewis.jpg",
-    photoAlt: "Cindy Lewis, wearing her green glasses, peeking over her laptop",
-    photoPlaceholder: "Photo [PLACEHOLDER]",
+    name: "clew",
+    kicker: "Why clew",
+    photo: null as string | null,
+    photoAlt: "",
+    photoPlaceholder: "",
     lines: [
-      "I'm Cindy Lewis, a UX/UI and product designer.",
-      "I build with AI the tools, websites and automations each business needs, with no generic templates.",
-      "I also have hands-on experience doing QA on AI voice and chat agents: I test them the way a real customer would, to find where they fail before your customers do.",
-      "First I learn how your team works, then I build. You talk to me from our first conversation to the handoff, with no middlemen.",
+      "We're called clew for a reason: a clew is the thread that guides you out of a labyrinth.",
+      "That's what we want to be for your business. Many small businesses are tangled up in messages, paperwork and tasks that never end. We find the thread and turn it into tools that work for you.",
+      "We're a design and technology studio. Every project is designed to fit, with a product design eye, and built with AI so it arrives faster and at a fair price.",
+      "And we always start the same way: by listening. Before proposing anything, we want to understand how you work today, what's holding you back and what you'd like to get back.",
     ],
   },
+
 
   faq: {
     title: "What almost everyone asks before we start.",
@@ -487,52 +490,60 @@ export const en: Content = {
       {
         question: "Is my business too small for this?",
         answer:
-          "No. The smaller the team, the more every hour lost to repetitive tasks matters. We start with a single process: the one that takes up most of your time.",
+          "No. The smaller the team, the more every hour spent on repetitive tasks weighs. We start with one thing: the one that takes up most of your time.",
+      },
+      {
+        question: "What if I don't know exactly what I need?",
+        answer:
+          "That's completely normal. That's what the first conversation is for: you tell us how you work today and what's holding you back, and we suggest where to start.",
       },
       {
         question: "Do I need to know about technology?",
         answer:
-          "No. If you can use WhatsApp, you can use what I build for you. I hand over the tool up and running, and we sort out any questions on WhatsApp.",
+          "No. If you can use WhatsApp, you can use what we build. We hand it over up and running, and we sort out any questions on WhatsApp.",
       },
       {
         question: "How much does it cost?",
         answer:
-          "It depends on the process you want to solve. Our first conversation is free, and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
+          "Every project is quoted based on what you need, starting at USD 500. The first conversation is free and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
       },
       {
         question: "What if something breaks?",
         answer:
-          "You message me on WhatsApp and I look into it with you. Support after the handoff is spelled out in the proposal, so you know exactly what you can count on.",
+          "Message us on WhatsApp and we'll look at it with you. Support after handoff is written into the proposal, so you know exactly what you can count on.",
       },
       {
         question: "Does it work with what I already use?",
         answer:
-          "Yes. I start from what you already have: your WhatsApp, your Excel, your invoicing system. Your team doesn't have to learn a new way of working.",
+          "Yes. We start from what you already have: your WhatsApp, your spreadsheets, your invoicing system. Your team doesn't have to learn a new way of working.",
       },
       {
-        question: "Do you also build websites?",
+        question: "How does the website work?",
         answer:
-          "Yes. I design it with your brand's colors, logo and tone, connect it to your own domain, and you don't pay Wix-style monthly fees. You get a user guide, and we handle changes over WhatsApp.",
-      },
-      {
-        question: "We already have an AI agent. How do you evaluate it?",
-        answer:
-          "I have it talk to simulated customers, with normal, tricky and off-topic questions. You get a report with what I found and concrete recommendations to improve it. It works for chatbots and voice agents.",
+          "We design it with your brand's colors, logo and tone, connect it to your own domain, and you don't pay Wix-style monthly fees. You get a user manual and we handle changes on WhatsApp.",
       },
     ],
   },
 
+
   consent: {
-    before: "By messaging me you agree to the use of your data as described in the ",
+    before: "By messaging us you agree to the use of your data as described in the ",
     link: "privacy notice",
     after: ".",
   },
 
   finalCta: {
-    title: "Tell me what gets repeated",
-    highlight: "every day at your business.",
-    text: "In 30 minutes we'll see what can stop being done by hand. No cost, no commitment.",
+    kicker: "We're listening",
+    title: "We want to know",
+    highlight: "what you'd like to stop doing by hand.",
+    text: "Pick what weighs on you most and it reaches us on WhatsApp. We'll get back to you calmly, with no commitment.",
+    options: ["Answering the same messages", "Making quotes", "Tracking orders and inventory", "Chasing payments", "Booking appointments", "Getting clients from my website"],
+    hint: "You can pick several, or tell us anything.",
+    button: "Tell clew",
+    message: "Hi, I saw the clew website. I'd like to stop doing this by hand: ",
+    empty: "Hi, I saw the clew website and I'd like to tell you about my business.",
   },
+
 
   footer: {
     rights: "All rights reserved.",
@@ -545,7 +556,7 @@ export const en: Content = {
       { label: "Cost calculator", href: "/en/calculadora" },
     ],
     contactTitle: "Contact",
-    contactCta: "Message me on WhatsApp",
+    contactCta: "Message us on WhatsApp",
     languageTitle: "Language",
     privacy: "Privacy notice",
     aiNote: "The main photo is an illustrative image created with AI.",

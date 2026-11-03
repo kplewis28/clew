@@ -8,7 +8,7 @@ export const es = {
   ui: {
     homeAria: "ir al inicio",
     askAria: "Preguntar por WhatsApp sobre",
-    solutionAria: "Ver cómo lo resuelvo",
+    solutionAria: "Ver cómo lo resolvemos",
     currentLabel: "ES",
     switchLabel: "EN",
     switchHref: "/en",
@@ -18,33 +18,32 @@ export const es = {
   },
 
   business: {
-    interestMessage: "Hola Cindy, me interesa saber más sobre: ",
+    interestMessage: "Hola, me interesa saber más sobre: ",
     tagline: "Tecnología a la medida de tu negocio.",
-    whatsappMessage:
-      "Hola Cindy, me gustaría que me ayudaras con algo en mi empresa.",
+    whatsappMessage: "Hola, vi la página de clew y me gustaría que me ayudaran con algo en mi negocio.",
   },
 
   seo: {
-    title: "Sistemas a medida, páginas web y automatización con IA | clew",
+    title: "Sistemas a medida y páginas web para negocios pequeños | clew",
     description:
-      "Diseño y construyo con IA soluciones a la medida de tu empresa: sistemas para tus procesos, páginas web a medida, automatizaciones y evaluación de agentes de IA. Dime cómo te puedo ayudar y lo conversamos.",
+      "Diseñamos y construimos con IA herramientas a la medida de tu negocio: sistemas para tus procesos, páginas web propias y tu perfil en Google. Cuéntanos qué te quita tiempo y lo conversamos.",
     keywords: [
-      "automatización de procesos para pequeñas empresas",
-      "software a la medida para empresas",
+      "software a la medida para pequeñas empresas",
       "herramientas internas para pymes",
-      "páginas web a medida",
-      "automatización con IA",
-      "evaluación de agentes de IA",
-      "pruebas de chatbots y agentes de voz",
+      "sistemas de pedidos e inventario a medida",
+      "páginas web a medida sin mensualidad",
+      "perfil de Google para negocios",
+      "diseño y tecnología para negocios pequeños",
     ],
     ogAlt: "clew: procesos más simples, negocios más fuertes.",
   },
 
   cta: {
-    primary: "Dime cómo te puedo ayudar",
+    primary: "Cuéntanos qué necesitas",
     short: "Hablemos",
-    floatingLabel: "Escríbeme por WhatsApp",
+    floatingLabel: "Escríbenos por WhatsApp",
   },
+
 
   // Intro sin voz: tipografía, fondos y golpes de sonido (components/HeroIntro.tsx).
   intro: {
@@ -92,21 +91,21 @@ export const es = {
     titleMid: "todo",
     titleHighlight: "a mano.",
     subtitle:
-      "Páginas web, sistemas y automatizaciones hechos a la medida de tu negocio.",
-    note: "Me escribes por WhatsApp y lo conversamos con calma.",
+      "Diseñamos páginas web y sistemas a la medida de tu negocio, para que recuperes tu tiempo.",
+    note: "Nos escribes por WhatsApp y lo conversamos con calma.",
     casesLink: "Ver casos reales",
     cta: "Cuéntanos qué te quita tiempo",
     ctaMessage: "Hola, vi la página de clew. Lo que más tiempo me quita en mi negocio es: ",
     trustLine: "La primera conversación no tiene costo · Casos reales en Suiza",
     photoAlt: "Imagen ilustrativa creada con IA: una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [
-      { title: "Escríbeme", text: "Lo que necesites, lo hablamos por WhatsApp" },
+      { title: "Escríbenos", text: "Lo que necesites, lo hablamos por WhatsApp" },
       { title: "Pensado por área", text: "Ventas, bodega, cobros o lo que más pese" },
-      { title: "Te acompaño", text: "Desde la idea hasta que tu equipo lo usa" },
+      { title: "Te acompañamos", text: "Desde la idea hasta que tu equipo lo usa" },
     ],
   },
 
-  marquee: ["Páginas web", "Sistemas a medida", "Automatizaciones", "Agentes de IA"],
+  marquee: ["Páginas web", "Sistemas a medida", "Perfil de Google", "Herramientas propias"],
 
   statement: {
     title: "Tus procesos son únicos.",
@@ -132,10 +131,9 @@ export const es = {
   },
 
   services: {
-    title: "Lo que puedo hacer",
+    title: "Lo que hacemos",
     highlight: "por tu negocio.",
-    subtitle:
-      "Empezamos por el que más te urge.",
+    subtitle: "Empezamos por lo que más te urge.",
     cta: "Preguntar por WhatsApp",
     items: [
       {
@@ -149,12 +147,13 @@ export const es = {
         text: "Con tu marca, en tu propio dominio y sin mensualidad.",
       },
       {
-        icon: icon("agents"),
-        title: "Evaluación de agentes de IA",
-        text: "Pruebo tu chatbot o agente de voz y te digo dónde falla.",
+        icon: icon("maps"),
+        title: "Tu negocio en Google",
+        text: "Tu perfil listo para que te encuentren en Google Maps, con fotos, horarios y reseñas.",
       },
     ],
   },
+
 
   audience: {
     label: "Pensado para negocios como",
@@ -193,26 +192,27 @@ export const es = {
   },
 
   steps: {
-    title: "De la primera llamada",
+    title: "De la primera conversación",
     highlight: "a tu equipo usándolo.",
     items: [
       {
-        title: "Conversemos",
+        title: "Te escuchamos",
         meta: "Por WhatsApp, sin costo",
-        text: "Me cuentas qué necesitas y te muestro un bosquejo con la propuesta.",
+        text: "Nos cuentas cómo trabajas hoy y qué te quita tiempo. Te mostramos un bosquejo con la propuesta.",
       },
       {
-        title: "Construcción",
+        title: "Construimos contigo",
         meta: "Plazo acordado",
-        text: "Te muestro avances cada semana y lo ajustamos juntos.",
+        text: "Te mostramos avances cada semana y lo ajustamos juntos.",
       },
       {
         title: "Tu equipo lo usa desde el día uno",
         meta: "Entrega",
-        text: "Te lo entrego listo y fácil de usar, sin capacitaciones.",
+        text: "Te lo entregamos listo y fácil de usar, y seguimos disponibles para lo que necesites.",
       },
     ],
   },
+
 
   builds: {
     title: "Una solución para cada área",
@@ -404,7 +404,7 @@ export const es = {
       { icon: "sketch", title: "Ves un bosquejo primero", text: "Sin costo y sin compromiso." },
       { icon: "price", title: "Pago único, sin mensualidad", text: "Desde USD 500, según lo que necesites." },
       { icon: "domain", title: "En tu propio dominio", text: "Con el nombre de tu negocio." },
-      { icon: "direct", title: "Hablas directo conmigo", text: "Sin intermediarios." },
+      { icon: "direct", title: "Trato directo", text: "Hablas con quien diseña tu proyecto." },
       { icon: "languages", title: "En español e inglés", text: "Para todos tus clientes." },
       { icon: "real", title: "Trabajo real", text: "Clientes reales, con su permiso." },
     ],
@@ -447,7 +447,7 @@ export const es = {
   },
 
   products: {
-    title: "Lo que ya construí",
+    title: "Lo que ya construimos",
     highlight: "y puedes usar hoy.",
     subtitle:
       "Herramientas propias que puedes probar ya.",
@@ -478,71 +478,80 @@ export const es = {
   },
 
   about: {
-    name: "Cindy Lewis",
-    photo: "/cindy-lewis.jpg" as string | null,
-    photoAlt: "Cindy Lewis, con sus gafas verdes, asomándose detrás de su portátil",
-    photoPlaceholder: "Foto [PLACEHOLDER]",
+    name: "clew",
+    kicker: "Por qué clew",
+    photo: null as string | null,
+    photoAlt: "",
+    photoPlaceholder: "",
     lines: [
-      "Soy Cindy Lewis, diseñadora UX/UI y de producto.",
-      "Construyo con IA herramientas, páginas web y automatizaciones hechas para cada negocio, sin plantillas genéricas.",
-      "También tengo experiencia haciendo QA de agentes de IA de voz y de chat: los pruebo como lo haría un cliente real para encontrar dónde fallan antes de que lo noten tus clientes.",
-      "Primero entiendo cómo trabaja tu equipo y después construyo. Hablas conmigo desde la primera conversación hasta la entrega, sin intermediarios.",
+      "Nos llamamos clew por una razón: un clew es el hilo que te guía para salir de un laberinto.",
+      "Eso queremos ser para tu negocio. Muchos negocios pequeños viven enredados entre mensajes, papeles y tareas que no terminan nunca. Nosotros encontramos el hilo y lo convertimos en herramientas que trabajan por ti.",
+      "Somos un estudio de diseño y tecnología. Cada proyecto se diseña a la medida, con criterio de diseño de producto, y se construye con IA para que llegue más rápido y a un precio justo.",
+      "Y siempre empezamos igual: escuchando. Antes de proponer nada, queremos entender cómo trabajas hoy, qué te frena y qué te gustaría recuperar.",
     ],
   },
 
-  // TODO: confirmar las respuestas, en especial la de soporte cuando algo falla.
-  faq: {
+
+    faq: {
     title: "Lo que casi todos preguntan antes de empezar.",
     items: [
       {
-        question: "¿Mi empresa es muy pequeña para esto?",
+        question: "¿Mi negocio es muy pequeño para esto?",
         answer:
-          "No. Entre más pequeño el equipo, más pesa cada hora que se va en tareas repetitivas. Empezamos por un solo proceso: el que más tiempo les quita.",
+          "No. Entre más pequeño el equipo, más pesa cada hora que se va en tareas repetitivas. Empezamos por una sola cosa: la que más tiempo te quita.",
+      },
+      {
+        question: "¿Y si no sé exactamente qué necesito?",
+        answer:
+          "Es lo más normal. Para eso es la primera conversación: nos cuentas cómo trabajas hoy y qué te frena, y te proponemos por dónde empezar.",
       },
       {
         question: "¿Necesito saber de tecnología?",
         answer:
-          "No. Si sabes usar WhatsApp, sabes usar lo que te construyo. Te entrego la herramienta funcionando y cualquier duda la resolvemos por WhatsApp.",
+          "No. Si sabes usar WhatsApp, sabes usar lo que construimos. Te lo entregamos funcionando y cualquier duda la resolvemos por WhatsApp.",
       },
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Depende del proceso que quieras resolver. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
+          "Cada proyecto se cotiza según lo que necesites, desde USD 500. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
       },
       {
         question: "¿Qué pasa si algo falla?",
         answer:
-          "Me escribes por WhatsApp y lo reviso contigo. El acompañamiento después de la entrega queda por escrito en la propuesta, para que sepas exactamente con qué cuentas.",
+          "Nos escribes por WhatsApp y lo revisamos contigo. El acompañamiento después de la entrega queda por escrito en la propuesta, para que sepas exactamente con qué cuentas.",
       },
       {
         question: "¿Funciona con lo que ya uso?",
         answer:
-          "Sí. Parto de lo que ya tienes: tu WhatsApp, tu Excel, tu sistema de facturación. Tu equipo no tiene que aprender a trabajar de otra forma.",
+          "Sí. Partimos de lo que ya tienes: tu WhatsApp, tu Excel, tu sistema de facturación. Tu equipo no tiene que aprender a trabajar de otra forma.",
       },
       {
-        question: "¿También hacen páginas web?",
+        question: "¿Cómo es lo de la página web?",
         answer:
-          "Sí. La diseño con los colores, el logo y el tono de tu marca, la conecto a tu propio dominio y no pagas mensualidades tipo Wix. Te entrego un manual de uso y los cambios los vemos por WhatsApp.",
-      },
-      {
-        question: "Ya tenemos un agente de IA, ¿cómo lo evalúan?",
-        answer:
-          "Lo pongo a conversar con clientes simulados, con preguntas normales, difíciles y fuera de tema. Te entrego un informe con lo que encontré y recomendaciones concretas para mejorarlo. Sirve para chatbots y agentes de voz.",
+          "La diseñamos con los colores, el logo y el tono de tu marca, la conectamos a tu propio dominio y no pagas mensualidades tipo Wix. Te entregamos un manual de uso y los cambios los vemos por WhatsApp.",
       },
     ],
   },
 
+
   consent: {
-    before: "Al escribirme aceptas el tratamiento de tus datos según el ",
+    before: "Al escribirnos aceptas el tratamiento de tus datos según el ",
     link: "aviso de privacidad",
     after: ".",
   },
 
   finalCta: {
-    title: "Cuéntame qué se repite",
-    highlight: "todos los días en tu empresa.",
-    text: "En 30 minutos vemos qué puede dejar de hacerse a mano. Sin costo y sin compromiso.",
+    kicker: "Te escuchamos",
+    title: "Queremos saber",
+    highlight: "qué te gustaría dejar de hacer a mano.",
+    text: "Elige lo que más te pesa y nos llega por WhatsApp. Te respondemos con calma y sin compromiso.",
+    options: ["Responder los mismos mensajes", "Hacer cotizaciones", "Llevar pedidos e inventario", "Perseguir pagos", "Agendar citas", "Conseguir clientes con mi página"],
+    hint: "Puedes elegir varias, o escribirnos lo que sea.",
+    button: "Contárselo a clew",
+    message: "Hola, vi la página de clew. Me gustaría dejar de hacer a mano: ",
+    empty: "Hola, vi la página de clew y quiero contarles algo de mi negocio.",
   },
+
 
   footer: {
     rights: "Todos los derechos reservados.",
@@ -555,7 +564,7 @@ export const es = {
       { label: "Calculadora", href: "/calculadora" },
     ],
     contactTitle: "Contacto",
-    contactCta: "Escríbeme por WhatsApp",
+    contactCta: "Escríbenos por WhatsApp",
     languageTitle: "Idioma",
     privacy: "Aviso de privacidad",
     aiNote: "La foto principal es una imagen ilustrativa creada con IA.",
