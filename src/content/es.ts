@@ -134,22 +134,26 @@ export const es = {
     title: "Lo que hacemos",
     highlight: "por tu negocio.",
     subtitle: "Empezamos por lo que más te urge.",
+    more: "Ver más",
     cta: "Preguntar por WhatsApp",
     items: [
       {
         icon: icon("systems"),
         title: "Sistemas a medida",
         text: "Pedidos, inventario, cotizaciones y reportes, hechos a cómo ya trabajas.",
+        href: "/sistemas-a-medida",
       },
       {
         icon: icon("web"),
         title: "Páginas web a medida",
         text: "Con tu marca, en tu propio dominio y sin mensualidad.",
+        href: "/paginas-web",
       },
       {
         icon: icon("maps"),
         title: "Tu negocio en Google",
         text: "Tu perfil listo para que te encuentren en Google Maps, con fotos, horarios y reseñas.",
+        href: "/perfil-de-google",
       },
     ],
   },

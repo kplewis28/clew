@@ -1,12 +1,11 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Content } from "@/content";
-import { whatsappUrl } from "@/content/config";
 import { icons } from "./icons";
 import { Reveal } from "./Reveal";
 import { Section, SectionHeading } from "./Section";
 
-// Los cuatro servicios. El primero (sistemas a medida) es el principal y va en
-// lima; cada tarjeta abre WhatsApp preguntando por ese servicio.
+// Los tres servicios. El primero (sistemas a medida) va en lima; cada tarjeta
+// lleva a la página de ese servicio, que tiene su propio botón de WhatsApp.
 export function Services({ t }: { t: Content }) {
   return (
     <Section id="servicios" tone="deep">
@@ -45,18 +44,16 @@ export function Services({ t }: { t: Content }) {
                   {item.text}
                 </p>
                 <a
-                  href={whatsappUrl(t.business.interestMessage + item.title)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${t.ui.askAria}: ${item.title}`}
+                  href={item.href}
+                  aria-label={`${t.services.more}: ${item.title}`}
                   className={`mt-auto inline-flex min-h-11 items-center gap-2 self-start rounded-full px-5 text-sm font-medium transition-colors duration-200 ${
                     featured
                       ? "bg-deep text-lime hover:bg-slate"
                       : "border border-white/20 text-white hover:border-lime hover:bg-lime hover:text-ink"
                   }`}
                 >
-                  {t.services.cta}
-                  <ArrowUpRight aria-hidden strokeWidth={1.75} className="size-4" />
+                  {t.services.more}
+                  <ArrowRight aria-hidden strokeWidth={1.75} className="size-4" />
                 </a>
               </Reveal>
             </li>

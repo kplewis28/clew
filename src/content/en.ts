@@ -131,22 +131,26 @@ export const en: Content = {
     title: "What we do",
     highlight: "for your business.",
     subtitle: "We start with what you need most.",
+    more: "Learn more",
     cta: "Ask on WhatsApp",
     items: [
       {
         icon: "systems",
         title: "Custom systems",
         text: "Orders, inventory, quotes and reports, built around how you already work.",
+        href: "/en/custom-systems",
       },
       {
         icon: "web",
         title: "Custom websites",
         text: "With your brand, on your own domain and with no monthly fee.",
+        href: "/en/websites",
       },
       {
         icon: "maps",
         title: "Your business on Google",
         text: "Your profile ready so people find you on Google Maps, with photos, hours and reviews.",
+        href: "/en/google-business-profile",
       },
     ],
   },

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { calculatorPath, localePath, privacyPath, siteUrl } from "@/content/config";
+import { servicePath, services } from "@/content/services";
 
 const url = (path: string) => new URL(path, siteUrl).toString();
 
@@ -14,6 +15,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       alternates: { languages },
     },
+    ...(["es", "en"] as const).flatMap((lang) =>
+      services[lang].map((s, i) => ({
+        url: url(servicePath(lang, s.slug)),
+        changeFrequency: "monthly" as const,
+        priority: 0.9,
+        alternates: {
+          languages: {
+            "es-CO": url(servicePath("es", services.es[i].slug)),
+            en: url(servicePath("en", services.en[i].slug)),
+          },
+        },
+      })),
+    ),
     ...(["es", "en"] as const).map((lang) => ({
       url: url(calculatorPath[lang]),
       changeFrequency: "monthly" as const,

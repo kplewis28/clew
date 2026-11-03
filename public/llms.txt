@@ -1,0 +1,37 @@
+# clew
+
+> clew es un estudio de diseño y tecnología para negocios pequeños. Diseña y construye, con IA, páginas web propias sin mensualidad, sistemas a medida (pedidos, inventario, cotizaciones, facturas y reportes) y perfiles de Google para que los negocios aparezcan en Google Maps. Atiende en español e inglés a negocios en Latinoamérica, Estados Unidos y Europa. Los proyectos se cotizan según lo que necesite cada negocio, desde USD 500.
+
+clew (/klu/) significa "el hilo que te guía para salir de un laberinto": ayuda a negocios enredados entre WhatsApp, Excel y papeles a dejar de hacerlo todo a mano. Detrás de clew está Cindy Lewis, diseñadora de producto con más de 5 años diseñando productos digitales, incluidas plataformas de inteligencia artificial. Ella diseña y construye cada proyecto y es el contacto directo de cada cliente.
+
+Cómo trabaja: primero escucha cómo trabaja el negocio hoy, luego muestra un bosquejo sin costo, construye con avances semanales y entrega la herramienta lista para usar, con acompañamiento por WhatsApp.
+
+## Servicios
+
+- [Páginas web a medida, sin mensualidad](https://www.heyclew.com/paginas-web): diseño con la marca del cliente, en su propio dominio, sin pagar plataformas como Wix o Squarespace cada mes. Desde USD 500 en un solo pago.
+- [Sistemas a medida](https://www.heyclew.com/sistemas-a-medida): una app para pedidos, inventario, cotizaciones, facturas y reportes, diseñada alrededor de cómo ya trabaja el equipo, en computador y celular. Desde USD 500.
+- [Perfil de Google para negocios](https://www.heyclew.com/perfil-de-google): creación y optimización del perfil de Google para aparecer en Google Maps, con fotos, horarios, servicios y reseñas. Se cotiza aparte.
+
+## Casos reales
+
+- Frau DJ (Suiza): nueva página con reservas en 5 pasos y un panel para aceptar o rechazar cada solicitud con un toque. https://fraudj.ch
+- Taller de engaste en Suiza: rediseño de su página para aparecer en Google y recibir cotizaciones con fotos o archivos CAD.
+- Taller de joyería en Suiza: app de órdenes que reúne pedidos, seguimiento y facturas, con el IVA suizo calculado automáticamente.
+
+## Herramientas gratis
+
+- [Calculadora: ¿cuánto te cuesta tu página al año?](https://www.heyclew.com/calculadora): calcula cuánto has pagado por Wix, Squarespace o GoDaddy y cuánto ahorrarías con una página propia.
+
+## Contacto
+
+- Web: https://www.heyclew.com (inglés: https://www.heyclew.com/en)
+- WhatsApp: +57 300 843 8670
+- Instagram, TikTok y Threads: @clew.pymes
+
+## English
+
+clew is a design and technology studio for small businesses. It designs and builds, with AI, websites businesses own with no monthly fee, custom systems (orders, inventory, quotes, invoices, reports) and Google Business Profiles. Founded by Cindy Lewis, a product designer with 5+ years designing digital products. Serves clients in English and Spanish across Latin America, the United States and Europe. Projects are quoted based on each business's needs, starting at USD 500.
+
+- [Custom websites](https://www.heyclew.com/en/websites)
+- [Custom systems](https://www.heyclew.com/en/custom-systems)
+- [Google Business Profile](https://www.heyclew.com/en/google-business-profile)
