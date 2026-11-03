@@ -469,19 +469,25 @@ export const en: Content = {
     ],
   },
 
-  about: {
-    name: "clew",
-    kicker: "Why clew",
-    photo: null as string | null,
-    photoAlt: "",
-    photoPlaceholder: "",
+about: {
+    kicker: "Who's behind it",
+    name: "Cindy Lewis,",
+    role: "product designer.",
+    badge: "Founder of clew",
+    photo: "/cindy-lewis.jpg",
+    photoAlt: "Cindy Lewis, founder of clew, wearing her green glasses, peeking over her laptop",
     lines: [
-      "We're called clew for a reason: a clew is the thread that guides you out of a labyrinth.",
-      "That's what we want to be for your business. Many small businesses are tangled up in messages, paperwork and tasks that never end. We find the thread and turn it into tools that work for you.",
-      "We're a design and technology studio. Every project is designed to fit, with a product design eye, and built with AI so it arrives faster and at a fair price.",
-      "And we always start the same way: by listening. Before proposing anything, we want to understand how you work today, what's holding you back and what you'd like to get back.",
+      "She has spent more than 5 years designing digital products, including artificial intelligence platforms. She founded clew to bring that same level of design to small businesses.",
+      "She designs and builds every project, and she's who you talk to from the very first message.",
     ],
+    stats: [
+      { value: "5+", label: "years designing digital products" },
+      { value: "1:1", label: "you talk directly to the person designing your project" },
+      { value: "3", label: "real cases in Switzerland" },
+    ],
+    quote: "“First I understand how you work. Then I design.”",
   },
+
 
 
   faq: {

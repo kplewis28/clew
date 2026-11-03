@@ -559,3 +559,19 @@ details[open] .faq-icon {
     transform: scaleX(1) rotate(-3deg);
   }
 }
+
+/* Hilo de la sección "Quién está detrás": se dibuja al aparecer */
+.thread-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.6, 0, 0.2, 1) 0.35s;
+}
+[data-visible="true"] .thread-draw {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .thread-draw {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}
