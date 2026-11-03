@@ -377,7 +377,12 @@ export const es = {
         highlight: "dejó de perseguir sus órdenes.",
         text: "Una app para todos sus pedidos, desde que entran hasta que se entregan.",
         compare: null,
-        video: null,
+        video: {
+          src: "/casos/app/experiencia.mp4",
+          poster: "/casos/app/experiencia.jpg",
+          alt: "Recorrido por la app de órdenes en computador y celular, con datos de ejemplo",
+          caption: "La app de órdenes en computador y celular, con datos de ejemplo.",
+        },
         before: [],
         after: [],
         results: [
@@ -385,7 +390,7 @@ export const es = {
           { value: "IVA automático", label: "impuesto suizo y redondeo, solos" },
           { value: "Desde el celular", label: "cada orden se actualiza en el puesto" },
         ],
-        reel: null,
+        reel: { src: "/casos/app/reel.mp4", poster: "/casos/app/reel.jpg", meta: "32 s" },
         link: null,
         note: "",
       },

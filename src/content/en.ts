@@ -372,7 +372,12 @@ export const en: Content = {
         highlight: "stopped chasing its orders.",
         text: "One app for every order, from intake to delivery.",
         compare: null,
-        video: null,
+        video: {
+          src: "/casos/app/experiencia.mp4",
+          poster: "/casos/app/experiencia.jpg",
+          alt: "Walkthrough of the order app on desktop and mobile, with sample data",
+          caption: "The order app on desktop and mobile, with sample data.",
+        },
         before: [],
         after: [],
         results: [
@@ -380,7 +385,7 @@ export const en: Content = {
           { value: "Automatic VAT", label: "Swiss tax and rounding, done for you" },
           { value: "From a phone", label: "each order is updated at the bench" },
         ],
-        reel: null,
+        reel: { src: "/casos/app/reel-en.mp4", poster: "/casos/app/reel-en.jpg", meta: "32 s" },
         link: null,
         note: "",
       },
