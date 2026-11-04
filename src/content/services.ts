@@ -138,7 +138,7 @@ export const services: Record<Locale, Service[]> = {
       slug: "sistemas-a-medida",
       seoTitle: "Sistemas a medida para pequeñas empresas: pedidos, inventario y facturas | clew",
       seoDescription:
-        "Diseñamos sistemas a la medida de tu negocio para pedidos, inventario, cotizaciones y facturas, hechos a cómo ya trabajas. Desde USD 500.",
+        "Diseñamos sistemas a la medida de tu negocio para pedidos, inventario, cotizaciones y facturas, hechos a cómo ya trabajas. Cotización sin costo.",
       eyebrow: "Sistemas a medida",
       title: "Un sistema hecho",
       highlight: "a cómo ya trabajas.",
@@ -159,8 +159,8 @@ export const services: Record<Locale, Service[]> = {
         { title: "Diseñado contigo", text: "Partimos de cómo trabajas hoy y lo ajustamos juntos cada semana." },
       ],
       price:
-        "Cada sistema se cotiza según lo que necesites, desde USD 500. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
-      minPrice: 500,
+        "Cada sistema se cotiza según lo que necesites. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
+      minPrice: null,
       caseRef: {
         title: "Un taller de joyería en Suiza que dejó de perseguir sus órdenes.",
         text: "Una app para todos sus pedidos, desde que entran hasta que se entregan, con la factura y el impuesto suizo calculados solos.",
@@ -296,7 +296,7 @@ export const services: Record<Locale, Service[]> = {
       slug: "custom-systems",
       seoTitle: "Custom systems for small businesses: orders, inventory and invoices | clew",
       seoDescription:
-        "We design systems made for your business to handle orders, inventory, quotes and invoices, built around how you already work. From USD 500.",
+        "We design systems made for your business to handle orders, inventory, quotes and invoices, built around how you already work. Free quote.",
       eyebrow: "Custom systems",
       title: "A system built",
       highlight: "around how you already work.",
@@ -317,8 +317,8 @@ export const services: Record<Locale, Service[]> = {
         { title: "Designed with you", text: "We start from how you work today and adjust it together every week." },
       ],
       price:
-        "Every system is quoted based on what you need, starting at USD 500. The first conversation is free and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
-      minPrice: 500,
+        "Every system is quoted based on what you need. The first conversation is free and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
+      minPrice: null,
       caseRef: {
         title: "A jewelry workshop in Switzerland that stopped chasing its orders.",
         text: "One app for every order, from intake to delivery, with the invoice and Swiss VAT calculated automatically.",

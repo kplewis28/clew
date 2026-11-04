@@ -402,7 +402,7 @@ export const en: Content = {
     highlight: "you already know what you'll get.",
     items: [
       { icon: "sketch", title: "You see a sketch first", text: "Free, with no commitment." },
-      { icon: "price", title: "One payment, no monthly fee", text: "From USD 500, based on what you need." },
+      { icon: "price", title: "One payment, no monthly fee", text: "Websites from USD 500. Every project is quoted based on what you need." },
       { icon: "domain", title: "On your own domain", text: "Under your business name." },
       { icon: "direct", title: "Direct contact", text: "You talk to the people designing your project." },
       { icon: "languages", title: "In English and Spanish", text: "For all your customers." },
@@ -515,7 +515,7 @@ about: {
       {
         question: "How much does it cost?",
         answer:
-          "Every project is quoted based on what you need, starting at USD 500. The first conversation is free and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
+          "Websites start at USD 500 and systems are quoted based on what you need. The first conversation is free and you leave with a clear proposal: what gets built, what it costs and how long it takes.",
       },
       {
         question: "What if something breaks?",

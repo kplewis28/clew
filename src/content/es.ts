@@ -406,7 +406,7 @@ export const es = {
     highlight: "ya sabes qué vas a recibir.",
     items: [
       { icon: "sketch", title: "Ves un bosquejo primero", text: "Sin costo y sin compromiso." },
-      { icon: "price", title: "Pago único, sin mensualidad", text: "Desde USD 500, según lo que necesites." },
+      { icon: "price", title: "Pago único, sin mensualidad", text: "Páginas desde USD 500. Cada proyecto se cotiza según lo que necesites." },
       { icon: "domain", title: "En tu propio dominio", text: "Con el nombre de tu negocio." },
       { icon: "direct", title: "Trato directo", text: "Hablas con quien diseña tu proyecto." },
       { icon: "languages", title: "En español e inglés", text: "Para todos tus clientes." },
@@ -523,7 +523,7 @@ about: {
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Cada proyecto se cotiza según lo que necesites, desde USD 500. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
+          "Las páginas web empiezan desde USD 500 y los sistemas se cotizan según lo que necesites. La primera conversación no tiene costo y sales con una propuesta clara: qué se construye, cuánto cuesta y cuánto demora.",
       },
       {
         question: "¿Qué pasa si algo falla?",
