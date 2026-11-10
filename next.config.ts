@@ -43,6 +43,7 @@ const nextConfig: NextConfig = {
       { source: "/es", destination: "/", permanent: true },
       { source: "/es/privacidad", destination: "/privacidad", permanent: true },
       { source: "/es/calculadora", destination: "/calculadora", permanent: true },
+      { source: "/es/revisar", destination: "/revisar", permanent: true },
       { source: "/es/:service(paginas-web|sistemas-a-medida|perfil-de-google)", destination: "/:service", permanent: true },
     ];
   },
@@ -51,6 +52,7 @@ const nextConfig: NextConfig = {
       { source: "/", destination: "/es" },
       { source: "/privacidad", destination: "/es/privacidad" },
       { source: "/calculadora", destination: "/es/calculadora" },
+      { source: "/revisar", destination: "/es/revisar" },
       { source: "/:service(paginas-web|sistemas-a-medida|perfil-de-google)", destination: "/es/:service" },
     ];
   },
