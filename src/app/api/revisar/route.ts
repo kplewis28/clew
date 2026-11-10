@@ -85,10 +85,16 @@ function analyze(html: string, finalUrl: URL, ms: number): Omit<CheckResult, "ur
   const viewport = !!meta("viewport");
   const ogImage = !!meta("og:image") && attr(meta("og:image")!, "content").length > 0;
   const h1 = /<h1\b/i.test(html);
-  const contact = /href\s*=\s*["'](?:https?:\/\/)?(?:wa\.me|api\.whatsapp\.com|(?:www\.)?whatsapp\.com)|href\s*=\s*["']tel:/i.test(html);
+  // Cualquier forma clara de contactar o empezar: WhatsApp, llamada, correo, formulario,
+  // página de contacto, agenda o registro / descarga (para apps y productos digitales).
+  const contact =
+    /href\s*=\s*["'](?:https?:\/\/)?(?:wa\.me|api\.whatsapp\.com|(?:www\.)?whatsapp\.com)|href\s*=\s*["'](?:tel|mailto|sms):/i.test(html) ||
+    /<form\b/i.test(html) ||
+    /href\s*=\s*["'][^"']*(?:contact|contacto|kontakt|calendly\.com|cal\.com|booking|reserv|agenda|cotiza|quote|apps\.apple\.com|play\.google\.com|signup|sign-up|register|registro)/i.test(html) ||
+    />\s*(?:sign up|get started|start free|try (?:it )?free|book now|reserva|agenda|cotiza|empieza|reg[ií]strate|crea tu cuenta|pru[eé]balo gratis)/i.test(html);
   const imgs = html.match(/<img\b[^>]*>/gi) ?? [];
   const noAlt = imgs.filter((i) => !/\balt\s*=\s*["'][^"']+["']/i.test(i)).length;
-  const schema = /application\/ld\+json[\s\S]{0,4000}?(LocalBusiness|Organization|Store|Restaurant|ProfessionalService|HomeAndConstructionBusiness|Plumber|Electrician|RoofingContractor|BeautySalon|Dentist)/i.test(html);
+  const schema = /application\/ld\+json[\s\S]{0,4000}?(LocalBusiness|Organization|Corporation|SoftwareApplication|MobileApplication|WebApplication|Product|Store|Restaurant|ProfessionalService|HomeAndConstructionBusiness|Plumber|Electrician|RoofingContractor|BeautySalon|Dentist)/i.test(html);
 
   const checks: Check[] = [
     { id: "https", ok: finalUrl.protocol === "https:", weight: 15 },
