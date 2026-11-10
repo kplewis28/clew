@@ -1,7 +1,15 @@
 // Herramienta gratis "Revisa tu página": textos en español e inglés.
+// Escrito para dueños de negocio, sin palabras técnicas.
 import type { Locale } from "./config";
 
-type CheckCopy = { label: string; ok: string; bad: string; why: string };
+type CheckCopy = {
+  label: string; // título corto en lenguaje del día a día
+  short: string; // para el mensaje de WhatsApp
+  ok: string;
+  bad: string | ((n: number) => string);
+  why: string;
+  fix: string;
+};
 
 export type RevisionText = {
   seoTitle: string;
@@ -18,9 +26,11 @@ export type RevisionText = {
   errorUnreachable: string;
   scoreLabel: string;
   verdict: (score: number) => string;
-  topTitle: string;
+  foundTitle: (n: number) => string;
+  whyLabel: string;
+  fixLabel: string;
   allGood: string;
-  allTitle: string;
+  passTitle: (n: number) => string;
   speedValue: (ms: number) => string;
   platformLine: (p: string) => string;
   platformCta: string;
@@ -39,13 +49,13 @@ export const revision: Record<Locale, RevisionText> = {
   es: {
     seoTitle: "Revisa tu página web gratis en 30 segundos | clew",
     seoDescription:
-      "Escribe la dirección de tu página y mira qué le está costando clientes a tu negocio: seguridad, velocidad, celular, Google y contacto. Gratis y sin registrarte.",
+      "Escribe la dirección de tu página y mira qué le está costando clientes a tu negocio y cómo se arregla. Gratis y sin registrarte.",
     back: "Volver al inicio",
     eyebrow: "Revisión gratis",
     title: "¿Tu página te trae clientes o te los",
     highlight: "espanta?",
     intro:
-      "Escribe la dirección de tu página y en segundos te mostramos qué está fallando y cómo afecta a tu negocio. Sin registro y sin letra pequeña.",
+      "Escribe la dirección de tu página y en segundos te mostramos qué está fallando, por qué te cuesta clientes y cómo se arregla. Sin registro y sin letra pequeña.",
     placeholder: "tunegocio.com",
     button: "Revisar mi página",
     loading: "Revisando tu página…",
@@ -58,10 +68,12 @@ export const revision: Record<Locale, RevisionText> = {
         : s >= 60
           ? "Tu página funciona, pero está dejando pasar clientes en puntos clave."
           : "Tu página le está costando clientes a tu negocio. La buena noticia: todo esto tiene arreglo.",
-    topTitle: "Lo que más te está costando clientes",
-    allGood: "No encontramos problemas grandes. Si quieres llevarla al siguiente nivel, conversemos.",
-    allTitle: "Revisión completa",
-    speedValue: (ms) => `Respondió en ${(ms / 1000).toFixed(1)} segundos`,
+    foundTitle: (n) => (n === 1 ? "Encontramos 1 cosa por mejorar" : `Encontramos ${n} cosas por mejorar`),
+    whyLabel: "Por qué importa",
+    fixLabel: "Cómo se arregla",
+    allGood: "No encontramos problemas. Tu página cumple con lo básico que un cliente nota.",
+    passTitle: (n) => `Lo que ya está bien (${n})`,
+    speedValue: (ms) => `Abrió en ${(ms / 1000).toFixed(1)} segundos.`,
     platformLine: (p) => `Tu página está hecha en ${p}. Si pagas un plan mensual, mira cuánto se va en un año.`,
     platformCta: "Calcular lo que pago al año",
     ctaTitle: "¿Quieres que lo arreglemos?",
@@ -72,79 +84,100 @@ export const revision: Record<Locale, RevisionText> = {
       `Hola, revisé mi página ${url} en clew y salió ${score}/100${issues ? ` (${issues})` : ""}. Me gustaría ver cómo se podría mejorar.`,
     again: "Revisar otra página",
     note:
-      "Esta revisión mira lo básico que cualquier cliente nota: si la página es segura, si carga rápido, si se ve bien en el celular, si Google la entiende y si es fácil contactarte. No guardamos la dirección que escribes.",
+      "Esta revisión mira lo básico que cualquier cliente nota al entrar a tu página. No guardamos la dirección que escribes.",
     checks: {
       https: {
-        label: "Página segura (https)",
-        ok: "Tu página abre con conexión segura.",
-        bad: "Tu página no tiene conexión segura.",
-        why: "El navegador muestra \"No seguro\" y mucha gente se va antes de leer nada.",
+        label: "Página segura",
+        short: "página no segura",
+        ok: "El navegador la muestra como segura.",
+        bad: "El navegador marca tu página como \"No segura\".",
+        why: "Mucha gente se va apenas ve esa advertencia, sin leer nada.",
+        fix: "Se activa un certificado de seguridad. Suele ser gratis y toma minutos.",
       },
       speed: {
         label: "Velocidad",
-        ok: "Tu página responde rápido.",
-        bad: "Tu página tarda en responder.",
-        why: "Si una página tarda más de 3 segundos, más de la mitad de la gente en el celular se va.",
+        short: "velocidad",
+        ok: "Abre rápido.",
+        bad: "Tu página tarda en abrir.",
+        why: "Si tarda más de 3 segundos, más de la mitad de la gente en el celular se va.",
+        fix: "Se aligeran las fotos y el código para que abra en menos de 2 segundos.",
       },
       mobile: {
         label: "Se ve bien en el celular",
-        ok: "Tu página está preparada para celulares.",
-        bad: "Tu página no está preparada para celulares.",
+        short: "celular",
+        ok: "Se adapta bien a la pantalla del celular.",
+        bad: "Tu página no se adapta al celular.",
         why: "La mayoría de tus clientes te busca desde el celular. Si tienen que hacer zoom, se van con la competencia.",
+        fix: "Se ajusta el diseño para que se lea y se use bien en pantallas pequeñas.",
       },
       title: {
-        label: "Título en Google",
-        ok: "Tu página tiene un buen título para Google.",
-        bad: "Tu página no tiene un título claro para Google.",
-        why: "Es lo primero que la gente lee en los resultados de búsqueda. Sin un buen título, no te eligen.",
+        label: "Cómo apareces en Google",
+        short: "título en Google",
+        ok: "Google muestra un título claro de tu página.",
+        bad: "Google no muestra un título claro de tu página.",
+        why: "Es lo primero que la gente lee al buscarte. Si no dice qué haces, eligen a otro.",
+        fix: "Se escribe un título con tu nombre, lo que haces y tu ciudad.",
       },
       description: {
-        label: "Descripción en Google",
-        ok: "Tu página tiene descripción para Google.",
-        bad: "Tu página no tiene descripción para Google.",
-        why: "Google inventa un texto al azar debajo de tu nombre, y casi nunca vende lo que haces.",
+        label: "El texto debajo de tu nombre en Google",
+        short: "texto en Google",
+        ok: "Google tiene un texto que describe tu negocio.",
+        bad: "Google no tiene un texto que describa tu negocio.",
+        why: "Google pone un texto al azar debajo de tu nombre, y casi nunca convence a nadie de entrar.",
+        fix: "Se escribe un resumen corto de lo que haces, que invite a entrar.",
       },
       h1: {
-        label: "Título principal",
-        ok: "Tu página tiene un título principal claro.",
-        bad: "Tu página no tiene un título principal.",
-        why: "Ni Google ni tus clientes entienden en un segundo qué ofreces.",
+        label: "Lo primero que se lee",
+        short: "mensaje principal",
+        ok: "Al entrar queda claro qué ofreces.",
+        bad: "Al entrar no queda claro qué ofreces.",
+        why: "La gente decide en segundos si se queda. Si no entiende qué haces, se va.",
+        fix: "Se pone arriba una frase grande y clara con lo que ofreces.",
       },
       contact: {
-        label: "Forma clara de contactarte",
+        label: "Es fácil contactarte",
+        short: "contacto",
         ok: "Hay una forma clara de contactarte o de empezar.",
-        bad: "No hay una forma fácil de contactarte: WhatsApp, llamada, formulario o correo.",
+        bad: "No hay una forma fácil de contactarte.",
         why: "Si contactarte cuesta trabajo, el cliente le escribe al siguiente negocio de la lista.",
+        fix: "Se agrega un botón de WhatsApp, llamada o formulario siempre a la vista.",
       },
       alt: {
-        label: "Fotos que Google entiende",
-        ok: "Tus fotos tienen descripción.",
-        bad: "Varias fotos no tienen descripción.",
-        why: "Google no puede ver tus fotos, y pierdes visitas desde la búsqueda de imágenes.",
+        label: "Tus fotos en Google",
+        short: "fotos",
+        ok: "Google entiende tus fotos.",
+        bad: (n) => (n === 1 ? "Una de tus fotos no tiene descripción." : `${n} de tus fotos no tienen descripción.`),
+        why: "Google no puede ver las fotos, y pierdes visitas desde la búsqueda de imágenes.",
+        fix: "Se le agrega a cada foto una descripción corta de lo que muestra.",
       },
       schema: {
-        label: "Datos de tu negocio para Google",
-        ok: "Google tiene los datos de tu negocio o producto.",
-        bad: "Google no tiene los datos de tu negocio o producto.",
-        why: "Sin estos datos (qué ofreces, dónde estás, cómo contactarte) es más difícil aparecer en Google y en las respuestas de la IA.",
+        label: "Google conoce tu negocio",
+        short: "datos para Google",
+        ok: "Google tiene los datos básicos de tu negocio o producto.",
+        bad: "Google no tiene los datos básicos de tu negocio o producto.",
+        why: "Sin ellos es más difícil aparecer en Google y en las respuestas de herramientas como ChatGPT.",
+        fix: "Se agregan a la página qué ofreces, dónde estás y cómo contactarte, en el formato que Google lee.",
       },
       share: {
-        label: "Vista al compartir",
-        ok: "Al compartir tu página se ve una imagen.",
-        bad: "Al compartir tu página por WhatsApp o redes no aparece ninguna imagen.",
-        why: "Un link sin imagen se ve poco confiable y casi nadie lo abre.",
+        label: "Se ve bien al compartirla",
+        short: "imagen al compartir",
+        ok: "Al compartir el link aparece una imagen.",
+        bad: "Si compartes tu página por WhatsApp o redes, sale sin imagen.",
+        why: "Un link sin foto se ve poco confiable y casi nadie lo abre.",
+        fix: "Se agrega una imagen de portada para cuando alguien comparta el link.",
       },
     },
   },
   en: {
     seoTitle: "Check your website for free in 30 seconds | clew",
     seoDescription:
-      "Type your website address and see what is costing your business customers: security, speed, mobile, Google and contact. Free, no sign-up.",
+      "Type your website address and see what is costing your business customers and how to fix it. Free, no sign-up.",
     back: "Back to home",
     eyebrow: "Free check",
     title: "Is your website bringing customers or",
     highlight: "scaring them off?",
-    intro: "Type your website address and in seconds we show you what is failing and how it affects your business. No sign-up, no fine print.",
+    intro:
+      "Type your website address and in seconds we show you what is failing, why it costs you customers and how to fix it. No sign-up, no fine print.",
     placeholder: "yourbusiness.com",
     button: "Check my website",
     loading: "Checking your website…",
@@ -157,10 +190,12 @@ export const revision: Record<Locale, RevisionText> = {
         : s >= 60
           ? "Your website works, but it is letting customers slip away at key points."
           : "Your website is costing your business customers. The good news: all of this can be fixed.",
-    topTitle: "What is costing you the most customers",
-    allGood: "We didn't find big problems. If you want to take it to the next level, let's talk.",
-    allTitle: "Full check",
-    speedValue: (ms) => `Responded in ${(ms / 1000).toFixed(1)} seconds`,
+    foundTitle: (n) => (n === 1 ? "We found 1 thing to improve" : `We found ${n} things to improve`),
+    whyLabel: "Why it matters",
+    fixLabel: "How to fix it",
+    allGood: "We didn't find any problems. Your website covers the basics any customer notices.",
+    passTitle: (n) => `What's already working (${n})`,
+    speedValue: (ms) => `Opened in ${(ms / 1000).toFixed(1)} seconds.`,
     platformLine: (p) => `Your website is built on ${p}. If you pay a monthly plan, see how much it adds up to in a year.`,
     platformCta: "Calculate what I pay per year",
     ctaTitle: "Want us to fix it?",
@@ -169,19 +204,88 @@ export const revision: Record<Locale, RevisionText> = {
     ctaMessage: (url, score, issues) =>
       `Hi, I checked my website ${url} on clew and got ${score}/100${issues ? ` (${issues})` : ""}. I'd like to see how it could be improved.`,
     again: "Check another website",
-    note:
-      "This check looks at the basics any customer notices: whether the site is secure, loads fast, looks good on a phone, is understood by Google and makes it easy to contact you. We don't store the address you type.",
+    note: "This check looks at the basics any customer notices when visiting your website. We don't store the address you type.",
     checks: {
-      https: { label: "Secure website (https)", ok: "Your website opens with a secure connection.", bad: "Your website has no secure connection.", why: "Browsers show \"Not secure\" and many people leave before reading anything." },
-      speed: { label: "Speed", ok: "Your website responds fast.", bad: "Your website is slow to respond.", why: "If a page takes more than 3 seconds, over half of mobile visitors leave." },
-      mobile: { label: "Looks good on a phone", ok: "Your website is ready for phones.", bad: "Your website isn't ready for phones.", why: "Most customers search from their phone. If they have to zoom in, they go to a competitor." },
-      title: { label: "Google title", ok: "Your website has a good title for Google.", bad: "Your website has no clear title for Google.", why: "It's the first thing people read in search results. Without a good title, they don't pick you." },
-      description: { label: "Google description", ok: "Your website has a description for Google.", bad: "Your website has no description for Google.", why: "Google makes up random text under your name, and it rarely sells what you do." },
-      h1: { label: "Main headline", ok: "Your website has a clear main headline.", bad: "Your website has no main headline.", why: "Neither Google nor customers understand what you offer at a glance." },
-      contact: { label: "Clear way to contact you", ok: "There is a clear way to contact you or get started.", bad: "There's no easy way to contact you: WhatsApp, phone, form or email.", why: "If contacting you takes effort, the customer messages the next business on the list." },
-      alt: { label: "Photos Google understands", ok: "Your photos have descriptions.", bad: "Several photos have no description.", why: "Google can't see your photos, and you lose visits from image search." },
-      schema: { label: "Business info for Google", ok: "Google has your business or product details.", bad: "Google doesn't have your business or product details.", why: "Without them (what you offer, where you are, how to reach you) it's harder to show up on Google and in AI answers." },
-      share: { label: "Preview when shared", ok: "Your website shows an image when shared.", bad: "When shared on WhatsApp or social media, no image shows up.", why: "A link without an image looks untrustworthy and few people open it." },
+      https: {
+        label: "Secure website",
+        short: "not secure",
+        ok: "Browsers show it as secure.",
+        bad: "Browsers mark your website as \"Not secure\".",
+        why: "Many people leave as soon as they see that warning, without reading anything.",
+        fix: "A security certificate is turned on. It's usually free and takes minutes.",
+      },
+      speed: {
+        label: "Speed",
+        short: "speed",
+        ok: "It opens fast.",
+        bad: "Your website is slow to open.",
+        why: "If it takes more than 3 seconds, over half of mobile visitors leave.",
+        fix: "Photos and code are lightened so it opens in under 2 seconds.",
+      },
+      mobile: {
+        label: "Looks good on a phone",
+        short: "phone",
+        ok: "It fits phone screens well.",
+        bad: "Your website doesn't fit phone screens.",
+        why: "Most customers search from their phone. If they have to zoom in, they go to a competitor.",
+        fix: "The design is adjusted so it reads and works well on small screens.",
+      },
+      title: {
+        label: "How you show up on Google",
+        short: "Google title",
+        ok: "Google shows a clear title for your website.",
+        bad: "Google doesn't show a clear title for your website.",
+        why: "It's the first thing people read when they search for you. If it doesn't say what you do, they pick someone else.",
+        fix: "A title is written with your name, what you do and your city.",
+      },
+      description: {
+        label: "The text under your name on Google",
+        short: "Google text",
+        ok: "Google has a text that describes your business.",
+        bad: "Google has no text describing your business.",
+        why: "Google shows random text under your name, and it rarely convinces anyone to click.",
+        fix: "A short summary of what you do is written to invite people in.",
+      },
+      h1: {
+        label: "The first thing people read",
+        short: "main message",
+        ok: "It's clear what you offer as soon as people arrive.",
+        bad: "It isn't clear what you offer when people arrive.",
+        why: "People decide in seconds whether to stay. If they don't get what you do, they leave.",
+        fix: "A big, clear sentence with what you offer goes at the top.",
+      },
+      contact: {
+        label: "Easy to contact you",
+        short: "contact",
+        ok: "There is a clear way to contact you or get started.",
+        bad: "There's no easy way to contact you.",
+        why: "If contacting you takes effort, the customer messages the next business on the list.",
+        fix: "A WhatsApp, call or form button is added and kept always in view.",
+      },
+      alt: {
+        label: "Your photos on Google",
+        short: "photos",
+        ok: "Google understands your photos.",
+        bad: (n) => (n === 1 ? "One of your photos has no description." : `${n} of your photos have no description.`),
+        why: "Google can't see photos, and you lose visits from image search.",
+        fix: "Each photo gets a short description of what it shows.",
+      },
+      schema: {
+        label: "Google knows your business",
+        short: "Google business info",
+        ok: "Google has the basic details of your business or product.",
+        bad: "Google doesn't have the basic details of your business or product.",
+        why: "Without them it's harder to show up on Google and in answers from tools like ChatGPT.",
+        fix: "What you offer, where you are and how to reach you are added in the format Google reads.",
+      },
+      share: {
+        label: "Looks good when shared",
+        short: "share image",
+        ok: "An image shows up when the link is shared.",
+        bad: "When shared on WhatsApp or social media, your website shows no image.",
+        why: "A link without a picture looks untrustworthy and few people open it.",
+        fix: "A cover image is added for whenever someone shares the link.",
+      },
     },
   },
 };
