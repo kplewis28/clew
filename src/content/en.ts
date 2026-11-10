@@ -93,6 +93,8 @@ export const en: Content = {
     casesLink: "See real cases",
     cta: "Tell us what slows you down",
     ctaMessage: "Hi, I saw the clew website. What takes up most of my time in my business is: ",
+    checkLink: "Already have a website? Check it for free",
+    checkHref: "/en/revisar",
     trustLine: "The first conversation is free · Real cases in Switzerland",
     photoAlt: "Illustrative AI-generated image: a consultant talks with a business owner at a work table",
     chips: [

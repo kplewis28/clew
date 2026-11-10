@@ -96,6 +96,8 @@ export const es = {
     casesLink: "Ver casos reales",
     cta: "Cuéntanos qué te quita tiempo",
     ctaMessage: "Hola, vi la página de clew. Lo que más tiempo me quita en mi negocio es: ",
+    checkLink: "¿Ya tienes página? Revísala gratis",
+    checkHref: "/revisar",
     trustLine: "La primera conversación no tiene costo · Casos reales en Suiza",
     photoAlt: "Imagen ilustrativa creada con IA: una consultora conversa con el dueño de un negocio en una mesa de trabajo",
     chips: [

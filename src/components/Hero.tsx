@@ -87,6 +87,13 @@ export function Hero({ t }: { t: Content }) {
             <span data-thread-target className="inline-flex w-full sm:w-auto">
               <WhatsAppButton t={t} label={t.hero.cta} message={t.hero.ctaMessage} className="w-full sm:w-auto" />
             </span>
+            <a
+              href={t.hero.checkHref}
+              className="mt-4 flex min-h-11 w-fit items-center gap-1.5 text-sm font-medium text-white/80 underline decoration-lime decoration-2 underline-offset-4 transition-colors hover:text-lime"
+            >
+              {t.hero.checkLink}
+              <span aria-hidden>→</span>
+            </a>
           </div>
         </div>
 
