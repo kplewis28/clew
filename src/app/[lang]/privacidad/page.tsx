@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Logo } from "@/components/Logo";
-import { brand, isLocale, localePath, privacyPath } from "@/content/config";
+import { SubpageHeader } from "@/components/SubpageHeader";
+import { isLocale, localePath, privacyPath } from "@/content/config";
 import { privacy } from "@/content/privacy";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/privacidad">): Promise<Metadata> {
@@ -25,19 +25,7 @@ export default async function PrivacyPage({ params }: PageProps<"/[lang]/privaci
 
   return (
     <>
-      <header className="bg-deep text-white">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-5 md:px-8">
-          <a href={localePath[lang]} aria-label={`${brand.name}, ${p.back}`} className="text-lime">
-            <Logo className="h-5 w-auto md:h-6" />
-          </a>
-          <a
-            href={localePath[lang]}
-            className="inline-flex min-h-11 items-center text-sm font-medium text-white/80 transition-colors hover:text-lime"
-          >
-            ← {p.back}
-          </a>
-        </div>
-      </header>
+      <SubpageHeader homeHref={localePath[lang]} homeAria={p.back} backHref={localePath[lang]} backLabel={p.back} width="3xl" />
       <main className="mx-auto w-full max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <h1 className="text-4xl leading-tight font-medium tracking-[-0.03em] md:text-5xl">{p.title}</h1>
         <p className="mt-3 text-sm text-ink/65">{p.updated}</p>

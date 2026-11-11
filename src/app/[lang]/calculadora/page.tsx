@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CostCalculator } from "@/components/CostCalculator";
-import { Logo } from "@/components/Logo";
+import { SubpageHeader } from "@/components/SubpageHeader";
 import { Highlight } from "@/components/Section";
 import { calculator } from "@/content/calculator";
-import { brand, calculatorPath, isLocale, localePath } from "@/content/config";
+import { calculatorPath, isLocale, localePath } from "@/content/config";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/calculadora">): Promise<Metadata> {
   const { lang } = await params;
@@ -28,19 +28,7 @@ export default async function CalculatorPage({ params }: PageProps<"/[lang]/calc
 
   return (
     <>
-      <header className="bg-deep text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 md:px-8">
-          <a href={localePath[lang]} aria-label={`${brand.name}, ${t.back}`} className="text-lime">
-            <Logo className="h-5 w-auto md:h-6" />
-          </a>
-          <a
-            href={localePath[lang]}
-            className="inline-flex min-h-11 items-center text-sm font-medium text-white/80 transition-colors hover:text-lime"
-          >
-            ← {t.back}
-          </a>
-        </div>
-      </header>
+      <SubpageHeader homeHref={localePath[lang]} homeAria={t.back} backHref={localePath[lang]} backLabel={t.back} />
       <main className="mx-auto w-full max-w-6xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-sm font-medium tracking-[0.2em] text-slate uppercase">{t.eyebrow}</p>
         <h1 className="mt-4 max-w-3xl text-[2.25rem] leading-[1.1] font-medium tracking-tight text-balance md:text-6xl">

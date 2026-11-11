@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, Plus } from "lucide-react";
 import { ContactBar } from "@/components/ContactBar";
-import { Logo } from "@/components/Logo";
+import { SubpageHeader } from "@/components/SubpageHeader";
 import { Highlight } from "@/components/Section";
 import { dictionaries } from "@/content";
 import { brand, calculatorPath, isLocale, localePath, locales, siteUrl, whatsappUrl, type Locale } from "@/content/config";
@@ -92,16 +92,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <header className="bg-deep text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 md:px-8">
-          <a href={home} aria-label={`${brand.name}, ${l.back}`} className="text-lime">
-            <Logo className="h-5 w-auto md:h-6" />
-          </a>
-          <a href={home} className="inline-flex min-h-11 items-center text-sm font-medium text-white/80 transition-colors hover:text-lime">
-            ← {l.back}
-          </a>
-        </div>
-      </header>
+      <SubpageHeader homeHref={home} homeAria={l.back} backHref={home} backLabel={l.back} />
 
       <main>
         <section className="bg-deep pt-10 pb-20 text-white md:pt-16 md:pb-28">
