@@ -31,6 +31,9 @@ export type RevisionText = {
   fixLabel: string;
   allGood: string;
   passTitle: (n: number) => string;
+  summary: (ok: number, total: number) => string;
+  impact: { high: string; mid: string; low: string };
+  loadingSteps: string[];
   speedValue: (ms: number) => string;
   platformLine: (p: string) => string;
   platformCta: string;
@@ -73,6 +76,17 @@ export const revision: Record<Locale, RevisionText> = {
     fixLabel: "Cómo se arregla",
     allGood: "No encontramos problemas. Tu página cumple con lo básico que un cliente nota.",
     passTitle: (n) => `Lo que ya está bien (${n})`,
+    summary: (ok, total) => `${ok} de ${total} puntos están bien`,
+    impact: { high: "Impacto alto", mid: "Impacto medio", low: "Impacto bajo" },
+    loadingSteps: [
+      "Abriendo tu página…",
+      "Revisando si es segura…",
+      "Midiendo cuánto tarda en abrir…",
+      "Mirando cómo se ve en el celular…",
+      "Leyendo cómo te muestra Google…",
+      "Buscando cómo contactarte…",
+      "Preparando tu resultado…",
+    ],
     speedValue: (ms) => `Abrió en ${(ms / 1000).toFixed(1)} segundos.`,
     platformLine: (p) => `Tu página está hecha en ${p}. Si pagas un plan mensual, mira cuánto se va en un año.`,
     platformCta: "Calcular lo que pago al año",
@@ -195,6 +209,17 @@ export const revision: Record<Locale, RevisionText> = {
     fixLabel: "How to fix it",
     allGood: "We didn't find any problems. Your website covers the basics any customer notices.",
     passTitle: (n) => `What's already working (${n})`,
+    summary: (ok, total) => `${ok} of ${total} checks are fine`,
+    impact: { high: "High impact", mid: "Medium impact", low: "Low impact" },
+    loadingSteps: [
+      "Opening your website…",
+      "Checking if it's secure…",
+      "Measuring how long it takes to open…",
+      "Looking at how it shows on a phone…",
+      "Reading how Google shows you…",
+      "Looking for ways to contact you…",
+      "Preparing your result…",
+    ],
     speedValue: (ms) => `Opened in ${(ms / 1000).toFixed(1)} seconds.`,
     platformLine: (p) => `Your website is built on ${p}. If you pay a monthly plan, see how much it adds up to in a year.`,
     platformCta: "Calculate what I pay per year",
