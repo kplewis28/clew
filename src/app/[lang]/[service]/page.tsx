@@ -7,6 +7,7 @@ import { Highlight } from "@/components/Section";
 import { dictionaries } from "@/content";
 import { brand, calculatorPath, isLocale, localePath, locales, siteUrl, whatsappUrl, type Locale } from "@/content/config";
 import { findService, serviceById, serviceLabels, servicePath, services } from "@/content/services";
+import { guidePath, guides } from "@/content/guides";
 
 type Params = { lang: string; service: string };
 
@@ -159,6 +160,11 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
                   {l.calc} <ArrowRight aria-hidden strokeWidth={1.75} className="size-4" />
                 </a>
               ) : null}
+              {guides[lang].filter((x) => x.service === s.id).map((x) => (
+                <a key={x.id} href={guidePath(lang, x.slug)} className="mt-4 flex items-center gap-2 text-white/80 underline-offset-4 hover:text-lime hover:underline">
+                  {x.title} <ArrowRight aria-hidden strokeWidth={1.75} className="size-4 shrink-0" />
+                </a>
+              ))}
             </div>
             {s.caseRef ? (
               <a href={`${home === "/" ? "" : home}/#casos`} className="group block rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition-colors hover:border-lime md:p-9">

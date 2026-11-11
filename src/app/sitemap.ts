@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { calculatorPath, localePath, privacyPath, siteUrl } from "@/content/config";
 import { servicePath, services } from "@/content/services";
+import { guidePath, guides, guidesPath } from "@/content/guides";
 
 const url = (path: string) => new URL(path, siteUrl).toString();
 
@@ -24,6 +25,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: {
             "es-CO": url(servicePath("es", services.es[i].slug)),
             en: url(servicePath("en", services.en[i].slug)),
+          },
+        },
+      })),
+    ),
+    ...(["es", "en"] as const).map((lang) => ({
+      url: url(guidesPath[lang]),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+      alternates: { languages: { "es-CO": url(guidesPath.es), en: url(guidesPath.en) } },
+    })),
+    ...(["es", "en"] as const).flatMap((lang) =>
+      guides[lang].map((g, i) => ({
+        url: url(guidePath(lang, g.slug)),
+        lastModified: new Date("2026-11-09"),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+        alternates: {
+          languages: {
+            "es-CO": url(guidePath("es", guides.es[i].slug)),
+            en: url(guidePath("en", guides.en[i].slug)),
           },
         },
       })),

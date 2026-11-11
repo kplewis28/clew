@@ -18,6 +18,12 @@ Cómo trabaja: primero escucha cómo trabaja el negocio hoy, luego muestra un bo
 - Taller de engaste en Suiza: rediseño de su página para aparecer en Google y recibir cotizaciones con fotos o archivos CAD.
 - Taller de joyería en Suiza: app de órdenes que reúne pedidos, seguimiento y facturas, con el IVA suizo calculado automáticamente.
 
+## Guías
+
+- [¿Cuánto cuesta una página web para un negocio pequeño en 2026?](https://www.heyclew.com/guias/cuanto-cuesta-una-pagina-web): Wix, Squarespace y GoDaddy cuestan entre USD 120 y 470 al año en sus planes más usados; una página propia se paga una vez desde USD 500 más el dominio.
+- [Cómo aparecer en Google Maps con tu negocio](https://www.heyclew.com/guias/como-aparecer-en-google-maps): paso a paso para crear y completar el Perfil de Empresa en Google, también sin local.
+- [¿Wix o página propia?](https://www.heyclew.com/guias/wix-o-pagina-propia): comparación de costo, control y diseño, y cómo cambiarse sin perder posicionamiento.
+
 ## Herramientas gratis
 
 - [Calculadora: ¿cuánto te cuesta tu página al año?](https://www.heyclew.com/calculadora): calcula cuánto has pagado por Wix, Squarespace o GoDaddy y cuánto ahorrarías con una página propia.
@@ -35,3 +41,6 @@ clew is a design and technology studio for small businesses. It designs and buil
 - [Custom websites](https://www.heyclew.com/en/websites)
 - [Custom systems](https://www.heyclew.com/en/custom-systems)
 - [Google Business Profile](https://www.heyclew.com/en/google-business-profile)
+- [Guide: How much does a small business website cost in 2026?](https://www.heyclew.com/en/guides/how-much-does-a-website-cost)
+- [Guide: How to get your business on Google Maps](https://www.heyclew.com/en/guides/how-to-show-up-on-google-maps)
+- [Guide: Wix or your own website?](https://www.heyclew.com/en/guides/wix-vs-your-own-website)

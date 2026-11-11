@@ -574,6 +574,7 @@ about: {
       { label: "Casos reales", href: "#casos" },
       { label: "Preguntas frecuentes", href: "#preguntas" },
       { label: "Calculadora", href: "/calculadora" },
+      { label: "Guías", href: "/guias" },
     ],
     contactTitle: "Contacto",
     contactCta: "Escríbenos por WhatsApp",

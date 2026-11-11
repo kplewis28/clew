@@ -45,6 +45,10 @@ const nextConfig: NextConfig = {
       { source: "/es/calculadora", destination: "/calculadora", permanent: true },
       { source: "/es/revisar", destination: "/revisar", permanent: true },
       { source: "/es/:service(paginas-web|sistemas-a-medida|perfil-de-google)", destination: "/:service", permanent: true },
+      { source: "/es/guias", destination: "/guias", permanent: true },
+      { source: "/es/guias/:slug", destination: "/guias/:slug", permanent: true },
+      { source: "/en/guias", destination: "/en/guides", permanent: true },
+      { source: "/en/guias/:slug", destination: "/en/guides/:slug", permanent: true },
     ];
   },
   async rewrites() {
@@ -54,6 +58,10 @@ const nextConfig: NextConfig = {
       { source: "/calculadora", destination: "/es/calculadora" },
       { source: "/revisar", destination: "/es/revisar" },
       { source: "/:service(paginas-web|sistemas-a-medida|perfil-de-google)", destination: "/es/:service" },
+      { source: "/guias", destination: "/es/guias" },
+      { source: "/guias/:slug", destination: "/es/guias/:slug" },
+      { source: "/en/guides", destination: "/en/guias" },
+      { source: "/en/guides/:slug", destination: "/en/guias/:slug" },
     ];
   },
 };

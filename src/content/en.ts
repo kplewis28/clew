@@ -566,6 +566,7 @@ about: {
       { label: "Real cases", href: "#casos" },
       { label: "FAQ", href: "#preguntas" },
       { label: "Cost calculator", href: "/en/calculadora" },
+      { label: "Guides", href: "/en/guides" },
     ],
     contactTitle: "Contact",
     contactCta: "Message us on WhatsApp",
