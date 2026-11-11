@@ -160,6 +160,28 @@ export function SiteCheck({ lang }: { lang: Locale }) {
           </div>
         </div>
 
+        {/* Alcance: qué se revisa y qué no */}
+        <div className="mt-4 grid gap-4 rounded-[2rem] bg-paper p-6 md:grid-cols-2 md:gap-8 md:p-8">
+          <div>
+            <p className="flex items-center gap-2 font-medium">
+              <span className="inline-flex size-5 items-center justify-center rounded-full bg-ink text-lime">
+                <CheckIcon aria-hidden className="size-3" strokeWidth={3} />
+              </span>
+              {t.scopeYesTitle}
+            </p>
+            <p className="mt-2 leading-relaxed text-ink/70">{t.scopeYes}</p>
+          </div>
+          <div className="md:border-l md:border-ink/10 md:pl-8">
+            <p className="flex items-center gap-2 font-medium">
+              <span aria-hidden className="inline-flex size-5 items-center justify-center rounded-full border-2 border-ink/30 text-xs leading-none text-ink/50">
+                –
+              </span>
+              {t.scopeNoTitle}
+            </p>
+            <p className="mt-2 leading-relaxed text-ink/70">{t.scopeNo}</p>
+          </div>
+        </div>
+
         {/* 2. Lo que encontramos */}
         <section className="mt-16 md:mt-20">
           <h2 className="text-3xl font-medium tracking-tight md:text-5xl">

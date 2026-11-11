@@ -43,6 +43,10 @@ export type RevisionText = {
   ctaMessage: (url: string, score: number, issues: string) => string;
   again: string;
   note: string;
+  scopeYesTitle: string;
+  scopeYes: string;
+  scopeNoTitle: string;
+  scopeNo: string;
   checks: Record<string, CheckCopy>;
 };
 
@@ -92,13 +96,17 @@ export const revision: Record<Locale, RevisionText> = {
     platformCta: "Calcular lo que pago al año",
     ctaTitle: "¿Quieres que lo arreglemos?",
     ctaBody:
-      "Te mostramos un boceto de cómo se vería tu página corregida, con tu marca, antes de que decidas nada. Sin compromiso.",
+      "Revisamos contigo también el diseño y los textos, y te mostramos un boceto de cómo se vería tu página corregida, con tu marca, antes de que decidas nada. Sin compromiso.",
     cta: "Hablar por WhatsApp",
     ctaMessage: (url, score, issues) =>
       `Hola, revisé mi página ${url} en clew y salió ${score}/100${issues ? ` (${issues})` : ""}. Me gustaría ver cómo se podría mejorar.`,
     again: "Revisar otra página",
     note:
-      "Esta revisión mira lo básico que cualquier cliente nota al entrar a tu página. No guardamos la dirección que escribes.",
+      "Es una revisión rápida y automática de lo técnico básico. No evalúa el diseño, las fotos ni los textos de tu página. No guardamos la dirección que escribes.",
+    scopeYesTitle: "Qué revisamos",
+    scopeYes: "Lo técnico básico: seguridad, velocidad, celular, cómo te muestra Google y si es fácil contactarte.",
+    scopeNoTitle: "Qué no revisamos aquí",
+    scopeNo: "El diseño, las fotos, los textos y si tu página transmite tu marca. Eso lo revisa una persona de clew contigo.",
     checks: {
       https: {
         label: "Página segura",
@@ -224,12 +232,16 @@ export const revision: Record<Locale, RevisionText> = {
     platformLine: (p) => `Your website is built on ${p}. If you pay a monthly plan, see how much it adds up to in a year.`,
     platformCta: "Calculate what I pay per year",
     ctaTitle: "Want us to fix it?",
-    ctaBody: "We'll show you a sketch of your fixed website, with your brand, before you decide anything. No strings attached.",
+    ctaBody: "We'll also review the design and copy with you, and show you a sketch of your fixed website, with your brand, before you decide anything. No strings attached.",
     cta: "Talk on WhatsApp",
     ctaMessage: (url, score, issues) =>
       `Hi, I checked my website ${url} on clew and got ${score}/100${issues ? ` (${issues})` : ""}. I'd like to see how it could be improved.`,
     again: "Check another website",
-    note: "This check looks at the basics any customer notices when visiting your website. We don't store the address you type.",
+    note: "This is a quick, automatic check of the technical basics. It doesn't evaluate your website's design, photos or copy. We don't store the address you type.",
+    scopeYesTitle: "What we check",
+    scopeYes: "The technical basics: security, speed, mobile, how Google shows you and whether it's easy to contact you.",
+    scopeNoTitle: "What we don't check here",
+    scopeNo: "Design, photos, copy and whether your website reflects your brand. A person from clew reviews that with you.",
     checks: {
       https: {
         label: "Secure website",
