@@ -414,6 +414,26 @@ export const es = {
       { icon: "languages", title: "En español e inglés", text: "Para todos tus clientes." },
       { icon: "real", title: "Trabajo real", text: "Clientes reales, con su permiso." },
     ],
+    testimonials: {
+      kicker: "Lo que dicen nuestros clientes",
+      items: [
+        {
+          quote:
+            "La página quedó súper linda y se ve mucho más profesional que la que tenía. Me sorprendió lo rápido y preciso que fue todo, y que me hicieran un sistema de reservas pensado para cómo trabajo yo.",
+          name: "Frau DJ",
+          role: "DJ para eventos · Suiza",
+          project: "Página web y sistema de reservas",
+        },
+        {
+          quote:
+            "Mi página se ve mucho más profesional que antes. Todo fue rápido y preciso, y además me hicieron una app a la medida para mis órdenes y facturas, justo como la necesitaba.",
+          name: "David Baer",
+          role: "Stone Art Precision · Suiza",
+          project: "Página web y app de órdenes",
+        },
+      ],
+      note: "Testimonios compartidos con permiso de cada cliente.",
+    },
   },
 
   // Resultados basados en lo que hace el sistema real (Stone Setting Pro). Si

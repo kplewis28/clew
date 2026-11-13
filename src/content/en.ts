@@ -410,6 +410,26 @@ export const en: Content = {
       { icon: "languages", title: "In English and Spanish", text: "For all your customers." },
       { icon: "real", title: "Real work", text: "Real clients, with their permission." },
     ],
+    testimonials: {
+      kicker: "What our clients say",
+      items: [
+        {
+          quote:
+            "The website turned out beautiful and looks so much more professional than what I had. I was surprised by how fast and precise everything was, and that they built a booking system around the way I work.",
+          name: "Frau DJ",
+          role: "Event DJ · Switzerland",
+          project: "Website and booking system",
+        },
+        {
+          quote:
+            "My website looks much more professional than before. Everything was fast and precise, and they also built a custom app for my orders and invoices, exactly how I needed it.",
+          name: "David Baer",
+          role: "Stone Art Precision · Switzerland",
+          project: "Website and orders app",
+        },
+      ],
+      note: "Testimonials shared with each client's permission.",
+    },
   },
 
   // Results based on what the real system does (same as es.ts).
