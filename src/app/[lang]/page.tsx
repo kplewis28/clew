@@ -42,7 +42,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         areaServed: ["Colombia", "United States", "Switzerland", "Latin America", "Europe"],
         knowsLanguage: ["es", "en"],
         telephone: `+${brand.whatsappNumber}`,
-        sameAs: [brand.social.instagram, brand.social.tiktok, brand.social.threads],
+        sameAs: [brand.social.instagram, brand.social.tiktok, brand.social.threads, brand.social.linkedin],
         founder: {
           "@type": "Person",
           name: "Cindy Lewis",

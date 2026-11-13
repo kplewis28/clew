@@ -4,7 +4,7 @@
 import type { Locale } from "./config";
 import type { ServiceId } from "./services";
 
-export type GuideId = "cost" | "maps" | "wix";
+export type GuideId = "cost" | "maps" | "wix" | "nomonthly";
 
 type Block =
   | { type: "p"; text: string }
@@ -89,10 +89,124 @@ export const guideLabels: Record<Locale, {
   },
 };
 
-export const guidesUpdated = "2026-11-09";
+export const guidesUpdated = "2026-11-12";
 
 export const guides: Record<Locale, Guide[]> = {
   es: [
+    {
+      id: "nomonthly",
+      slug: "pagina-web-sin-mensualidad",
+      seoTitle: "Página web sin mensualidad para negocios latinos en EE. UU. (2026) | clew",
+      seoDescription:
+        "Qué incluye una página web propia de pago único, cuánto cuesta (desde USD 500), cuánto pagas el segundo año y qué preguntar antes de contratar. Para negocios latinos en Estados Unidos.",
+      title: "Página web sin mensualidad para negocios latinos en Estados Unidos",
+      dek: "Si pagas Wix, Squarespace o GoDaddy cada mes y quieres una página tuya, en español y en inglés, esto es lo que incluye, lo que cuesta y lo que tienes que preguntar antes de pagar.",
+      shortTitle: "La respuesta corta",
+      short:
+        "Una página web sin mensualidad es una página propia que pagas una sola vez y queda a tu nombre. En clew empieza desde USD 500 en un solo pago, puede ir en español y en inglés, y después solo pagas el dominio, que suele costar entre USD 10 y 15 al año. No hay cuota mensual por tener la página en línea.",
+      sections: [
+        {
+          h: "Qué es una página sin mensualidad",
+          blocks: [
+            {
+              type: "p",
+              text: "Con Wix, Squarespace o GoDaddy pagas un plan cada mes o cada año, y si dejas de pagar, la página se apaga. Una página propia se diseña para tu negocio, se conecta a tu dominio y no depende de un plan mensual. Pagas el diseño una vez y la página sigue siendo tuya.",
+            },
+          ],
+        },
+        {
+          h: "Qué incluye una página de clew",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "Diseño a la medida de tu negocio, con tus fotos, tus colores y tu logo.",
+                "Versión para celular, que es donde te buscan la mayoría de tus clientes.",
+                "Español e inglés, si tus clientes hablan los dos idiomas.",
+                "Botón de WhatsApp y botón para llamarte con un toque.",
+                "Formulario de cotización que te llega a tu correo.",
+                "Conexión a tu dominio, o te ayudamos a comprar uno.",
+                "Bases para Google: títulos, descripciones y datos de tu negocio bien puestos.",
+                "Un manual con lo que puedes cambiar tú mismo.",
+              ],
+            },
+            {
+              type: "p",
+              text: "El precio de cada proyecto depende de lo que necesites: cuántas secciones, si va en dos idiomas, si lleva reservas. Te lo decimos antes de empezar. El Perfil de Empresa en Google y un panel para manejar tus solicitudes son servicios aparte.",
+            },
+          ],
+        },
+        {
+          h: "Cuánto pagas, año por año",
+          blocks: [
+            {
+              type: "table",
+              head: ["", "Página propia con clew", "Wix Core"],
+              rows: [
+                ["Año 1", "desde USD 500 + dominio", "USD 348"],
+                ["Año 2", "solo el dominio (USD 10 a 15)", "USD 348"],
+                ["Año 3", "solo el dominio (USD 10 a 15)", "USD 348"],
+              ],
+              note: "Wix Core a USD 29 al mes en plan anual, precio de referencia en EE. UU. consultado en octubre de 2026. Si tu página necesitara algo con costo mensual, como una tienda con pagos, te lo decimos antes de empezar.",
+            },
+          ],
+        },
+        {
+          h: "Qué preguntar antes de pagarle a cualquiera",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "¿El dominio queda a mi nombre?",
+                "¿Cuánto voy a pagar el segundo año, y por qué?",
+                "¿El precio incluye la versión en español y la de inglés?",
+                "¿A dónde me llegan los mensajes del formulario?",
+                "¿Qué puedo cambiar yo y cuánto cuestan los cambios que no puedo hacer?",
+                "¿Qué pasa con lo que ya tengo en Google si me cambio?",
+              ],
+            },
+            { type: "p", text: "Si una oferta es de pago único pero el hosting se paga cada mes, no es una página sin mensualidad." },
+          ],
+        },
+        {
+          h: "Cómo es el cambio si hoy tienes Wix",
+          blocks: [
+            {
+              type: "list",
+              ordered: true,
+              items: [
+                "Revisamos tu página actual y lo que ya funciona.",
+                "Diseñamos la nueva y la revisas antes de publicarla.",
+                "Conectamos tu dominio a la página nueva.",
+                "Redirigimos las direcciones viejas para que Google no pierda lo que ya tenías.",
+                "Cancelas el plan de Wix cuando la nueva ya está en línea.",
+              ],
+            },
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "¿De verdad no hay que pagar nada cada mes?",
+          a: "Por tener la página en línea, no. Lo único fijo es el dominio, que se paga una vez al año. Si quieres algo con costo mensual, como una tienda con pagos, te lo decimos antes.",
+        },
+        {
+          q: "¿Trabajan con negocios en cualquier estado?",
+          a: "Sí. Todo se hace en línea y por WhatsApp, en español o en inglés, así que no importa en qué ciudad esté tu negocio.",
+        },
+        {
+          q: "¿Cuánto se demora?",
+          a: "Depende del tamaño de la página. Te damos la fecha de entrega cuando hablamos de tu proyecto, antes de empezar.",
+        },
+        {
+          q: "¿Y si después quiero cambiar algo?",
+          a: "Lo sencillo lo cambias tú con el manual. Los cambios más grandes los vemos por WhatsApp y te decimos el precio antes.",
+        },
+      ],
+      service: "web",
+      calc: true,
+      related: ["cost", "wix"],
+    },
     {
       id: "cost",
       slug: "cuanto-cuesta-una-pagina-web",
@@ -378,10 +492,124 @@ export const guides: Record<Locale, Guide[]> = {
       ],
       service: "web",
       calc: true,
-      related: ["cost", "maps"],
+      related: ["nomonthly", "cost"],
     },
   ],
   en: [
+    {
+      id: "nomonthly",
+      slug: "website-with-no-monthly-fees",
+      seoTitle: "A website with no monthly fees for small businesses in the US (2026) | clew",
+      seoDescription:
+        "What a one-time website includes, what it costs (from USD 500), what you pay in year two and what to ask before you hire anyone. In English and Spanish.",
+      title: "A website with no monthly fees for your small business",
+      dek: "If you pay Wix, Squarespace or GoDaddy every month and want a site you own, in English and Spanish, here is what it includes, what it costs and what to ask before you pay.",
+      shortTitle: "The short answer",
+      short:
+        "A website with no monthly fees is a site you own, paid once. At clew it starts at USD 500 as a single payment, it can be in English and Spanish, and after that you only pay for your domain, usually USD 10 to 15 a year. There is no monthly fee to keep it online.",
+      sections: [
+        {
+          h: "What a no-monthly-fee website is",
+          blocks: [
+            {
+              type: "p",
+              text: "With Wix, Squarespace or GoDaddy you pay a plan every month or every year, and if you stop paying, the site goes offline. A site you own is designed for your business, connected to your domain and doesn't depend on a monthly plan. You pay for the design once and the site stays yours.",
+            },
+          ],
+        },
+        {
+          h: "What a clew website includes",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "A design made for your business, with your photos, colors and logo.",
+                "A mobile version, which is where most of your customers look you up.",
+                "English and Spanish, if your customers speak both.",
+                "A WhatsApp button and a one-tap call button.",
+                "A quote form that arrives in your email.",
+                "Connection to your domain, or help buying one.",
+                "The basics for Google: titles, descriptions and your business details set up right.",
+                "A manual with what you can change yourself.",
+              ],
+            },
+            {
+              type: "p",
+              text: "Each project is priced on what you need: how many sections, two languages, bookings. You get the price before we start. Your Google Business Profile and a dashboard to manage requests are separate services.",
+            },
+          ],
+        },
+        {
+          h: "What you pay, year by year",
+          blocks: [
+            {
+              type: "table",
+              head: ["", "Your own site with clew", "Wix Core"],
+              rows: [
+                ["Year 1", "from USD 500 + domain", "USD 348"],
+                ["Year 2", "domain only (USD 10 to 15)", "USD 348"],
+                ["Year 3", "domain only (USD 10 to 15)", "USD 348"],
+              ],
+              note: "Wix Core at USD 29 a month on an annual plan, US reference price checked in October 2026. If your site needed something with a monthly cost, like a store with payments, we tell you before we start.",
+            },
+          ],
+        },
+        {
+          h: "What to ask before you pay anyone",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "Is the domain in my name?",
+                "What will I pay in year two, and why?",
+                "Does the price include both English and Spanish?",
+                "Where do form messages go?",
+                "What can I change myself, and what do other changes cost?",
+                "What happens to what I already have on Google if I switch?",
+              ],
+            },
+            { type: "p", text: "If an offer is a one-time payment but hosting is billed monthly, it is not a no-monthly-fee website." },
+          ],
+        },
+        {
+          h: "How the switch works if you're on Wix today",
+          blocks: [
+            {
+              type: "list",
+              ordered: true,
+              items: [
+                "We review your current site and what already works.",
+                "We design the new one and you review it before it goes live.",
+                "We connect your domain to the new site.",
+                "We redirect old addresses so Google keeps what you already had.",
+                "You cancel your Wix plan once the new site is live.",
+              ],
+            },
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Is there really nothing to pay every month?",
+          a: "Not to keep the site online. The only fixed cost is the domain, paid once a year. If you want something with a monthly cost, like a store with payments, we tell you first.",
+        },
+        {
+          q: "Do you work with businesses in any state?",
+          a: "Yes. Everything happens online and on WhatsApp, in English or Spanish, so it doesn't matter where your business is.",
+        },
+        {
+          q: "How long does it take?",
+          a: "It depends on the size of the site. You get a delivery date when we talk about your project, before we start.",
+        },
+        {
+          q: "What if I want to change something later?",
+          a: "Simple things you change yourself with the manual. Bigger changes we handle on WhatsApp, and you get the price first.",
+        },
+      ],
+      service: "web",
+      calc: true,
+      related: ["cost", "wix"],
+    },
     {
       id: "cost",
       slug: "how-much-does-a-website-cost",
@@ -662,7 +890,7 @@ export const guides: Record<Locale, Guide[]> = {
       ],
       service: "web",
       calc: true,
-      related: ["cost", "maps"],
+      related: ["nomonthly", "cost"],
     },
   ],
 };
