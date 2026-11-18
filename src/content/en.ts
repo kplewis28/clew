@@ -331,12 +331,12 @@ export const en: Content = {
       },
       {
         id: "stone-art",
-        live: false,
-        status: "Redesign ready",
+        live: true,
+        status: "Live",
         tags: ["Website", "Stone setting", "Switzerland"],
         title: "A stone setter in Switzerland",
         highlight: "Google couldn't find.",
-        text: "A redesign with his own video and copy, ready for buyers to request quotes.",
+        text: "A redesign with his own video and copy, so buyers can request quotes.",
         compare: {
           before: "/casos/stone-art/antes.jpg",
           after: "/casos/stone-art/despues.jpg",
@@ -367,8 +367,8 @@ export const en: Content = {
           { value: "Quotes", label: "with photos or CAD" },
         ],
         reel: { src: "/casos/stone-art/reel-en.mp4", poster: "/casos/stone-art/reel-en.jpg", meta: "25 s" },
-        link: null,
-        note: "Shown with the client's permission. The redesign is ready and not published yet.",
+        link: { href: "https://www.stoneartprecision.com", label: "stoneartprecision.com" },
+        note: "Shown with the client's permission.",
       },
       {
         id: "ordenes",

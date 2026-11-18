@@ -335,12 +335,12 @@ export const es = {
       },
       {
         id: "stone-art",
-        live: false,
-        status: "Rediseño listo",
+        live: true,
+        status: "En vivo",
         tags: ["Página web", "Taller de engaste", "Suiza"],
         title: "Un engastador en Suiza que",
         highlight: "Google no podía encontrar.",
-        text: "Rediseño con su mismo video y sus textos, listo para que los compradores pidan cotización.",
+        text: "Rediseño con su mismo video y sus textos, para que los compradores pidan cotización.",
         compare: {
           before: "/casos/stone-art/antes.jpg",
           after: "/casos/stone-art/despues.jpg",
@@ -371,8 +371,8 @@ export const es = {
           { value: "Cotiza", label: "con fotos o CAD" },
         ],
         reel: { src: "/casos/stone-art/reel.mp4", poster: "/casos/stone-art/reel.jpg", meta: "25 s" },
-        link: null,
-        note: "Mostrado con permiso del cliente. El rediseño está listo y aún no se ha publicado.",
+        link: { href: "https://www.stoneartprecision.com", label: "stoneartprecision.com" },
+        note: "Mostrado con permiso del cliente.",
       },
       {
         id: "ordenes",
