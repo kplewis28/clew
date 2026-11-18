@@ -12,6 +12,7 @@ import { Products } from "@/components/Products";
 import { Services } from "@/components/Services";
 import { Steps } from "@/components/Steps";
 import { Trust } from "@/components/Trust";
+import { Testimonials } from "@/components/Testimonials";
 import { dictionaries } from "@/content";
 import { brand, isLocale, siteUrl } from "@/content/config";
 import { servicePath, services } from "@/content/services";
@@ -90,6 +91,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Hero t={t} />
         <Marquee t={t} />
         <Cases t={t} />
+        <Testimonials t={t} />
         <Services t={t} />
         <Steps t={t} />
         <Trust t={t} />
